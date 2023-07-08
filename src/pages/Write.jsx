@@ -18,59 +18,74 @@ const BoxEach = styled.div`
 
 const BackBox=styled.div`
 
-width: 1238px;
-height: 817px;
-background-color:rgba(217, 217, 217, 1);
-display: flex;
+width: 90%;
+height: 100%;
+background-color:rgba(234, 234, 234, 1);
 justify-content: center;
 margin: 0 auto;
 margin-top: 100px;
-margin-bottom: 100px;
-border-radius: 13%;
+ border-radius: 1%
 `;
 
 const InnerBox=styled.div`
-width: 1238px;
-height: 738px;
+height: auto;
 margin-top: 80px;
-background: #FFEFDC;
-border-radius: 13%;
-position: absolute;
-
+background:rgba(94, 144, 114, 0.11);
+border-radius: 1%;
+display: flex;
+flex-wrap: wrap;
+clear: both;
+padding-left: 0px;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
 `;
 
 const BC=styled.div`
-    background-color: rgba(251, 255, 224, 1);
-    background-size: 100vh;
+    background-color: #ffffff;
+    height:auto;
+    padding-bottom: 10%;
 `;
 
 const InputBox=styled.input`
     border-radius: 40%;
     background-color: transparent;
-    border: transparent;
+    border: red;
     border-color: #c4c496;
     font-size:20px;
+    float: left;
 `;
 
 
 const Dis=styled.div`
   display: flex;
   justify-content: space-evenly;
-  height: 500px;
+  flex-wrap: wrap;
+  height: auto;
 `;
+
+
 const Con=styled.textarea`
-   width: 800px;
+   width: 60%;
    height: 500px;
-   background-color: transparent;
+   background-color: #ffffff;
    border-color: rgba(167, 167, 167, 0.5);
-   border-radius: 12%;
+   border-radius: 1%;
    border-width: 3px;
+   padding-left: 40px;
+    padding-top: 40px;
+    padding-right: 40px;
+    padding-bottom: 40px;
+    float: left;
+    color: #000000;
+    font-size: larger;
+  
    
 `;
 
 const MText=styled.textarea`
    background-color: transparent;
-   border-color: rgba(167, 167, 167, 0.5);
+   border-color: color: #716f6f;
    border-radius: 12%;
    border-width: 3px;
 `;
@@ -83,12 +98,15 @@ const PageBox=styled.input`
     width: 50px;
 `
 
-const Text=styled.a`
+const Text=styled.div`
 text-align: center;
 font-size: 30px;
 color: #ee9dab;
-
-`
+float: left;
+display: flex;
+flex-wrap: wrap;
+margin-left: 40%;
+`;
 const Memory=styled.div`
   color: #0a4511;
   font-weight: 10px;
@@ -100,19 +118,19 @@ const Write = () => {
     return (
         <BC>
           <Navigator></Navigator>
-            <BackBox> <Text>제목: <InputBox ></InputBox></Text>
+            <BackBox> 
+              <Text>제목: <InputBox ></InputBox></Text>
             <InnerBox>
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;읽은 날짜: <InputBox  type="date"></InputBox> 저자: <InputBox></InputBox><br/><br/>
             <Dis>
           <Select></Select>
-          <Con></Con></Dis><br/>
-          <Dis>
+          <Con></Con>
           <Memory>
           기억하고 싶은 책 구절이 있으신가요? <button>추가</button> <br/> 페이지:<PageBox></PageBox>pg  <br/> 구절: <MText></MText>
           </Memory>
           <li>"영감이 나에게 오지 않을 때 내가 그것을 만나러 반을 간다." 102pg</li> 
-        
           </Dis>
+          <br/>
             </InnerBox>
             </BackBox>
         </BC>
