@@ -9,8 +9,8 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path="/" element = {<h1>화이또</h1>}/>
-      {/* <Route path="/:WritePage" element = {<WritePage />} />
-      <Route path="/:BookInform" element = {<BookInform />} /> */}
+      <Route path="/:WritePage" element = {<WritePage />} />
+      <Route path="/:BookInform" element = {<BookInform />} />
       <Route path="/:Read" element = {<Read/>} />
 
     </Routes>

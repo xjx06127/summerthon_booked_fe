@@ -43,7 +43,7 @@ const WriteBox=styled.textarea`
 `;
 
 const Button=styled.button`
-    background-color:rgba(75, 255, 136, 1);
+    background-color:#b9e4c7;
     border-color: transparent;
     margin-top: 1%;
     border-radius: 20px;
@@ -60,7 +60,7 @@ const Memory=styled.div`
 `;
 
 const ListBox=styled.div`
-  background-color  : #74ff99;
+  background-color  : #c8a0cb;
   width: 200px;
   height: 200px;
   margin-top: 30%;
@@ -68,7 +68,7 @@ const ListBox=styled.div`
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
 `;
 const ListBox1=styled.div`
-  background-color  : #38ebff;
+  background-color  : #a2d6db;
   width: 200px;
   height: 200px;
   margin-top: -40%;
@@ -76,7 +76,7 @@ const ListBox1=styled.div`
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
 `;
 const ListBox2=styled.div`
-  background-color  : #e9ff27;
+  background-color  : #d7e462;
   width: 200px;
   height: 200px;
   margin-top: -50%;
