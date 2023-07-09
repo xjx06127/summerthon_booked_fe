@@ -1,153 +1,208 @@
-import React from 'react';
-import Navigator from './Navigator';
-import WritePage from './WritePage';
+import React from "react";
+import Navigator from "./Navigator";
 import styled from "styled-components";
 
-
-
-const Text= styled.p`
-color: #72736b;
-font-weight: bold;
-font-size: medium;
-margin-left: 100px;
-
-
+const MainBox = styled.div`
+  //처음 하얀 박스
+  width: 75%;
+  height: 800px;
+  background-color: rgba(255, 255, 255, 1);
+  border: none;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.5);
+  color: #000000;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 20px 20px 10px 10px;
 `;
 
-
-const MainBox=styled.div`
-   width: 80%;
-   height: 800px;
-   background-color:rgba(255, 255, 255, 1);
-   border: none;
-    box-shadow:0px 20px 20px rgba(0, 0, 0, 0.50);
-    color: #000000;
-    font-size: larger;
-    margin: 0 auto;
-    outline: none;
-    /* display: flex; */
-    margin-top: 3%;
-    border-radius: 20px 20px 10px 10px;
+const GrayBox = styled.div`
+  //상단 회색 박스
+  border-radius: 20px 20px 0px 0px;
+  background: #d9d9d9;
+  height: 70px;
+  width: 100%;
 `;
 
-const Circle3=styled.div`
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-background-color: #24FF00;
-border-color: #611818;
-margin: 8px;
+const Circle3 = styled.div`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #24ff00;
+  border-color: #611818;
+  margin: 10px;
+  margin-top: 20px;
 `;
 
-const Circle2=styled.div`
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-background-color: #FFF504;
-border-color: #611818;
-margin: 8px;
+const Circle2 = styled.div`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #fff504;
+  border-color: #611818;
+  margin: 10px;
+  margin-top: 20px;
 `;
 
-const Circle1=styled.div`
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-background-color: #F00;
-border-color: #611818;
-margin: 8px;
+const Circle1 = styled.div`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #f00;
+  border-color: #611818;
+  margin: 10px;
+  margin-top: 20px;
 `;
 
-const GrayBox=styled.div`
-border-radius: 20px 20px 0px 0px;
-background: #D9D9D9;
-height: 70px;
-width: 100%;
-`;
-
-
-const Ad=styled.div`
-width: 25%;
-height:60px; 
-background-color:rgba(217, 217, 217, 1);
-border-radius: 10px;
-`;
-
-const Add=styled.div`
- display: flex;
-justify-content: space-evenly;
-margin-top: 5%;
-`;
-const AddButton=styled.button`
- background-color   : rgba(182, 198, 86, 1);
- box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
- color:#464f47;
- border-radius: 12px;
- border: none;
- font-size: large;
- margin-left: 70%;
- 
-`
-;
-
-const Line=styled.div`
-    width: 2px;
-    height:91%;
-    margin-right: 70%;
-    background-color: #A1A1A1;
-    border: none;
-    margin-top: -3.5%;
-    margin-left: 30%;
-`
-
-const Line2=styled.div`
-    width: 2px;
-    height:91%;
-    margin-right: 70%;
-    background-color: #A1A1A1;
-    border: none;
-    /* position: absolute ; */
-    /* top:20%;
-    left: 45%; */
-    margin-top: -59.4%;
-    margin-left: 45%;
-`
-
-const Direc=styled.div`
-
-display: flex;
-    flex-direction: row;
-    margin-top: 1%;
-
-`
-const Dis=styled.div`
+const CircleContainer = styled.div`
+  //circle들 control
   display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  height: auto;
+  margin-left: 30px;
 `;
 
-const Title=styled.div`
-color: #A1A1A1;
-font-size: xx-large;
-font-weight: 1000;
-border-color: #A1A1A1;
-border: 10px;
+const Container = styled.div`
+  //안에 컨텐츠들 가로로
+  display: flex;
 `;
+
+const Line1 = styled.div`
+  border-left: 2px solid #a1a1a1;
+  height: 720px;
+`;
+
+const Line2 = styled.div`
+  border-left: 2px solid #a1a1a1;
+  height: 720px;
+`;
+
+const MyLibrary = styled.div`
+  //나의 책장
+  color: #a1a1a1;
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: 30px;
+  margin-right: 130px;
+  margin-bottom: 15px;
+  margin-left: 30px;
+`;
+
+const Hr = styled.hr`
+  border: 1px solid #d9d9d9;
+  margin: 10px;
+  width: 96%;
+`;
+
+const BookList = styled.div`
+  //BookContent들 관리
+  display: flex;
+  flex-direction: column;
+`;
+
+const BookContentContainer = styled.div`
+  //Bookcontent 개별 요소들
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`;
+
+const BookTitle = styled.span`
+  font-family: "Kokoro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  margin-left: -20px;
+
+  color: #000000;
+`;
+const Heart = styled.img`
+  content: url(heart.png);
+  margin-right: 5px;
+`;
+const Like = styled.div`
+  background: #e7e7e7;
+  width: 70px;
+  border-radius: 20px;
+  padding: 7px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  margin-right: -40px;
+`;
+
+const HeartCount = styled.span`
+  color: #ff9494;
+  font-family: "Preahvihear";
+  font-weight: 400;
+  font-size: 16px;
+`;
+
+const FirstContainer = styled.div`
+  //가장 맨 왼쪽 담당하는 컨테이너
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+`;
+
+const BookCount = styled.div`
+  font-family: "Kokoro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
+  margin-right: 15px;
+  margin-bottom: 20px;
+
+  color: #909090;
+`;
+
 const Read = () => {
-    return (
-        <div>
-            <Navigator></Navigator>
-
-          <MainBox><GrayBox>
-            <Direc><Circle1></Circle1><Circle2></Circle2><Circle3></Circle3></Direc>
-            </GrayBox>
-            <Title>나의 책장</Title><Line></Line><Line2></Line2>
-            </MainBox>
-           
-            
-    <Add>   <Ad>광고 1</Ad> <Ad>광고 2</Ad> <Ad>광고 3</Ad></Add> 
-</div>
-    );
+  return (
+    <>
+      <Navigator />
+      <MainBox>
+        <GrayBox>
+          <CircleContainer>
+            <Circle1 />
+            <Circle2 />
+            <Circle3 />
+          </CircleContainer>
+        </GrayBox>
+        <Container>
+          <FirstContainer>
+            <div>
+              <MyLibrary>나의 책장</MyLibrary>
+              <Hr />
+              <BookList>
+                {" "}
+                {/* map을 통해 api 이용해서 받아와서 BookList에 쭉쭉 넣는다*/}
+                <BookContentContainer>
+                  <BookTitle>책제목 1</BookTitle>
+                  <Like>
+                    <Heart />
+                    <HeartCount>5,000</HeartCount>
+                  </Like>
+                </BookContentContainer>
+                <Hr />
+                <BookContentContainer>
+                  <BookTitle>책제목 2</BookTitle>
+                  <Like>
+                    <Heart />
+                    <HeartCount>7,000</HeartCount>
+                  </Like>
+                </BookContentContainer>
+                <Hr />
+              </BookList>
+            </div>
+            <BookCount> 내가 읽은 책 : 3권</BookCount>
+          </FirstContainer>
+          <Line1 />
+          글귀
+          <Line2 />쓴 글
+        </Container>
+      </MainBox>
+    </>
+  );
 };
 
 export default Read;
