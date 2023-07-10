@@ -4,6 +4,7 @@ import WritePage from "./pages/WritePage";
 import Read from "./pages/Read";
 import MyPage from "./pages/MyPage";
 import Recommend from "./pages/Recommend";
+import Noresult from "./pages/Noresult";
 
 function App() {
   return (
@@ -14,7 +15,9 @@ function App() {
       <Route path="/:BookInform" element = {<BookInform />} />
       <Route path="/:Read" element = {<Read/>} /> */}
       {/* <Route path="/MyPage" element = {<MyPage/>} /> */}
-      <Route path="/" element = {<Recommend/>} />
+      <Route path="/Recommend" element = {<Recommend/>} />
+      <Route path="/Noresult" element = {<Noresult/>} />
+      
       
 
 
