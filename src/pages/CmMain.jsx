@@ -223,7 +223,7 @@ const CmMain = () => {
         <TRbox><BT></BT> <BT></BT> <BT></BT> <BT></BT> </TRbox><TodayReview>오늘의 독후감</TodayReview><TRbar></TRbar><OtherReviews>다른 사람들의 독후감을 만나보세요.</OtherReviews>
         </Tr>
         <R>
-        <DirectCwButton to="/CommunityWrite">글쓰러 가기</DirectCwButton>
+        <DirectCwButton to="/CmWrite">글쓰러 가기</DirectCwButton>
         <BRbox></BRbox>
         <ButtonContainer>
         <DirectLinkButton to="/link1">바로가기</DirectLinkButton>

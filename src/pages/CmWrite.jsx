@@ -22,6 +22,7 @@ const WriteText = styled.div`
   font-size: 30px;
   line-height: 36px;
   color: #667121;
+  
 `;
 
 const Input = styled.input`
@@ -31,7 +32,7 @@ const Input = styled.input`
   background: #FFFFFF;
   border: 2px solid #efebeb;
   box-shadow: 0px 10px 10px #efebeb;
-
+  outline: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,7 +51,7 @@ const ContentInput = styled.textarea`
   border:2px solid #efebeb;
   border-radius:0;
   box-shadow:0px 10px 10px #efebeb;
-;
+  outline: none;
   
   display: flex;
   align-items: center;
