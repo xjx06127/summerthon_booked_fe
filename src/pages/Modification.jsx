@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components"
-import Navigator from '../components/Navigator';
+import Navigator from './Navigator';
 
 const Title = styled.h1`
     font-size: 40px;
