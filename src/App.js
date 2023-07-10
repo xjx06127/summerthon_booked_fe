@@ -22,6 +22,7 @@ function App() {
         <Route path="/MyPage" element={<MyPage />} />
         <Route path="/" element={<Read />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/Recommend" element={<Recommend />} />
       </Routes>
     </BrowserRouter>
   );
