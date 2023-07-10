@@ -85,7 +85,7 @@ const Con=styled.textarea`
 
 const MText=styled.textarea`
    background-color: transparent;
-   border-color: color: #716f6f;
+   border-color: rgba(167, 167, 167, 0.5);
    border-radius: 12%;
    border-width: 3px;
 `;

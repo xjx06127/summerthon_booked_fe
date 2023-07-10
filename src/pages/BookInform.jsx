@@ -52,7 +52,6 @@ padding-bottom: 30px;
 
 const Button=styled.button`
     background-color: transparent;
-    border-color: transparent;
 `
 const BookInform = () => {
     return (

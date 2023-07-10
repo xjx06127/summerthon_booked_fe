@@ -66,11 +66,13 @@ const Container = styled.div`
 `;
 
 const Line1 = styled.div`
+  //세로줄 1
   border-left: 2px solid #a1a1a1;
   height: 720px;
 `;
 
 const Line2 = styled.div`
+  //세로줄 2
   border-left: 2px solid #a1a1a1;
   height: 720px;
 `;
@@ -87,6 +89,7 @@ const MyLibrary = styled.div`
 `;
 
 const Hr = styled.hr`
+  //가로줄
   border: 1px solid #d9d9d9;
   margin: 10px;
   width: 96%;
@@ -156,6 +159,65 @@ const BookCount = styled.div`
   color: #909090;
 `;
 
+const ParaPage = styled.div`
+  //구절+페이지
+  width: 290.55px;
+  height: 73px;
+  background: #f0f0f0;
+`;
+
+const Para = styled.p`
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 22px;
+  margin: 10px;
+  color: #000000;
+`;
+
+const Page = styled.p`
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 15px;
+  margin-left: 20px;
+  color: #000000;
+`;
+
+const ParaPageContainer = styled.div`
+  //구절+페이지 세로 정렬
+  display: flex;
+  flex-direction: column;
+`;
+
+const ContentContainer = styled.div`
+  //본문 Container
+  width: 30%;
+  margin: 0 auto;
+  margin-top: 16px;
+  word-break: break-all;
+`;
+
+const Date = styled.p`
+  //본문 날짜
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  margin-bottom: 50px;
+  text-align: center;
+
+  color: #9f9f9f;
+`;
+
+const Content = styled.p`
+  //본문
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  margin-left: -10%;
+  margin-right: -10%;
+
+  color: #000000;
+`;
+
 const Read = () => {
   return (
     <>
@@ -197,8 +259,23 @@ const Read = () => {
             <BookCount> 내가 읽은 책 : 3권</BookCount>
           </FirstContainer>
           <Line1 />
-          글귀
-          <Line2 />쓴 글
+          <ParaPageContainer>
+            <ParaPage>
+              <Para>세상에 물고기가 없어진다면</Para>
+              <Page>102pg</Page>
+            </ParaPage>
+            <ParaPage>
+              <Para>구절1234567</Para>
+              <Page>102pg</Page>
+            </ParaPage>
+          </ParaPageContainer>
+          <Line2 />
+          <ContentContainer>
+            <Date>2222년 효리월 효리일 오전 12:12</Date>
+            <Content>
+              aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa!
+            </Content>
+          </ContentContainer>
         </Container>
       </MainBox>
     </>
