@@ -9,13 +9,15 @@ const Nav = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: #E2E8CC;
-  height: 110px;
+  height: 95px;
 `;
 
 const Logo = styled.img`
     content: url(${(props)=> props.src});
-    width: 270px;
-    transform: rotate(-13deg);
+    width: 220px;
+    height: 150px;
+    padding: 0px;
+    margin-top: -1.4%;
 `;
 
 const Menu = styled.div`
@@ -30,9 +32,9 @@ const Page = styled.h1`
     margin-left: 50px;
     margin-right: 20px;
     color: black;
-    &:hover{color:#A52C2C;
+    &:hover{color:#88AED9;
             transition: 0.5s;};
-    font-size: 21px;
+    font-size: 18px;
     cursor: pointer;
 `;
 
@@ -50,17 +52,17 @@ const Left = styled.div`
 
 `
 const PhraseLine1 = styled.h1`
-    font-size: 47px;
+    font-size: 38px;
     margin-bottom: 10px;
 `;
 
 const PhraseLine2 = styled.h1`
-    font-size: 47px;
+    font-size: 38px;
     margin-top: 0px; 
 `;
 
 const Author = styled.p`
-    font-size: 28px;
+    font-size: 20px;
     text-align: right;
     margin-top: 0;
 `;
@@ -73,8 +75,8 @@ const SelectButtons = styled.div`
 
 const Circle = styled.div`
     background-color: #D9D9D9;
-    width: 13px;
-    height: 13px;
+    width: 10px;
+    height: 10px;
     border-radius: 6px;
     margin-right: 10px;
     &:hover{background-color:black;
@@ -84,9 +86,9 @@ const Circle = styled.div`
 const Log = styled.div`
     display: flex;
     flex-direction: column;
-    margin-top: 45px;
-    margin-bottom: 100px;
-    font-size: 14px;
+    margin-top: 40px;
+    margin-bottom: 70px;
+    font-size: 12px;
 `;
 
 const LogTittle = styled.h1`
@@ -118,14 +120,14 @@ const LogButtons = styled.div`
 
 const LogButton = styled.button`
     margin-right: 10px;
-    font-size: 17px;
+    font-size: 15px;
     background-color: #FFF5EC;
     border: none;
     cursor: pointer;
 `;
 
 const SignButton = styled.button`
-    font-size: 17px;
+    font-size: 15px;
     background-color: #FFF5EC;
     border: none;
     cursor: pointer;
@@ -145,33 +147,40 @@ const HightLight2 = styled.span`
 const Ad = styled.div`
     display: flex;
     flex-direction: column;
-    margin-left: 200px;
-    margin-right: 200px;
-    margin-top: 42px;
-    background: #c0cb80;
-    box-shadow: 0px 10px 4px rgba(149, 176, 72, 0.27);
-    border-radius: 30px;
+    margin-left: 270px;
+    margin-right: 270px;
+    margin-top: 110px;
+    height: 180px;
+    
+    background: url(leaves_background.png);
+    background-position: -500px -100px; 
+  
+    border: 0.5px solid rgba(0, 0, 0, 0.4);
+    filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
+    border-radius: 12px;
     cursor: pointer;
 `
 
 const Line1 = styled.h1`
+    text-align: right;
     margin-top: 20px;
-    margin-left: 50px;
-    font-size: 25px;
+    margin-right: 300px;
+    font-size: 23px;
 `;
 
 const Line2 = styled.h1`
-    margin-top: 5px;
-    text-align: center;
-    font-size: 35px;
+    margin-top: 10px;
+    margin-right: 180px;
+    text-align: right;
+    font-size: 32px;
     color: #4A7594;
 `;
 
 const Line3 = styled.h1`
     text-align:right;
     margin-right: 50px;
-    font-size: 20px;
-    color:white;
+    font-size: 17px;
+    color:#BABDA4;
 `;
 
 
@@ -185,7 +194,7 @@ const Home = () => {
     return (
         <>
             <Nav>
-            <Logo src="bookedLogo.png"></Logo>
+            <Logo src="아이콘-removebg-preview.png"></Logo>
             </Nav>
             <Menu>
                 <Page>서비스 소개</Page>

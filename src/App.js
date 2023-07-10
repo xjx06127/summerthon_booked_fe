@@ -1,9 +1,8 @@
 import { BrowserRouter, Routes, Route} from "react-router-dom";
-import BookInform from "./pages/BookInform";
-import WritePage from "./pages/WritePage";
-import Read from "./pages/Read";
-import MyPage from "./pages/MyPage";
 import Recommend from "./pages/Recommend";
+import Home from "./pages/Home";
+import MakeBook from "./pages/MakeBook";
+import ModificationLog from "./pages/ModificationLog";
 
 function App() {
   return (
@@ -14,10 +13,9 @@ function App() {
       <Route path="/:BookInform" element = {<BookInform />} />
       <Route path="/:Read" element = {<Read/>} /> */}
       {/* <Route path="/MyPage" element = {<MyPage/>} /> */}
-      <Route path="/" element = {<Recommend/>} />
-      
-
-
+      <Route path="/home" element={<Home/>}/>
+      <Route path="/MakeBookService" element={<MakeBook/>}/>
+      <Route path="/ModificationLog" element={<ModificationLog/>}/>
     </Routes>
     </BrowserRouter>
   );

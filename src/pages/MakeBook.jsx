@@ -8,13 +8,15 @@ const Nav = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: #E2E8CC;
-  height: 110px;
+  height: 95px;
 `;
 
 const Logo = styled.img`
     content: url(${(props)=> props.src});
-    width: 270px;
-    transform: rotate(-13deg);
+    width: 220px;
+    height: 150px;
+    padding: 0px;
+    margin-top: -1.4%;
 `;
 
 const Menu = styled.div`
@@ -29,15 +31,16 @@ const Page = styled.h1`
     margin-left: 50px;
     margin-right: 20px;
     color: black;
-    &:hover{color:#A52C2C;
+    &:hover{color:#88AED9;
             transition: 0.5s;};
-    font-size: 21px;
+    font-size: 18px;
     cursor: pointer;
 `;
 
-
 const Section1 = styled.div`
+    display: flex;
     background: #B6C656;
+    padding-left: 200px;
 `;
 
 const Section2 = styled.div`
@@ -56,7 +59,7 @@ const Section3 = styled.div`
 const Lines = styled.div`
 display: flex;
 flex-direction: column;
-align-items: flex-end;
+
 width: 700px;
 margin-left: 50px;
 `;
@@ -217,10 +220,23 @@ display: block;
 margin-bottom: 100px;
 `;
 
+const Img1 = styled.img`
+    margin-left: 190px;
+`;
+
+const Img2 = styled.img`
+    margin-left: 12px;
+`
+
 //폰트 하이라이트
-const HightLignt1 = styled.span`
+const HightLight1 = styled.span`
 color: #7A881F;
 font-size: 65px;
+`;
+
+const HightLight2 = styled.span`
+    font-size: 65px;
+    color: #7A881F;
 `;
 
 
@@ -239,7 +255,7 @@ const MakeBook = () => {
     return (
         <>
             <Nav>
-            <Logo src="bookedLogo.png"></Logo>
+            <Logo src="아이콘-removebg-preview.png"></Logo>
             </Nav>
             <Menu>
                 <Page>서비스 소개</Page>
@@ -252,19 +268,20 @@ const MakeBook = () => {
             <Section1>
                 <Lines>
                     <Line1>Booked 서재를</Line1>
-                    <Line2>당신 집의 서재로</Line2>
+                    <Line2><HightLight2>당신 집</HightLight2>의 서재로<Img2 src="Vector.png"/></Line2>
                     <Line3>독서 기록을 책으로 만들어 오래도록 간직하세요.</Line3>
                 </Lines>
+                <Img1 src="책광고 일러스트.png"/>
             </Section1>
 
             <Section2>
-                    <BackGroundIcon src="icons/RiSendPlaneFill.png"></BackGroundIcon>
+                    <BackGroundIcon src="RiSendPlaneFill.png"></BackGroundIcon>
                     <Right>
-                        <Text>현재 홍길동님의 서재에는 <HightLignt1>10개</HightLignt1>의 독서가<br/> 기록되어있어요.</Text>
+                        <Text>현재 홍길동님의 서재에는 <HightLight1>10개</HightLight1>의 독서가<br/> 기록되어있어요.</Text>
                         <GoToMyLibrary>나의 서재 바로가기</GoToMyLibrary>
                     </Right>
             </Section2>
-            <ArrowIcon1 src="icons/FiChevronsDown.png"/>
+            <ArrowIcon1 src="FiChevronsDown.png"/>
 
             <Section3>
                 <Texts>
