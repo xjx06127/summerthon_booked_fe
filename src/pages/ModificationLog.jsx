@@ -1,5 +1,6 @@
-import React from 'react';
 import styled from "styled-components";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Box = styled.div`
   display: flex;
@@ -10,6 +11,7 @@ const Box = styled.div`
 
 const Img1 = styled.img`
     margin-right:90px;
+    cursor: pointer;
 `
 
 const LogBox = styled.div`
@@ -56,23 +58,58 @@ const InputPw = styled.input`
 const Text4 = styled.p`
   text-align: right;
   color:#8F9ACF;
+  margin-top: 10px;
+  cursor: pointer;
 
 `
 
+const InputButton = styled.button`
+  background: #8F9ACF;
+  border-radius: 50px;
+  border: none;
+  color: white;
+  font-size: 17px;
+  padding: 9px;
+  margin-left: 180px;
+  margin-right: 180px;
+  margin-top: 100px;
+  cursor: pointer;
+`
+
+
 const ModificationLog = () => {
+    const [pwType,SetPwType] = useState({
+        type : "password",
+        visible : false
+    });
     
+    const navigate = useNavigate();
+
+    
+    const HandlePwType = () => {
+      SetPwType(
+          pwType.visible ? {type: "password", visible: false} : {type: "text", visible: true}
+      );
+    };
+
+    const GoToHome = () => {
+      navigate(`/Home`);
+    };
+
+
 
     return (
         <>
           <Box>
-          <Img1 src="아이콘-removebg-preview.png"/>
+          <Img1 src="아이콘-removebg-preview.png" onClick={GoToHome}/>
           <LogBox>
                 <Text1>회원 정보 수정 페이지로 이동합니다.</Text1>
-                <Text2>비밀 번호를 입력해주세요.</Text2>
+                <Text2>비밀번호를 입력해주세요.</Text2>
                 <Text3>비밀번호 password</Text3>
-                <InputPw placeholder="이곳에 비밀번호를 입력해주세요."></InputPw>
-                <Text4>비밀번호 보기</Text4>
-
+                <InputPw type={pwType.type} placeholder="이곳에 비밀번호를 입력해주세요."></InputPw>
+                <Text4 onClick={HandlePwType}>{
+                  pwType.visible ? "비밀번호 숨기기" : "비밀번호 보기" }</Text4>
+                <InputButton>입력</InputButton>
           </LogBox>
           </Box>
           

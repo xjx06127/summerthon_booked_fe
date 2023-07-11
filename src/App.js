@@ -3,6 +3,8 @@ import Recommend from "./pages/Recommend";
 import Home from "./pages/Home";
 import MakeBook from "./pages/MakeBook";
 import ModificationLog from "./pages/ModificationLog";
+import TextAnimation from "./pages/TextAnimation";
+import BookRecommend from "./pages/BookRecommend";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
       <Route path="/home" element={<Home/>}/>
       <Route path="/MakeBookService" element={<MakeBook/>}/>
       <Route path="/ModificationLog" element={<ModificationLog/>}/>
+      <Route path="/text" element={<TextAnimation/>}/>
+      <Route path="/BookRecommend" element={<BookRecommend/>}/>
     </Routes>
     </BrowserRouter>
   );

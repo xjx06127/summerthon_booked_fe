@@ -59,8 +59,7 @@ border: none;
 font-size: large;
 font-weight: bold;
 margin-top: 1%;
-cursor: pointer;D
-
+cursor: pointer;
 `
 
 

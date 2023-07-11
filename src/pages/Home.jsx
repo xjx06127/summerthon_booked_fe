@@ -1,14 +1,15 @@
 import React from 'react';
 import styled from "styled-components";
 import { useNavigate } from 'react-router-dom';
-
+import { useState } from 'react';
+import TextAnimation from './TextAnimation';
 
 //Home 네비게이터
 const Nav = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #E2E8CC;
+  background-color: #BBE2B2;
   height: 95px;
 `;
 
@@ -42,51 +43,20 @@ const Page = styled.h1`
 const Mid = styled.div`
     background-color: #FFF5EC;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 `;
 
 const Left = styled.div`
     display: flex;
     flex-direction: column;
     margin-top: 100px;
+    width: 800px;
 
 `
-const PhraseLine1 = styled.h1`
-    font-size: 38px;
-    margin-bottom: 10px;
-`;
-
-const PhraseLine2 = styled.h1`
-    font-size: 38px;
-    margin-top: 0px; 
-`;
-
-const Author = styled.p`
-    font-size: 20px;
-    text-align: right;
-    margin-top: 0;
-`;
-
-const SelectButtons = styled.div`
-    display: flex;
-    margin-left: 168px;
-
-`;
-
-const Circle = styled.div`
-    background-color: #D9D9D9;
-    width: 10px;
-    height: 10px;
-    border-radius: 6px;
-    margin-right: 10px;
-    &:hover{background-color:black;
-        transition: 0.5s;};
-`;
-
 const Log = styled.div`
     display: flex;
     flex-direction: column;
-    margin-top: 40px;
+    margin-top: 50px;
     margin-bottom: 70px;
     font-size: 12px;
 `;
@@ -99,19 +69,30 @@ const Id = styled.input`
     width: 292px;
     height: 47px;
     padding-left: 11px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
     border: none;
+    outline: none;
+    font-size: 17px;
 `;
 
 const Pw = styled.input`
     width: 292px;
     height: 47px;
     padding-left: 11px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
     border: none;
+    outline: none;
+    font-size: 17px;
 `;
+
+const ShowPw = styled.p`
+    font-size: 14px;
+    cursor: pointer;
+    text-align: right;
+    margin-right: 40px;
+`
 
 const LogButtons = styled.div`
     margin-left: 250px;
@@ -133,15 +114,6 @@ const SignButton = styled.button`
     cursor: pointer;
 `;
 
-//하이라이트 디자인
-const HightLight1 = styled.span`
-    color: red;
-`;
-
-const HightLight2 = styled.span`
-    color:#651581;
-    
-`
 
 //Home 광고 페이지
 const Ad = styled.div`
@@ -184,11 +156,22 @@ const Line3 = styled.h1`
 `;
 
 
-
 const Home = () => {
     const navigate = useNavigate();
+    const [pwType,SetPwType] = useState({
+        type : "password",
+        visible : false
+    });
+
     const GoToMakeBookPage = () => {
         navigate(`/MakeBookService`);
+    };
+
+    const HandlePwType = () => {
+        SetPwType(
+            pwType.visible ? {type: "password", visible: false} : {type: "text", visible: true}
+        );
+
     };
 
     return (
@@ -206,14 +189,7 @@ const Home = () => {
 
             <Mid>
             <Left>
-                <PhraseLine1><HightLight1>책</HightLight1>은 가장 조용하고</PhraseLine1>
-                <PhraseLine2>변함없는 <HightLight2>벗</HightLight2>이다.</PhraseLine2>
-                <Author>- 이가희</Author>
-                <SelectButtons>
-                    <Circle/>
-                    <Circle/>
-                    <Circle/>
-                </SelectButtons>
+               <TextAnimation/>
             </Left>
 
             <Log>
@@ -221,7 +197,9 @@ const Home = () => {
                 <h2>ID</h2>
                     <Id placeholder="아이디 입력"></Id>
                 <h2>P/W</h2>
-                    <Pw placeholder="비밀번호 입력"></Pw>
+                    <Pw type={pwType.type} placeholder="비밀번호 입력"></Pw>
+                    <ShowPw onClick={HandlePwType}>{
+                        pwType.visible ? "비밀번호 숨기기" : "비밀번호 보기" }</ShowPw>
                 <LogButtons>
                     <LogButton>로그인</LogButton>
                     <SignButton>회원가입</SignButton>
