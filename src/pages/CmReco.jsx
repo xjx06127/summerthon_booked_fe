@@ -35,13 +35,13 @@ const Nicnamebox= styled.div`
  margin-left: 75%;
  margin-top: 5px;
  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 800;
-  font-size: 30px;
-  line-height: 36px;
-  color: #000000;
-  white-space: nowrap; /* 텍스트 개행 없이 한 줄에 유지 */
-  text-align: center;
+ font-style: normal;
+ font-weight: 800;
+ font-size: 30px;
+ line-height: 36px;
+ color: #000000;
+ white-space: nowrap; /* 텍스트 개행 없이 한 줄에 유지 */
+ text-align: center;
 `;
 
 const Rcbar = styled.div`
