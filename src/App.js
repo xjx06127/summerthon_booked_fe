@@ -3,7 +3,9 @@ import Recommend from "./pages/Recommend";
 import Home from "./pages/Home";
 import MakeBook from "./pages/MakeBook";
 import ModificationLog from "./pages/ModificationLog";
-
+import CmReco from "./pages/CmReco";
+import CmWrite from "./pages/CmWrite";
+import CmMain from "./pages/CmMain";
 function App() {
   return (
     <BrowserRouter>
@@ -16,6 +18,9 @@ function App() {
       <Route path="/home" element={<Home/>}/>
       <Route path="/MakeBookService" element={<MakeBook/>}/>
       <Route path="/ModificationLog" element={<ModificationLog/>}/>
+      <Route path="/CmReco" element={<CmReco/>}/>
+      <Route path="/CmWrite" element={<CmWrite/>}/>
+      <Route path="/CmMain" element={<CmMain/>}/>
     </Routes>
     </BrowserRouter>
   );
