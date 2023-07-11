@@ -6,7 +6,6 @@ import ModificationLog from "./pages/ModificationLog";
 import CmReco from "./pages/CmReco";
 import CmWrite from "./pages/CmWrite";
 import CmMain from "./pages/CmMain";
-import MyPage from "./pages/MyPage";
 function App() {
   return (
     <BrowserRouter>
@@ -22,7 +21,6 @@ function App() {
       <Route path="/CmReco" element={<CmReco/>}/>
       <Route path="/CmWrite" element={<CmWrite/>}/>
       <Route path="/CmMain" element={<CmMain/>}/>
-      <Route path="/MyPage" element={<MyPage/>}/>
     </Routes>
     </BrowserRouter>
   );
