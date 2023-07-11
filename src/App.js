@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Recommend from "./pages/Recommend";
 import Home from "./pages/Home";
 import MakeBook from "./pages/MakeBook";
