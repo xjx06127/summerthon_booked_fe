@@ -37,26 +37,19 @@ const Bar = styled.div`
   border-radius: 3px;
 `;
 
-const Menu=styled.button`
-color: black;
-&:hover{color:rgba(74, 117, 148, 1);
-            transition: 0.5s;};
-background-color: transparent;
-border: none;
-font-size: large;
-font-weight: bold;
-margin-top: 1%;
-cursor: pointer;
-`
+const ProfilePic = styled.img`
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden; /*넘치는 부분 지움 */
+  float: left;
+  margin-top: 2%;
+  margin-left: 2%;
+`;
 
-
-const Button=styled.button`
-    background-color:rgba(248, 248, 248, 1);
-    border-color: transparent;
-    margin-top: 1%;
-    border-radius: 20px;
-    margin-left: -6.5%;
-    width: 100px;
+const Menu = styled.button`
+  color: black;
+  &:hover {
     color: rgba(74, 117, 148, 1);
     transition: 0.5s;
   }
