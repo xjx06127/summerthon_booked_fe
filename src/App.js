@@ -3,7 +3,6 @@ import Recommend from "./pages/Recommend";
 import Home from "./pages/Home";
 import MakeBook from "./pages/MakeBook";
 import ModificationLog from "./pages/ModificationLog";
-import TextAnimation from "./pages/TextAnimation";
 import BookRecommend from "./pages/BookRecommend";
 import WritePage from "./pages/WritePage";
 import Read from "./pages/Read";
@@ -12,6 +11,7 @@ import BookInform from "./pages/BookInform";
 import CmMain from "./pages/CmMain";
 import CmReco from "./pages/CmReco";
 import CmWrite from "./pages/CmWrite";
+import SignUp from "./pages/SignUp";
 
 function App() {
   return (
@@ -29,6 +29,7 @@ function App() {
         <Route path="/CmWrite" element={<CmWrite />} />
         <Route path="/CmMain" element={<CmMain />} />
         <Route path="/BookInform" element={<BookInform />} />
+        <Route path="/signup" element={<SignUp/>}/>
       </Routes>
     </BrowserRouter>
   );
