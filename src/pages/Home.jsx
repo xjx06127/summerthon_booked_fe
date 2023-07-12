@@ -64,7 +64,8 @@ const Log = styled.div`
 `;
 
 const LogTittle = styled.h1`
-  margin-bottom: 0;
+  margin-bottom: 15px;
+  font-size: 30px;
 `;
 
 const Id = styled.input`
@@ -239,6 +240,7 @@ const Home = () => {
     // 로그아웃 처리 및 로그인 정보 초기화
     localStorage.removeItem("loggedInUser");
     SetLog(0);
+
   };
 
   return (
