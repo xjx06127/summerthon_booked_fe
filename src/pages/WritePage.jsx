@@ -57,18 +57,21 @@ const Memory=styled.div`
   border: dotted;
   border-color: #deede2; 
   border-radius: 20px;
+  position: fixed;
+  margin-top: -0%;
 `;
 
 const ListBox=styled.div`
-  background-color  : #c8a0cb;
+  background-color  : rgba(175, 190, 220, 0.74);
   width: 200px;
   height: 200px;
-  margin-top: 30%;
+  margin-top: 15%;
   z-index: 0;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
+  position: fixed;
 `;
 const ListBox1=styled.div`
-  background-color  : #a2d6db;
+  background-color  : #7bacb0;
   width: 200px;
   height: 200px;
   margin-top: -40%;
@@ -137,8 +140,6 @@ const WritePage = () => {
           기억하고 싶은<br/> 책 구절이 있으신가요? <br/>  <br/> 페이지<PageBox></PageBox>pg  <br/> <br/> 구절 <MText></MText><AddButton>추가</AddButton>
           </Memory>
           <ListBox>   <li>"영감이 나에게 오지 않을 때 내가 그것을 만나러 반을 간다." 102pg</li> </ListBox></MemText>
-            <ListBox1></ListBox1>
-            <ListBox2></ListBox2>
           </Dis>
         </div>
     );

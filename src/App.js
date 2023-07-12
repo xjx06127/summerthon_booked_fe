@@ -5,16 +5,20 @@ import MakeBook from "./pages/MakeBook";
 import ModificationLog from "./pages/ModificationLog";
 import TextAnimation from "./pages/TextAnimation";
 import BookRecommend from "./pages/BookRecommend";
+import WritePage from "./pages/WritePage";
+import Read from "./pages/Read";
+import MyPage from "./pages/MyPage";
+import BookInform from "./pages/BookInform";
 
 function App() {
   return (
     <BrowserRouter>
     <Routes>
-      {/* <Route path="/" element = {<h1>화이또</h1>}/> */}
-      {/* <Route path="/:WritePage" element = {<WritePage />} />
+      <Route path="/" element = {<h1>화이또</h1>}/>
+      <Route path="/:WritePage" element = {<WritePage />}/>
       <Route path="/:BookInform" element = {<BookInform />} />
-      <Route path="/:Read" element = {<Read/>} /> */}
-      {/* <Route path="/MyPage" element = {<MyPage/>} /> */}
+      <Route path="/:Read" element = {<Read/>} />
+      <Route path="/MyPage" element = {<MyPage/>} />
       <Route path="/home" element={<Home/>}/>
       <Route path="/MakeBookService" element={<MakeBook/>}/>
       <Route path="/ModificationLog" element={<ModificationLog/>}/>
