@@ -5,6 +5,8 @@ import MakeBook from "./pages/MakeBook";
 import ModificationLog from "./pages/ModificationLog";
 import TextAnimation from "./pages/TextAnimation";
 import BookRecommend from "./pages/BookRecommend";
+import SignUp from "./pages/SignUp";
+import Noresult from "./pages/Noresult";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
       <Route path="/ModificationLog" element={<ModificationLog/>}/>
       <Route path="/text" element={<TextAnimation/>}/>
       <Route path="/BookRecommend" element={<BookRecommend/>}/>
+      <Route path="/NoResult" element={<Noresult/>}/>
+      <Route path="/signUp" element={<SignUp/>}/>
     </Routes>
     </BrowserRouter>
   );

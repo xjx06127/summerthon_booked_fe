@@ -43,7 +43,7 @@ const Page = styled.h1`
 const Mid = styled.div`
     background-color: #FFF5EC;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
 `;
 
 const Left = styled.div`
@@ -119,11 +119,18 @@ const SignButton = styled.button`
 const Ad = styled.div`
     display: flex;
     flex-direction: column;
+    /* 
     margin-left: 270px;
     margin-right: 270px;
     margin-top: 110px;
+    margin-bottom: 50px;
+    height: 180px;*/
+    width: 900px;
     height: 180px;
     
+    margin: 0 auto;
+    margin-top: 80px;
+
     background: url(leaves_background.png);
     background-position: -500px -100px; 
   

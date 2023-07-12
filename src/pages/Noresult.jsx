@@ -4,8 +4,8 @@ import styled from "styled-components";
 
 const ResultCommentContainer = styled.div`
   //~에 대한 검색결과 + 현재 독후감 존재 x 를 묶는 Container
-  margin-top: 60px;
-  margin-left: 130px;
+  display: flex;
+  margin-top: 100px;
 `;
 
 const BookTitle = styled.span`
@@ -69,25 +69,40 @@ const Button = styled.button`
   border: none;
 `;
 
+const BigBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+
+const EmtyBox2 = styled.div`
+    margin-left: 700px;
+`
+
 const Noresult = () => {
   const activeMenu = "도서 추천";
 
   return (
     <>
       <Navigator activeMenu={activeMenu} />
+      <BigBox>
       <ResultCommentContainer>
         <ResultComment>
           <BookTitle>백설공주</BookTitle>에 대한
           <br />
           독후감 검색 결과입니다.
-        </ResultComment>
         <NoResultComment>현재 독후감이 존재하지 않습니다.</NoResultComment>
+        </ResultComment>
+        <EmtyBox2></EmtyBox2>
       </ResultCommentContainer>
+
       <MainContainer>
         <Img />
         <CommentUnderImg>그렇다면, 직접 독후감을 올려보세요!</CommentUnderImg>
         <Button>글쓰러 가기</Button>
       </MainContainer>
+      </BigBox>
+     
     </>
   );
 };

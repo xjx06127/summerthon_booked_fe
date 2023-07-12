@@ -15,7 +15,7 @@ const VertiContainer = styled.div`
   //회원가입 창 control Container
   display: flex;
   flex-direction: column;
-  margin-left: 280px;
+  align-items: center;
 `;
 
 const Sign = styled.p`
@@ -24,6 +24,7 @@ const Sign = styled.p`
   font-size: 35px;
   line-height: 42px;
   margin-bottom: 0px;
+  
   color: #000000;
 `;
 
@@ -71,36 +72,41 @@ const SetContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 10px;
+  margin-right: 500px;
 `;
 
 const Buttons = styled.div`
   display: flex;
-  justify-content: flex-end;
-  margin-right: 250px;
+  margin-left: 570px;
   margin-bottom: 50px;
   margin-top: 20px;
 `;
 
 const Button = styled.button`
-  height: 49px;
-
+  height: 43px;
   background: #8e9851;
   border-radius: 50px;
-
   font-weight: 800;
-  font-size: 19px;
+  font-size: 15px;
   line-height: 23px;
 
   color: #ffffff;
 
   border: none;
-  padding: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 9px;
+  padding-left: 18px;
+  padding-right: 18px;
   margin-right: 30px;
 
   cursor: pointer;
 `;
+
+//정렬 컨테이너 박스
+const Box1 = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-right: 570px;
+`
 
 const SignUp = () => {
   return (
@@ -109,12 +115,14 @@ const SignUp = () => {
         <Logo />
       </LogoContainer>
       <VertiContainer>
+        <Box1>
         <Sign>회원가입하기</Sign>
         <Thankyou>
           저희 Booked 서비스를
           <br />
           찾아주셔서 감사합니다.
         </Thankyou>
+        </Box1>
         <Img />
         <SetContainer>
           <Set>

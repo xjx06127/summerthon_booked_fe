@@ -55,16 +55,11 @@ const InputPw = styled.input`
 
 const Text4 = styled.p`
   text-align: right;
-<<<<<<< HEAD
   color:#8F9ACF;
   margin-top: 10px;
   cursor: pointer;
 
 `
-=======
-  color: #8f9acf;
-`;
->>>>>>> 8ad99257fd78ff2e8d26bd6f8b8014b80232bc9c
 
 const InputButton = styled.button`
   background: #8F9ACF;
@@ -81,7 +76,6 @@ const InputButton = styled.button`
 
 
 const ModificationLog = () => {
-<<<<<<< HEAD
     const [pwType,SetPwType] = useState({
         type : "password",
         visible : false
@@ -119,22 +113,6 @@ const ModificationLog = () => {
           
         </>
     );
-=======
-  return (
-    <>
-      <Box>
-        <Img1 src="아이콘-removebg-preview.png" />
-        <LogBox>
-          <Text1>회원 정보 수정 페이지로 이동합니다.</Text1>
-          <Text2>비밀 번호를 입력해주세요.</Text2>
-          <Text3>비밀번호 password</Text3>
-          <InputPw placeholder="이곳에 비밀번호를 입력해주세요."></InputPw>
-          <Text4>비밀번호 보기</Text4>
-        </LogBox>
-      </Box>
-    </>
-  );
->>>>>>> 8ad99257fd78ff2e8d26bd6f8b8014b80232bc9c
 };
 
 export default ModificationLog;

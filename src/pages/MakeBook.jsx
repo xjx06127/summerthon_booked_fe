@@ -37,23 +37,32 @@ const Page = styled.h1`
     cursor: pointer;
 `;
 
+
+//전체 비율 조절
+const Container = styled.div`
+    margin: 0 auto;
+`
 const Section1 = styled.div`
     display: flex;
+    justify-content: center;
     background: #B6C656;
-    padding-left: 200px;
+   
 `;
 
 const Section2 = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     margin-top: 100px;
     margin-right: 70px;
     align-items: flex-end;
 `;
 
 const Section3 = styled.div`
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 `;
 
 const Lines = styled.div`
@@ -116,12 +125,13 @@ display: block;
 `;
 
 const BackGroundIcon = styled.img`
-
+    margin-right: 190px;
 `;
 
 const Texts = styled.div`
-margin-left: 100px;
 margin-top: 80px;
+margin-right: 900px;
+text-align: left;
 
 `;
 
@@ -157,8 +167,9 @@ color: rgba(142, 152, 81, 0.67);
 const Inputs = styled.div`
 display: flex;
 flex-direction: column;
+
 margin-top: 90px;
-margin-left: 600px;
+
 margin-bottom: 100px;
 width: 600px;
 `;
@@ -265,6 +276,7 @@ const MakeBook = () => {
                 <Page>도서 추천</Page>
             </Menu>
 
+            <Container>
             <Section1>
                 <Lines>
                     <Line1>Booked 서재를</Line1>
@@ -306,7 +318,8 @@ const MakeBook = () => {
                 </Inputs>
             </Section3>
             <SubmitButton onClick={SubmitSuccess}>입력 완료</SubmitButton>
-
+            </Container>
+           
         </>
     );
 };
