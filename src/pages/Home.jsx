@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState,useEffect } from "react";
+import axios from "axios";
 import TextAnimation from "./TextAnimation";
 
 //Home 네비게이터
@@ -162,12 +163,65 @@ const Line3 = styled.h1`
   color: #babda4;
 `;
 
+const NotLog = styled.div`
+    
+`;
+
+const LogSuccess = styled.div`
+    
+    
+`
+
+
 const Home = () => {
   const navigate = useNavigate();
   const [pwType, SetPwType] = useState({
     type: "password",
     visible: false,
   });
+
+  const [ID, SetId] = useState("");
+  const [PW, SetPw] = useState("");
+  const [NickName, SetNickName] = useState("");
+  const [LogCheck, SetLog] = useState(0);
+
+  useEffect(() => {
+    // 새로고침 시 로그인 정보 가져오기
+    // 로그인 정보를 브라우저의 로컬 스토리지(localStorage)에 저장하여 새로고침후에도 정보 유지하도록 설정
+    const loggedInUser = localStorage.getItem("loggedInUser");
+    if (loggedInUser) {
+      const user = JSON.parse(loggedInUser);
+      SetNickName(user.nickname);
+      SetLog(1);
+    }
+  }, []);
+
+  // Booked 로그인 정보 입력
+  const HandleLogin = () => {
+    axios
+      .post(`https://mutsabooked.store/login/`, {
+        userID: ID,
+        password: PW,
+      })
+      .then((res) => {
+        SetNickName(res.data.nickname);
+        SetLog(1);
+        localStorage.setItem("loggedInUser", JSON.stringify(res.data));
+      })
+      .catch(() => {
+        alert("존재하지 않는 회원 정보입니다!");
+      });
+  };
+
+  // ID 입력 시
+  const HandleId = (e) => {
+    SetId(e.target.value);
+  };
+
+  // PW 입력 시
+  const HandlePw = (e) => {
+    SetPw(e.target.value);
+  };
 
   const GoToMakeBookPage = () => {
     navigate(`/MakeBookService`);
@@ -181,10 +235,16 @@ const Home = () => {
     );
   };
 
+  const HandleLogout = () => {
+    // 로그아웃 처리 및 로그인 정보 초기화
+    localStorage.removeItem("loggedInUser");
+    SetLog(0);
+  };
+
   return (
     <>
       <Nav>
-        <Logo src="아이콘-removebg-preview.png"></Logo>
+        <Logo src="아이콘-removebg-preview.png" />
       </Nav>
       <Menu>
         <Page>서비스 소개</Page>
@@ -200,18 +260,37 @@ const Home = () => {
         </Left>
 
         <Log>
-          <LogTittle>로그인을 해주세요.</LogTittle>
-          <h2>ID</h2>
-          <Id placeholder="아이디 입력"></Id>
-          <h2>P/W</h2>
-          <Pw type={pwType.type} placeholder="비밀번호 입력"></Pw>
-          <ShowPw onClick={HandlePwType}>
-            {pwType.visible ? "비밀번호 숨기기" : "비밀번호 보기"}
-          </ShowPw>
-          <LogButtons>
-            <LogButton>로그인</LogButton>
-            <SignButton>회원가입</SignButton>
-          </LogButtons>
+          {LogCheck === 1 ? (
+            <LogSuccess>
+              <LogTittle>{NickName}님 환영합니다!</LogTittle>
+              <LogButton onClick={HandleLogout}>로그아웃</LogButton>
+            </LogSuccess>
+          ) : (
+            <NotLog>
+              <LogTittle>로그인을 해주세요.</LogTittle>
+              <h2>ID</h2>
+              <Id
+                type="text"
+                placeholder="아이디 입력"
+                value={ID}
+                onChange={HandleId}
+              ></Id>
+              <h2>P/W</h2>
+              <Pw
+                type={pwType.type}
+                placeholder="비밀번호 입력"
+                value={PW}
+                onChange={HandlePw}
+              ></Pw>
+              <ShowPw onClick={HandlePwType}>
+                {pwType.visible ? "비밀번호 숨기기" : "비밀번호 보기"}
+              </ShowPw>
+              <LogButtons>
+                <LogButton onClick={HandleLogin}>로그인</LogButton>
+                <SignButton>회원가입</SignButton>
+              </LogButtons>
+            </NotLog>
+          )}
         </Log>
       </Mid>
 
@@ -223,5 +302,7 @@ const Home = () => {
     </>
   );
 };
+
+
 
 export default Home;
