@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navigator from "./Navigator";
 import styled from "styled-components";
+import axios from "axios";
 
 const MainBox = styled.div`
   //처음 하얀 박스
-  width: 75%;
+  width: 1000px;
   height: 800px;
   background-color: rgba(255, 255, 255, 1);
   border: none;
@@ -95,17 +96,33 @@ const Hr = styled.hr`
   width: 96%;
 `;
 
+const Hr2 = styled.hr`
+  border: 1px solid #d9d9d9;
+  width: 100%;
+`;
+
 const BookList = styled.div`
   //BookContent들 관리
   display: flex;
   flex-direction: column;
+  height: 600px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
 `;
 
 const BookContentContainer = styled.div`
   //Bookcontent 개별 요소들
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  width: 200px;
+  margin-left: 30px;
+  cursor: pointer; /* 커서를 변경하여 클릭 가능한 요소로 표시 */
+  background-color: ${({ selected }) =>
+    selected ? "#d9d9d9" : "transparent"}; /* 선택 여부에 따라 배경색 변경 */
 `;
 
 const BookTitle = styled.span`
@@ -113,7 +130,6 @@ const BookTitle = styled.span`
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
-  margin-left: -20px;
 
   color: #000000;
 `;
@@ -145,6 +161,7 @@ const FirstContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-end;
+  height: 730px;
 `;
 
 const BookCount = styled.div`
@@ -186,6 +203,11 @@ const ParaPageContainer = styled.div`
   //구절+페이지 세로 정렬
   display: flex;
   flex-direction: column;
+  height: 730px;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
 `;
 
 const ContentContainer = styled.div`
@@ -218,8 +240,26 @@ const Content = styled.p`
   color: #000000;
 `;
 
+const MyContainer = styled.div`
+  //나의 책장부분이랑 아래 책들 싹다 묶기
+  width: 295px;
+`;
+
 const Read = () => {
   const activeMenu = "나의 서재";
+  const [bookReviewAll, setBookReviewAll] = useState([]);
+  const [selectedBook, setSelectedBook] = useState(null); // 선택한 책의 정보를 유지하는 상태
+
+  useEffect(() => {
+    axios.get(`https://mutsabooked.store/bookreviewall/`).then((res) => {
+      setBookReviewAll(res.data);
+    });
+  }, []);
+
+  // BookContentContainer를 클릭했을 때 실행되는 핸들러
+  const showParaPage = (book) => {
+    setSelectedBook(book); // 선택한 책의 정보를 업데이트x
+  };
 
   return (
     <>
@@ -234,42 +274,40 @@ const Read = () => {
         </GrayBox>
         <Container>
           <FirstContainer>
-            <div>
+            <MyContainer>
               <MyLibrary>나의 책장</MyLibrary>
               <Hr />
               <BookList>
-                {" "}
-                {/* map을 통해 api 이용해서 받아와서 BookList에 쭉쭉 넣는다*/}
-                <BookContentContainer>
-                  <BookTitle>책제목 1</BookTitle>
-                  <Like>
-                    <Heart />
-                    <HeartCount>5,000</HeartCount>
-                  </Like>
-                </BookContentContainer>
-                <Hr />
-                <BookContentContainer>
-                  <BookTitle>책제목 2</BookTitle>
-                  <Like>
-                    <Heart />
-                    <HeartCount>7,000</HeartCount>
-                  </Like>
-                </BookContentContainer>
-                <Hr />
+                {/* map을 통해 api를 사용하여 받아온 데이터를 BookList에 표시 */}
+                {bookReviewAll.map((c) => (
+                  <>
+                    <BookContentContainer
+                      onClick={() => showParaPage(c)}
+                      selected={selectedBook && selectedBook.id === c.id} // 선택 여부에 따라 배경색 변경
+                    >
+                      <BookTitle>{c.book_title}</BookTitle>
+                      <Like>
+                        <Heart />
+                        <HeartCount>5,000</HeartCount>
+                      </Like>
+                    </BookContentContainer>
+                    <Hr />
+                  </>
+                ))}
               </BookList>
-            </div>
-            <BookCount> 내가 읽은 책 : 3권</BookCount>
+            </MyContainer>
+            <BookCount>내가 읽은 책: {bookReviewAll.length}권</BookCount>
           </FirstContainer>
           <Line1 />
           <ParaPageContainer>
-            <ParaPage>
-              <Para>세상에 물고기가 없어진다면</Para>
-              <Page>102pg</Page>
-            </ParaPage>
-            <ParaPage>
-              <Para>구절1234567</Para>
-              <Page>102pg</Page>
-            </ParaPage>
+            {/* 선택한 책의 정보를 ParaPageContainer에 표시 */}
+            {selectedBook && (
+              <ParaPage>
+                <Para>{selectedBook.pickwriting}</Para>
+                <Page>{selectedBook.pickpage}</Page>
+                <Hr2 />
+              </ParaPage>
+            )}
           </ParaPageContainer>
           <Line2 />
           <ContentContainer>
