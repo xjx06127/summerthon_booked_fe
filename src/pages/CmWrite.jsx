@@ -10,9 +10,11 @@ const Desktop = styled.div`
 `;
 
 const Con = styled.div`
-  margin-left: 250px;
-  margin-right: 200px;
-`
+ display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+`;
 
 const WriteText = styled.div`
   
@@ -38,7 +40,7 @@ const Input = styled.input`
   justify-content: center;
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 800;
+  font-weight: 600;
   font-size: 20px;
   line-height: 24px;
   padding: 8px;
@@ -58,7 +60,7 @@ const ContentInput = styled.textarea`
   justify-content: center;
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 800;
+  font-weight: 600;
   font-size: 20px;
   line-height: 24px;
   padding: 8px;
@@ -68,8 +70,6 @@ const ContentInput = styled.textarea`
 const SubmitButton = styled(Link)`
   width: 109px;
   height: 40px;
-  margin-right: 40px;
-  
   background: #D9D9D9;
   border-radius: 40px;
   border: none;

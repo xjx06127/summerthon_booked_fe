@@ -22,8 +22,10 @@ function App() {
       <Route path="/home" element={<Home/>}/>
       <Route path="/MakeBookService" element={<MakeBook/>}/>
       <Route path="/ModificationLog" element={<ModificationLog/>}/>
-      <Route path="/text" element={<TextAnimation/>}/>
-      <Route path="/BookRecommend" element={<BookRecommend/>}/>
+      <Route path="/CmReco" element={<CmReco/>}/>
+      <Route path="/CmWrite" element={<CmWrite/>}/>
+      <Route path="/CmMain" element={<CmMain/>}/>
+      <Route path="/BookInform" element={<BookInform/>}/>
     </Routes>
     </BrowserRouter>
   );

@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Box = styled.div`
   display: flex;
@@ -10,9 +10,9 @@ const Box = styled.div`
 `;
 
 const Img1 = styled.img`
-    margin-right:90px;
-    cursor: pointer;
-`
+  margin-right: 90px;
+  cursor: pointer;
+`;
 
 const LogBox = styled.div`
   display: flex;
@@ -62,7 +62,7 @@ const Text4 = styled.p`
 `
 
 const InputButton = styled.button`
-  background: #8F9ACF;
+  background: #8f9acf;
   border-radius: 50px;
   border: none;
   color: white;
@@ -72,47 +72,48 @@ const InputButton = styled.button`
   margin-right: 180px;
   margin-top: 100px;
   cursor: pointer;
-`
-
+`;
 
 const ModificationLog = () => {
-    const [pwType,SetPwType] = useState({
-        type : "password",
-        visible : false
-    });
-    
-    const navigate = useNavigate();
+  const [pwType, SetPwType] = useState({
+    type: "password",
+    visible: false,
+  });
 
-    
-    const HandlePwType = () => {
-      SetPwType(
-          pwType.visible ? {type: "password", visible: false} : {type: "text", visible: true}
-      );
-    };
+  const navigate = useNavigate();
 
-    const GoToHome = () => {
-      navigate(`/Home`);
-    };
-
-
-
-    return (
-        <>
-          <Box>
-          <Img1 src="아이콘-removebg-preview.png" onClick={GoToHome}/>
-          <LogBox>
-                <Text1>회원 정보 수정 페이지로 이동합니다.</Text1>
-                <Text2>비밀번호를 입력해주세요.</Text2>
-                <Text3>비밀번호 password</Text3>
-                <InputPw type={pwType.type} placeholder="이곳에 비밀번호를 입력해주세요."></InputPw>
-                <Text4 onClick={HandlePwType}>{
-                  pwType.visible ? "비밀번호 숨기기" : "비밀번호 보기" }</Text4>
-                <InputButton>입력</InputButton>
-          </LogBox>
-          </Box>
-          
-        </>
+  const HandlePwType = () => {
+    SetPwType(
+      pwType.visible
+        ? { type: "password", visible: false }
+        : { type: "text", visible: true }
     );
+  };
+
+  const GoToHome = () => {
+    navigate(`/Home`);
+  };
+
+  return (
+    <>
+      <Box>
+        <Img1 src="아이콘-removebg-preview.png" onClick={GoToHome} />
+        <LogBox>
+          <Text1>회원 정보 수정 페이지로 이동합니다.</Text1>
+          <Text2>비밀번호를 입력해주세요.</Text2>
+          <Text3>비밀번호 password</Text3>
+          <InputPw
+            type={pwType.type}
+            placeholder="이곳에 비밀번호를 입력해주세요."
+          ></InputPw>
+          <Text4 onClick={HandlePwType}>
+            {pwType.visible ? "비밀번호 숨기기" : "비밀번호 보기"}
+          </Text4>
+          <InputButton>입력</InputButton>
+        </LogBox>
+      </Box>
+    </>
+  );
 };
 
 export default ModificationLog;
