@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from "styled-components";
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
-import TextAnimation from './TextAnimation';
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import TextAnimation from "./TextAnimation";
 
 //Home 네비게이터
 const Nav = styled.div`
@@ -43,7 +43,7 @@ const Page = styled.h1`
 const Mid = styled.div`
     background-color: #FFF5EC;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
 `;
 
 const Left = styled.div`
@@ -62,7 +62,7 @@ const Log = styled.div`
 `;
 
 const LogTittle = styled.h1`
-    margin-bottom: 0;
+  margin-bottom: 0;
 `;
 
 const Id = styled.input`
@@ -119,11 +119,18 @@ const SignButton = styled.button`
 const Ad = styled.div`
     display: flex;
     flex-direction: column;
+    /* 
     margin-left: 270px;
     margin-right: 270px;
     margin-top: 110px;
+    margin-bottom: 50px;
+    height: 180px;*/
+    width: 900px;
     height: 180px;
     
+    margin: 0 auto;
+    margin-top: 80px;
+
     background: url(leaves_background.png);
     background-position: -500px -100px; 
   
@@ -155,7 +162,6 @@ const Line3 = styled.h1`
     color:#BABDA4;
 `;
 
-
 const Home = () => {
     const navigate = useNavigate();
     const [pwType,SetPwType] = useState({
@@ -163,9 +169,9 @@ const Home = () => {
         visible : false
     });
 
-    const GoToMakeBookPage = () => {
-        navigate(`/MakeBookService`);
-    };
+  const GoToMakeBookPage = () => {
+    navigate(`/MakeBookService`);
+  };
 
     const HandlePwType = () => {
         SetPwType(
@@ -174,38 +180,39 @@ const Home = () => {
 
     };
 
-    return (
-        <>
-            <Nav>
-            <Logo src="아이콘-removebg-preview.png"></Logo>
-            </Nav>
-            <Menu>
-                <Page>서비스 소개</Page>
-                <Page>마이페이지</Page>
-                <Page>커뮤니티</Page>
-                <Page>나의 서재</Page>
-                <Page>도서 추천</Page>
-            </Menu>
+  return (
+    <>
+      <Nav>
+        <Logo src="아이콘-removebg-preview.png"></Logo>
+      </Nav>
+      <Menu>
+        <Page>서비스 소개</Page>
+        <Page>마이페이지</Page>
+        <Page>커뮤니티</Page>
+        <Page>나의 서재</Page>
+        <Page>도서 추천</Page>
+      </Menu>
 
             <Mid>
             <Left>
                <TextAnimation/>
             </Left>
 
-            <Log>
-                <LogTittle>로그인을 해주세요.</LogTittle>
-                <h2>ID</h2>
-                    <Id placeholder="아이디 입력"></Id>
-                <h2>P/W</h2>
-                    <Pw type={pwType.type} placeholder="비밀번호 입력"></Pw>
-                    <ShowPw onClick={HandlePwType}>{
-                        pwType.visible ? "비밀번호 숨기기" : "비밀번호 보기" }</ShowPw>
-                <LogButtons>
-                    <LogButton>로그인</LogButton>
-                    <SignButton>회원가입</SignButton>
-                </LogButtons>
-            </Log>
-            </Mid>
+        <Log>
+          <LogTittle>로그인을 해주세요.</LogTittle>
+          <h2>ID</h2>
+          <Id placeholder="아이디 입력"></Id>
+          <h2>P/W</h2>
+          <Pw type={pwType.type} placeholder="비밀번호 입력"></Pw>
+          <ShowPw onClick={HandlePwType}>
+            {pwType.visible ? "비밀번호 숨기기" : "비밀번호 보기"}
+          </ShowPw>
+          <LogButtons>
+            <LogButton>로그인</LogButton>
+            <SignButton>회원가입</SignButton>
+          </LogButtons>
+        </Log>
+      </Mid>
 
             <Ad onClick={()=>GoToMakeBookPage()}>
             <Line1>독서 기록을 책으로 만들어 오래도록 간직하세요.</Line1>

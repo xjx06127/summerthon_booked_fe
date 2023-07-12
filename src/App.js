@@ -3,7 +3,6 @@ import Recommend from "./pages/Recommend";
 import Home from "./pages/Home";
 import MakeBook from "./pages/MakeBook";
 import ModificationLog from "./pages/ModificationLog";
-import TextAnimation from "./pages/TextAnimation";
 import BookRecommend from "./pages/BookRecommend";
 import WritePage from "./pages/WritePage";
 import Read from "./pages/Read";
