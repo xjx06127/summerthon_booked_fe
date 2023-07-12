@@ -18,8 +18,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<BookRecommend />} />
-        <Route path="/:WritePage" element={<WritePage />} />
-        <Route path="/:BookInform" element={<BookInform />} />
+        <Route path="/recommend" element={<Recommend />} />
+
         <Route path="/Read" element={<Read />} />
         <Route path="/MyPage" element={<MyPage />} />
         <Route path="/home" element={<Home />} />

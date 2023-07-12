@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import TextAnimation from "./TextAnimation";
-
+import { Link } from "react-router-dom";
 //Home 네비게이터
 const Nav = styled.div`
   display: flex;
@@ -44,9 +44,9 @@ const Page = styled.h1`
 
 //Home 중간페이지 (로그인 부분)
 const Mid = styled.div`
-    background-color: #FFF5EC;
-    display: flex;
-    justify-content: center;
+  background-color: #fff5ec;
+  display: flex;
+  justify-content: center;
 `;
 
 const Left = styled.div`
@@ -118,28 +118,28 @@ const SignButton = styled.button`
 
 //Home 광고 페이지
 const Ad = styled.div`
-    display: flex;
-    flex-direction: column;
-    /* 
+  display: flex;
+  flex-direction: column;
+  /* 
     margin-left: 270px;
     margin-right: 270px;
     margin-top: 110px;
     margin-bottom: 50px;
     height: 180px;*/
-    width: 900px;
-    height: 180px;
-    
-    margin: 0 auto;
-    margin-top: 80px;
+  width: 900px;
+  height: 180px;
 
-    background: url(leaves_background.png);
-    background-position: -500px -100px; 
-  
-    border: 0.5px solid rgba(0, 0, 0, 0.4);
-    filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
-    border-radius: 12px;
-    cursor: pointer;
-`
+  margin: 0 auto;
+  margin-top: 80px;
+
+  background: url(leaves_background.png);
+  background-position: -500px -100px;
+
+  border: 0.5px solid rgba(0, 0, 0, 0.4);
+  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
+  border-radius: 12px;
+  cursor: pointer;
+`;
 
 const Line1 = styled.h1`
   text-align: right;
@@ -163,15 +163,9 @@ const Line3 = styled.h1`
   color: #babda4;
 `;
 
-const NotLog = styled.div`
-    
-`;
+const NotLog = styled.div``;
 
-const LogSuccess = styled.div`
-    
-    
-`
-
+const LogSuccess = styled.div``;
 
 const Home = () => {
   const navigate = useNavigate();
@@ -250,7 +244,9 @@ const Home = () => {
         <Page>서비스 소개</Page>
         <Page>마이페이지</Page>
         <Page>커뮤니티</Page>
-        <Page>나의 서재</Page>
+        <Link to="/read">
+          <Page>나의 서재</Page>
+        </Link>
         <Page>도서 추천</Page>
       </Menu>
 
@@ -302,7 +298,5 @@ const Home = () => {
     </>
   );
 };
-
-
 
 export default Home;

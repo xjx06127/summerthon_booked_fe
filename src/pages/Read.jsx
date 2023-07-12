@@ -247,12 +247,12 @@ const MyContainer = styled.div`
 
 const Read = () => {
   const activeMenu = "나의 서재";
-  const [bookReviewAll, setBookReviewAll] = useState([]);
+  const [bookReview, setBookReview] = useState([]);
   const [selectedBook, setSelectedBook] = useState(null); // 선택한 책의 정보를 유지하는 상태
 
   useEffect(() => {
-    axios.get(`https://mutsabooked.store/bookreviewall/`).then((res) => {
-      setBookReviewAll(res.data);
+    axios.get(`https://mutsabooked.store/bookreview/`).then((res) => {
+      setBookReview(res.data);
     });
   }, []);
 
@@ -279,7 +279,7 @@ const Read = () => {
               <Hr />
               <BookList>
                 {/* map을 통해 api를 사용하여 받아온 데이터를 BookList에 표시 */}
-                {bookReviewAll.map((c) => (
+                {bookReview.map((c) => (
                   <>
                     <BookContentContainer
                       onClick={() => showParaPage(c)}
@@ -296,7 +296,7 @@ const Read = () => {
                 ))}
               </BookList>
             </MyContainer>
-            <BookCount>내가 읽은 책: {bookReviewAll.length}권</BookCount>
+            <BookCount>내가 읽은 책: {bookReview.length}권</BookCount>
           </FirstContainer>
           <Line1 />
           <ParaPageContainer>
