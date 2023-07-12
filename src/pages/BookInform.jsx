@@ -57,6 +57,7 @@ const BookInform = () => {
     return (
         <div>
             <Navigator></Navigator>
+            
             <Text>이제,<br/>이곳에서<br/>나만의 이야기를 적어보세요.</Text>
             <Box>
             <IIntext>먼저, 간단하게 책 정보를 입력해주세요.</IIntext>

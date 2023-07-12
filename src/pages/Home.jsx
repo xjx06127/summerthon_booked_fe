@@ -122,6 +122,7 @@ const Ad = styled.div`
     margin-left: 270px;
     margin-right: 270px;
     margin-top: 110px;
+    margin-bottom: 50px;
     height: 180px;
     
     background: url(leaves_background.png);

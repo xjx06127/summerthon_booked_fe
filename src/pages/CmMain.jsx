@@ -5,15 +5,14 @@ import { Link } from "react-router-dom";
 
 
 const Desktop = styled.div`
-  overflow-x: hidden; /* 화면을 옆으로 스크롤되지 않도록 설정 */
   display: flex;
-  flex-direction: column;
   height:1024px;
+  margin-top:80px;
+  justify-content: center;
+
 `;
 
 const Qbox1 = styled.div`
-  margin-top:80px;
-  margin-left: 18%;
   width: 550px;
   height: 120px;
   background: #FEFEDF;
@@ -21,13 +20,9 @@ const Qbox1 = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
+margin-right: 130px;
 `;
 const Quote = styled.div`
-  width: 550px;
-  height: 120px;
-  left: 250px;
-  top: 150px;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 800;
@@ -41,16 +36,11 @@ const Quote = styled.div`
   padding: 7px;
 `;
 
-const Tr =styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+
 
 const TRbox= styled.div`
-margin-top: -7%;
  width: 350px;
- height: 710px;
- margin-left: 70%;
+ height: 750px;
  background: #FFFDFD;
  border:2px solid #efebeb;
  box-shadow:0px 10px 10px #efebeb;
@@ -78,35 +68,36 @@ const OtherReviews = styled.div`
   width: 400px;
   height: 23px;
   right: 40px;
-  top: 250px;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 19px;
   line-height: 23px;
   color: #000000;
+  margin-top: 5px;
 `;
 
 const TRbar= styled.div`
-margin-top:10px;
-width: 320px;
-height: 5px;
+width: 330px;
+height: 7px;
 background: #D9D9D9;
 border-radius: 50px;
+margin-top: 20px;
 `;
 
 const R=styled.div`
 display: flex;
 align-items: center;
 flex-direction: column;
+margin-left:120px;
+margin-top:-20px;
 `
 
 const R2 =styled.div`
 display: flex;
 justify-content: space-between;
-margin-top:-35%;
 margin-right:27%;
-
+margin-top:120px;
 `;
 
 const BookRecommendation = styled.div`
@@ -147,23 +138,34 @@ margin-top:15px;
  height: 430px;
  background: #FFFDFD;
  border:2px solid #efebeb;
- border-radius:0;
  box-shadow:0px 10px 10px #efebeb;
  `;
 
 
-const ButtonContainer = styled.div`
+const Container = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-left:70%;
+  flex-direction: row;
+  margin:30px;
+  align-items: center; //닉, 타이틀, 버튼 세개를 한줄에//
+  justify-content: center;//박스 중간으로 이동//
+`;
+
+const Nic = styled.p`
+  font-weight: 800;
+  font-size: 20px;
+  color: #111111;
+`;
+
+const Title= styled.p`
+font-weight: 800;
+font-size: 20px;
+color: #111111;
+margin-left:50px;
 `;
 
 const DirectLinkButton = styled(Link)`
-  width: 102px;
+  width: 100px;
   height: 40px;
-  margin-right:30%;
-  margin-top: 30px; /* 버튼들 간의 높이 간격 조정 */
   background: #D9D9D9;
   border-radius: 40px;
   font-family: 'Inter';
@@ -176,24 +178,57 @@ const DirectLinkButton = styled(Link)`
   text-decoration: none; /* 밑줄 제거 */
   line-height: 2;
   cursor: pointer;
+  margin-left:50px;
+`;
+
+const TCon = styled.p`
+display: flex;
+flex-direction: column;
+text-align: right;
+margin:30px;
 `;
 
 
+const TrT= styled(Link)`
+font-weight: 800;
+font-size: 28px;
+color: #111111;
+margin: 0px;
+text-decoration: none; /* 밑줄 제거 */
+cursor: pointer;
+`;
 
+const TrN= styled.p`
+font-weight: 800;
+font-size: 20px;
+color: #111111;
+margin:0px;
+`;
+
+const LghAd = styled.img`
+ width: auto;
+ height: auto;
+ max-width: 270px;
+ margin-bottom: 700px;
+ border-radius: 0px;
+`;
+
+const Con = styled.div`
+
+display:flex;
+flex-direction: column;
+align-items: center;
+`;
 
 const CmMain = () => {
     return (
       <>
+      <Navigator></Navigator>
+      
         <Desktop>
-        <Navigator></Navigator>
+        
+        <Con>
         <Qbox1> <Quote>"책은 가장 조용하고 변함없는 벗이다."<br /> -102pg- </Quote></Qbox1>
-        <Tr>
-        <TRbox>
-        <TodayReview>오늘의 독후감</TodayReview> 
-        <OtherReviews>다른 사람들의 독후감을 만나보세요.</OtherReviews>
-        <TRbar></TRbar>
-        </TRbox>
-        </Tr>
         <R>
         <R2>
         <BookRecommendation>이런책 추천해주세요!</BookRecommendation>
@@ -201,21 +236,63 @@ const CmMain = () => {
         </R2>
         
         <BRbox>
-        <ButtonContainer>
+        <Container>
+        <Nic>닉네임1</Nic>
+        <Title>남자친구한테 선물할 책 추천해주세요!</Title>
         <DirectLinkButton to="/link1">바로가기</DirectLinkButton>
+        </Container>
+
+        <Container>
+        <Nic>닉네임2</Nic>
+        <Title>남자친구한테 선물할 책 추천해주세요!</Title>
         <DirectLinkButton to="/link2">바로가기</DirectLinkButton>
+        </Container>
+
+        <Container>
+        <Nic>닉네임3</Nic>
+        <Title>남자친구한테 선물할 책 추천해주세요!</Title>
         <DirectLinkButton to="/link3">바로가기</DirectLinkButton>
+        </Container>
+
+        <Container>
+        <Nic>닉네임4</Nic>
+        <Title>남자친구한테 선물할 책 추천해주세요!</Title>
         <DirectLinkButton to="/link4">바로가기</DirectLinkButton>
-        </ButtonContainer>
+        </Container>
+
         </BRbox>
-        
         </R>
+        </Con>
        
+        <TRbox>
+        <TodayReview>오늘의 독후감</TodayReview> 
+        <OtherReviews>다른 사람들의 독후감을 만나보세요.</OtherReviews>
+        <TRbar></TRbar>
+
+        <TCon>
+        <TrT to="/link8">마당을 나온 닭</TrT><TrN>닉네임5</TrN>
+        </TCon>
+
+        <TCon>
+        <TrT to="/link9">마당을 나온 닭</TrT><TrN>닉네임6</TrN>
+        </TCon>
+
+        <TCon>
+        <TrT to="/link10">마당을 나온 닭</TrT><TrN>닉네임7</TrN>
+        </TCon>
+
+        <TCon>
+        <TrT to="/link11">마당을 나온 닭</TrT><TrN>닉네임8</TrN>
+        </TCon>
+
+        <LghAd src="LghAd.jpg"/>
+
+        </TRbox>
         
-        
-        
+
        
     </Desktop>
+    
     </>
     )
 };
