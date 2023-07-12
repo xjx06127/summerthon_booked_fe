@@ -5,6 +5,7 @@ const Nav = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   background-color: rgba(187, 226, 178, 0.97);
   height: 70px;
 `;
@@ -12,8 +13,7 @@ const Nav = styled.div`
 const Logo = styled.img`
   content: url(${(props) => props.src});
   width: 150px;
-  margin-left: 70px;
-  margin-right: 220px;
+  margin-left: 0px;
   margin-top: 5px;
   height: 110px;
 `;
@@ -33,6 +33,7 @@ const Page = styled.h1`
   }
   font-size: 21px;
   cursor: pointer;
+  width: 120px;
 `;
 
 const Navigator = ({ activeMenu }) => {
