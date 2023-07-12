@@ -69,6 +69,7 @@ const InputNickName = styled.input`
   box-shadow: 0px 2px 4px 1px #d9d9d9;
   border-radius: 10px;
   margin-left: -10px;
+  outline: none;
 `;
 
 const InputMBTI = styled.input`
@@ -78,6 +79,7 @@ const InputMBTI = styled.input`
   box-shadow: 0px 2px 4px 1px #d9d9d9;
   border-radius: 10px;
   margin-left: 0px;
+  outline: none;
 `;
 
 const EditButton = styled.button`
@@ -100,7 +102,7 @@ const EditButton = styled.button`
 `;
 
 const Ad = styled.div`
-  width: 50%;
+  width: 800px;
   height: 10px;
   border: 1px solid black;
   padding: 50px 0;
@@ -131,22 +133,16 @@ const AlertContainer = styled.div`
 `;
 
 const EditInfo = () => {
+  const activeMenu = "마이페이지";
+
   return (
     <>
-      <Navigator />
+      <Navigator activeMenu={activeMenu} />
       <VertiContainer>
         <Title>회원 정보 수정하기</Title>
         <HoriContainer>
           <Img />
           <EditContainer>
-            <InfoContainer>
-              <Info>ID</Info>
-              <UserId>yeontaek</UserId>
-              <AlertContainer>
-                <Circle />
-                <AlertM>ID는 변경이 불가능합니다.</AlertM>
-              </AlertContainer>
-            </InfoContainer>
             <InfoContainer>
               <Info>닉네임</Info>
               <InputNickName />

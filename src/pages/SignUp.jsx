@@ -62,7 +62,7 @@ const Input = styled.input`
   border-top-width: 0;
   outline: none;
   margin-left: 30px;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 17px;
   height: 30px;
 `;
@@ -142,8 +142,8 @@ const SignUp = () => {
             <Input placeholder="닉네임 입력"></Input>
           </Set>
           <Set>
-            <Info>MBTI</Info>
-            <Input placeholder="MBTI 입력"></Input>
+            <Info>한 줄 소개</Info>
+            <Input placeholder="한 줄 소개 입력"></Input>
           </Set>
         </SetContainer>
         <Buttons>
