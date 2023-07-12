@@ -1,6 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
-import Navigator from './Navigator';
+import React from "react";
+import Navigator from "./Navigator";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from 'axios';
 
 //전체 BOX
 const BigBox = styled.div`
@@ -176,13 +180,16 @@ const HighLight2 = styled.span`
 `  
 
 const BookRecommend = () => {
+    const {  Result } = useParams();
+console.log(Result);
+
     return (
         <> 
             <Navigator/>
             <BigBox>
             <EmtyBox>
             <TextBox>
-                <Line1><HighLight1>백설공주</HighLight1>에 대한</Line1>
+                <Line1><HighLight1>{Result}</HighLight1>에 대한</Line1>
                 <Line2>독후감 검색 결과입니다.</Line2>
                 <Line3>총<HighLight2> 3권</HighLight2>의 독후감이 검색되었습니다.</Line3>
             </TextBox>

@@ -2,7 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 import Navigator from "./Navigator"
 import { Link } from "react-router-dom";
-
+import "./Css/style.css";
 
 const Desktop = styled.div`
   display: flex;
@@ -157,10 +157,11 @@ const Nic = styled.p`
 `;
 
 const Title= styled.p`
-font-weight: 800;
+font-weight: 400;
 font-size: 20px;
 color: #111111;
 margin-left:50px;
+font-family: "BMJUA_otf";
 `;
 
 const DirectLinkButton = styled(Link)`

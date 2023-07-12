@@ -17,6 +17,7 @@ const Name = styled.div`
   margin-left: 5%;
   margin-top: 1%;
   padding-left: 5%;
+  font-family: "Myfont";
 `;
 
 const One_liner = styled.div`

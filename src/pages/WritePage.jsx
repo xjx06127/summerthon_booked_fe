@@ -65,7 +65,7 @@ const ListBox=styled.div`
   background-color  : rgba(175, 190, 220, 0.74);
   width: 200px;
   height: 200px;
-  margin-top: 15%;
+  margin-top: 250px;
   z-index: 0;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
   position: fixed;

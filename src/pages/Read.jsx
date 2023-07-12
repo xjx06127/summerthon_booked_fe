@@ -219,11 +219,9 @@ const Content = styled.p`
 `;
 
 const Read = () => {
-  const activeMenu = "나의 서재";
-
   return (
     <>
-      <Navigator activeMenu={activeMenu} />
+      <Navigator />
       <MainBox>
         <GrayBox>
           <CircleContainer>
