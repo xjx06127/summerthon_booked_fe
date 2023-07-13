@@ -33,6 +33,7 @@ const Circle = styled.div`
   height: 10px;
   border-radius: 6px;
   margin-right: 10px;
+  margin-bottom: 100px;
   background-color: ${(props) => (props.selected ? 'black' : '#d9d9d9')};
 `;
 

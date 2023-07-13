@@ -1,6 +1,12 @@
 import React from "react";
-import styled from 'styled-components';
-import Navigator from "./Navigator"
+import Navigator from "./Navigator";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from 'axios';
+
+
 import { Link } from "react-router-dom";
 
 const Desktop = styled.div`
@@ -97,6 +103,39 @@ const Con2 = styled.div`
 `;
 
 const CmWrite = () => {
+
+  const [title, SetTitle] = useState("");
+  const [content, SetContent] = useState("");
+
+   
+const handleTitle =(e)=> {
+  SetTitle(e.target.value);
+  console.log(e.target.value);
+};
+
+const handleContent=(e)=>{
+  SetContent(e.target.value);
+  console.log(e.target.value);
+
+};
+
+
+const handleUpdateUser = () => {
+  axios
+  .post(`https://mutsabooked.store/posts/create/`,
+  {
+    title: title,
+    content: content  })
+  .then((res)=>{
+    console.log(res);
+
+  })
+}
+
+
+
+
+
   return (
     <>
       <Navigator />
@@ -104,10 +143,10 @@ const CmWrite = () => {
         <Desktop>
           <Con2>
           <WriteText>글쓰기</WriteText>
-          <SubmitButton to="/other-page" onClick={SubmitOk1}>등록하기</SubmitButton>
-          </Con2>
-          <Input placeholder=" 제목을 입력하세요." />
-          <ContentInput placeholder=" 내용을 입력하세요." />
+          <SubmitButton to="/other-page"  onClick={handleUpdateUser}>등록하기</SubmitButton>
+          </Con2> 
+          <Input type="text" onChange={handleTitle} value={title}  placeholder=" 제목을 입력하세요." />
+          <ContentInput onChange={handleContent} value={content}  placeholder=" 내용을 입력하세요." />
           
         </Desktop>
       </Con>

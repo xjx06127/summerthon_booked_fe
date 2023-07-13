@@ -2,6 +2,7 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import Navigator from "./Navigator";
 
+
 const vibration = keyframes`
  0% {
     transform: rotate(10deg);
