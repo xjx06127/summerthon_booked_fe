@@ -126,7 +126,7 @@ const Recommend = () => {
       })
       .then((res) => {
         SetResult(res);
-        navigate(`/BookRecommend/${Result[0].content}`);
+        navigate(`/BookRecommend/${Result}`);
         console.log(res);
       });
   };

@@ -248,7 +248,9 @@ const Home = () => {
         <Link to={`/read/${NickName}`}>
           <Page>나의 서재</Page>
         </Link>
-        <Page>도서 추천</Page>
+        <Link to={`/recommend`}>
+          <Page>도서 추천</Page>
+        </Link>
       </Menu>
 
       <Mid>
