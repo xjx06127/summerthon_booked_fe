@@ -84,7 +84,7 @@ const BookInform = () => {
 
   const [book_title, SetTitle] = useState("a");
   const [author, SetAuthor] = useState("a");
-  // const [created_at, SetDate] = useState("2023-07-12");
+  const [created_at, SetDate] = useState("2023-07-12");
   const [review_title, SetReview] = useState("a");
   const [genre, SetGenre] = useState("a");
   const [feeling, SetFeeling] = useState("a");
@@ -99,46 +99,10 @@ const BookInform = () => {
     console.log(e.target.value);
   };
 
-const handleTitle =(e)=> {
-  SetTitle(e.target.value);
-  console.log(e.target.value);
-};
-
-const handleAuthor=(e)=>{
-  SetAuthor(e.target.value);
-  console.log(e.target.value);
-
-};
-
-// const handleDate=(e)=>{
-//   SetDate(e.target.value);
-//   console.log(e.target.value);
-
-// };
-
-
-const handleUpdateUser = () => {
-  axios
-  .post(`https://mutsabooked.store/bookreview/create/`,
-  {
-    review_title: review_title,
-    book_title: book_title,
-    genre: genre,
-    author: author,
-    feeling: feeling,
-    ei: ei,
-    ns: ns,
-    ft: ft,
-    jp: jp,
-    content: content,
-    // created_at: created_at
-  })
-  .then((res)=>{
-    console.log(res);
-
-  })
-}
-
+  const handleAuthor = (e) => {
+    SetAuthor(e.target.value);
+    console.log(e.target.value);
+  };
 
   const handleDate = (e) => {
     SetDate(e.target.value);
