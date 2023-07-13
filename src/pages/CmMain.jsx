@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Navigator from "./Navigator";
 import { Link } from "react-router-dom";
-
+import axios from "axios";
 
 const Desktop = styled.div`
   display: flex;
@@ -159,11 +159,11 @@ const Nic = styled.p`
   margin-left: 30px;
 `;
 
-const Title= styled.p`
-font-weight: 800;
-font-size: 20px;
-color: #111111;
-margin-left:50px;
+const Title = styled.p`
+  font-weight: 800;
+  font-size: 20px;
+  color: #111111;
+  margin-left: 50px;
 `;
 
 const DirectLinkButton = styled(Link)`

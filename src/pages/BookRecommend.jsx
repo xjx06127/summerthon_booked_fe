@@ -1,6 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import Navigator from './Navigator';
+import React from "react";
+import styled from "styled-components";
+import Navigator from "./Navigator";
+import { useParams } from "react-router-dom";
 
 //전체 BOX
 const BigBox = styled.div`
@@ -162,21 +163,23 @@ const HighLight2 = styled.span`
 `;
 
 const BookRecommend = () => {
-    return (
-        <> 
-            <Navigator/>
-            <BigBox>
-            <EmtyBox>
-            <TextBox>
-                <Line1><HighLight1>백설공주</HighLight1>에 대한</Line1>
-                <Line2>독후감 검색 결과입니다.</Line2>
-                <Line3>총<HighLight2> 3권</HighLight2>의 독후감이 검색되었습니다.</Line3>
-            </TextBox>
-            <EmtyBox2></EmtyBox2>    
-                
-            </EmtyBox>    
-            
-            
+  const Result = useParams();
+  return (
+    <>
+      <Navigator />
+      <BigBox>
+        <EmtyBox>
+          <TextBox>
+            <Line1>
+              <HighLight1>백설공주</HighLight1>에 대한
+            </Line1>
+            <Line2>독후감 검색 결과입니다.</Line2>
+            <Line3>
+              총<HighLight2> 3권</HighLight2>의 독후감이 검색되었습니다.
+            </Line3>
+          </TextBox>
+          <EmtyBox2></EmtyBox2>
+        </EmtyBox>
 
         <Articles>
           <ArticleBox>

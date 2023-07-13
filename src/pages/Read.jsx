@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Navigator from "./Navigator";
 import styled from "styled-components";
 import axios from "axios";
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const MainBox = styled.div`
   //처음 하얀 박스
@@ -249,10 +251,12 @@ const Read = () => {
   const activeMenu = "나의 서재";
   const [bookReview, setBookReview] = useState([]);
   const [selectedBook, setSelectedBook] = useState(null); // 선택한 책의 정보를 유지하는 상태
+  const NickName = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`https://mutsabooked.store/bookreview/`).then((res) => {
-      setBookReview(res.data);
+    axios.get(`https://mutsabooked.store/bookreviewall/`).then((res) => {
+      setBookReview(res.data.filter((c) => c.user == NickName.NickName));
     });
   }, []);
 
@@ -311,13 +315,14 @@ const Read = () => {
           </ParaPageContainer>
           <Line2 />
           <ContentContainer>
-            <Date>2222년 효리월 효리일 오전 12:12</Date>
-            <Content>
-              aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa!
-            </Content>
+            <Date>{selectedBook && selectedBook.updated_at}</Date>
+            <Content>{selectedBook && selectedBook.content} </Content>
           </ContentContainer>
         </Container>
       </MainBox>
+      <button onClick={() => navigate(`/bookInform/${NickName.NickName}`)}>
+        글 쓰러 가기
+      </button>
     </>
   );
 };
