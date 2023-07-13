@@ -1,11 +1,10 @@
 import React from "react";
 import Navigator from "./Navigator";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from 'axios';
-
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Box = styled.div`
   width: 100%;
@@ -31,7 +30,7 @@ const InputBox = styled.input`
   ::placeholder {
     text-align: center;
   }
-padding-left: 10%;
+  padding-left: 10%;
   height: 40px;
 `;
 
@@ -68,21 +67,21 @@ const InputContainer = styled.div`
 
 const Gobutton = styled.button`
   border-radius: 15px;
-  color:rgba(8, 87, 145, 0.64);
+  color: rgba(8, 87, 145, 0.64);
   width: 10%;
   height: 50px;
-border: none;
-position: fixed;
+  border: none;
+  position: fixed;
   bottom: 20px;
   left: 85%;
   background-color: transparent;
   font-weight: bolder;
-
-
 `;
 
-
 const BookInform = () => {
+  const NickName = useParams();
+  const navigate = useNavigate();
+
   const [book_title, SetTitle] = useState("a");
   const [author, SetAuthor] = useState("a");
   // const [created_at, SetDate] = useState("2023-07-12");
@@ -95,6 +94,10 @@ const BookInform = () => {
   const [jp, Setjp] = useState("a");
   const [content, SetContent] = useState("a");
 
+  const handleTitle = (e) => {
+    SetTitle(e.target.value);
+    console.log(e.target.value);
+  };
 
 const handleTitle =(e)=> {
   SetTitle(e.target.value);
@@ -137,7 +140,16 @@ const handleUpdateUser = () => {
 }
 
 
+  const handleDate = (e) => {
+    SetDate(e.target.value);
+    console.log(e.target.value);
+  };
 
+  const handleUpdateUser = () => {
+    navigate(
+      `/writePage/${book_title}/${author}/${created_at}/${NickName.NickName}`
+    );
+  };
 
   return (
     <div>
@@ -153,20 +165,33 @@ const handleUpdateUser = () => {
         <InputContainer>
           <IIntext>먼저, 간단하게 책 정보를 입력해주세요.</IIntext>
           <Rowbox>
-            <Intext >책 제목</Intext>
-            <InputBox type="text" onChange={handleTitle} value={book_title}  placeholder="제목을 입력해주세요."></InputBox>
+            <Intext>책 제목</Intext>
+            <InputBox
+              type="text"
+              onChange={handleTitle}
+              value={book_title}
+              placeholder="제목을 입력해주세요."
+            ></InputBox>
           </Rowbox>
           <Rowbox>
             <Intext>저자</Intext>
-            <InputBox onChange={handleAuthor} value={author} placeholder="저자를 입력해주세요."></InputBox>
+            <InputBox
+              onChange={handleAuthor}
+              value={author}
+              placeholder="저자를 입력해주세요."
+            ></InputBox>
           </Rowbox>
           <Rowbox>
-            {/* <Intext>언제 읽었나요?</Intext> */}
-            {/* <InputBox type="date" onChange={handleDate} value={created_at} ></InputBox> */}
+            <Intext>언제 읽었나요?</Intext>
+            <InputBox
+              type="date"
+              onChange={handleDate}
+              value={created_at}
+            ></InputBox>
           </Rowbox>
         </InputContainer>
       </Box>
-<Gobutton onClick={handleUpdateUser}>글쓰러가기</Gobutton>
+      <Gobutton onClick={handleUpdateUser}>글쓰러가기</Gobutton>
     </div>
   );
 };

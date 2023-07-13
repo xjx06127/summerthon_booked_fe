@@ -4,9 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import TextAnimation from "./TextAnimation";
-import { Link } from "react-router-dom";
-
-
 
 //Home 네비게이터
 const Nav = styled.div`
@@ -247,10 +244,8 @@ const Home = () => {
       <Menu>
         <Page>서비스 소개</Page>
         <Page>마이페이지</Page>
-       <Link to={`/CmMain/${NickName}`} ><Page>커뮤니티</Page></Link>
-        <Link to={`/read/${NickName}`}>
-          <Page>나의 서재</Page>
-        </Link>
+        <Page>커뮤니티</Page>
+        <Page>나의 서재</Page>
         <Page>도서 추천</Page>
       </Menu>
 

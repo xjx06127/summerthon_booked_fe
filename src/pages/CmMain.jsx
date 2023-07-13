@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import { Link } from "react-router-dom";
-
+import axios from "axios";
 
 const Desktop = styled.div`
   display: flex;
@@ -163,11 +163,11 @@ const Nic = styled.p`
   margin-left: 30px;
 `;
 
-const Title= styled.p`
-font-weight: 800;
-font-size: 20px;
-color: #111111;
-margin-left:50px;
+const Title = styled.p`
+  font-weight: 800;
+  font-size: 20px;
+  color: #111111;
+  margin-left: 50px;
 `;
 
 const DirectLinkButton = styled(Link)`
