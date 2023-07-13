@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import Navigator from "./Navigator";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 const VertiContainer = styled.div`
   //세로 control Container
@@ -72,7 +74,7 @@ const InputNickName = styled.input`
   outline: none;
 `;
 
-const InputMBTI = styled.input`
+const InputInfo = styled.input`
   width: 217px;
   height: 40px;
   border: 0.5px solid rgba(0, 0, 0, 0.09);
@@ -134,6 +136,29 @@ const AlertContainer = styled.div`
 
 const EditInfo = () => {
   const activeMenu = "마이페이지";
+  const [PastNickName,SetPastNickName] = useState("");
+  const [PastInfo,SetPastInfo] = useState("");
+  const [Info,SetInfo] = useState("");
+  const [NickName,SetNickName] = useState("");
+
+  useEffect(()=>{
+    axios
+    .get(`https://mutsabooked.store/mypage/`)
+    .then((res)=>{
+        SetPastNickName(res.data.nickname);
+        SetPastInfo(res.data.user_mbti);
+    })
+  },[]);
+
+  const HandleNickName = () => {
+
+
+  };
+
+  const HandleInfo = () => {
+
+
+  };
 
   return (
     <>
@@ -145,11 +170,11 @@ const EditInfo = () => {
           <EditContainer>
             <InfoContainer>
               <Info>닉네임</Info>
-              <InputNickName />
+              <InputNickName placeholder={PastNickName} value={NickName} onChange={HandleNickName}></InputNickName>
             </InfoContainer>
             <InfoContainer>
-              <Info>MBTI</Info>
-              <InputMBTI />
+              <Info>한 줄 소개</Info>
+              <InputInfo placeholder={PastInfo} value={Info} onChange={HandleInfo}></InputInfo>
             </InfoContainer>
           </EditContainer>
         </HoriContainer>

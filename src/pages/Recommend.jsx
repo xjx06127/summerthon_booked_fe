@@ -146,12 +146,14 @@ const [Result, SetResult]= useState([]);
   }
   
     return (
-        
+  
+      
         <div>
 <Navigator></Navigator>           
 <Dis><Text>책 제목을 입력해주시면,<br/>저희가 독후감을 찾아드릴게요.</Text> 
 <Img src='추천페이지.png'></Img></Dis>
-<InputBox type="text" onChange={handleSearch} value={search}  placeholder='책 제목을 입력해주세요.'></InputBox><Submit onClick={handleUpdateUser}></Submit>
+<InputBox type="text" onChange={handleSearch} value={search}  placeholder='책 제목을 입력해주세요.'></InputBox>
+<Submit onClick={handleUpdateUser}></Submit>
 <Ad>광고문의</Ad>
 <Gobutton onClick={ScrollToBottom}>해시태그를 통한 검색</Gobutton>
 <Dis><HashText>해시태그를 통한 검색</HashText><HashText2>클릭시,  해당 태그가 언급된 독후감으로 이동합니다.</HashText2></Dis>

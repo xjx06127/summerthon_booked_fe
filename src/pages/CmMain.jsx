@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Navigator from "./Navigator";
 import { Link } from "react-router-dom";
-
+import axios from "axios";
 
 const Desktop = styled.div`
   display: flex;
