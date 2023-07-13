@@ -85,7 +85,7 @@ position: fixed;
 const BookInform = () => {
   const [book_title, SetTitle] = useState("a");
   const [author, SetAuthor] = useState("a");
-  const [created_at, SetDate] = useState("2023-07-12");
+  // const [created_at, SetDate] = useState("2023-07-12");
   const [review_title, SetReview] = useState("a");
   const [genre, SetGenre] = useState("a");
   const [feeling, SetFeeling] = useState("a");
@@ -107,11 +107,11 @@ const handleAuthor=(e)=>{
 
 };
 
-const handleDate=(e)=>{
-  SetDate(e.target.value);
-  console.log(e.target.value);
+// const handleDate=(e)=>{
+//   SetDate(e.target.value);
+//   console.log(e.target.value);
 
-};
+// };
 
 
 const handleUpdateUser = () => {
@@ -128,7 +128,7 @@ const handleUpdateUser = () => {
     ft: ft,
     jp: jp,
     content: content,
-    created_at: created_at
+    // created_at: created_at
   })
   .then((res)=>{
     console.log(res);
@@ -161,8 +161,8 @@ const handleUpdateUser = () => {
             <InputBox onChange={handleAuthor} value={author} placeholder="저자를 입력해주세요."></InputBox>
           </Rowbox>
           <Rowbox>
-            <Intext>언제 읽었나요?</Intext>
-            <InputBox type="date" onChange={handleDate} value={created_at} ></InputBox>
+            {/* <Intext>언제 읽었나요?</Intext> */}
+            {/* <InputBox type="date" onChange={handleDate} value={created_at} ></InputBox> */}
           </Rowbox>
         </InputContainer>
       </Box>

@@ -118,6 +118,7 @@ const ContentBox = styled.div`
   height: 150px;
 `;
 
+
 const ColBox = styled.div`
   display: flex;
   flex-direction: column;
