@@ -1,8 +1,8 @@
 import React from "react";
 import styled from 'styled-components';
-import Navigator from "./Navigator"
+import Navigator from "./Navigator";
 import { Link } from "react-router-dom";
-
+import TextAnimation from "./TextAnimation";
 
 const Desktop = styled.div`
   display: flex;
@@ -13,14 +13,17 @@ const Desktop = styled.div`
 `;
 
 const Qbox1 = styled.div`
-  width: 550px;
-  height: 120px;
+  width:800px;
   background: #FEFEDF;
   border-radius: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding:10px;
+  padding-left:30px;
+  padding-right:30px;
+
 margin-right: 130px;
+text-align:center;
+display:flex;
+flex-direction:column;
 `;
 const Quote = styled.div`
   font-family: 'Inter';
@@ -40,7 +43,7 @@ const Quote = styled.div`
 
 const TRbox= styled.div`
  width: 350px;
- height: 750px;
+ height: 800px;
  background: #FFFDFD;
  border:2px solid #efebeb;
  box-shadow:0px 10px 10px #efebeb;
@@ -80,7 +83,7 @@ const OtherReviews = styled.div`
 const TRbar= styled.div`
 width: 330px;
 height: 7px;
-background: #D9D9D9;
+background: black;
 border-radius: 50px;
 margin-top: 20px;
 `;
@@ -228,7 +231,7 @@ const CmMain = () => {
         <Desktop>
         
         <Con>
-        <Qbox1> <Quote>"책은 가장 조용하고 변함없는 벗이다."<br /> -102pg- </Quote></Qbox1>
+        <Qbox1><TextAnimation /></Qbox1>
         <R>
         <R2>
         <BookRecommendation>이런책 추천해주세요!</BookRecommendation>
@@ -268,6 +271,8 @@ const CmMain = () => {
         <TodayReview>오늘의 독후감</TodayReview> 
         <OtherReviews>다른 사람들의 독후감을 만나보세요.</OtherReviews>
         <TRbar></TRbar>
+        
+
 
         <TCon>
         <TrT to="/link8">마당을 나온 닭</TrT><TrN>닉네임5</TrN>

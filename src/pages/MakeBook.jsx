@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import { useState } from 'react';
-
+import { Link } from "react-router-dom";
 //Home 네비게이터
 const Nav = styled.div`
   display: flex;
@@ -11,12 +11,16 @@ const Nav = styled.div`
   height: 95px;
 `;
 
+const LogoLink = styled(Link)`
+  text-decoration: none; /* 링크 밑줄 제거 */
+  padding:0;
+`;
 const Logo = styled.img`
     content: url(${(props)=> props.src});
     width: 220px;
     height: 150px;
     padding: 0px;
-    margin-top: -1.4%;
+    margin-top: -25px;
 `;
 
 const Menu = styled.div`
@@ -26,7 +30,7 @@ const Menu = styled.div`
     margin-top: 17px;
 `;
 
-const Page = styled.h1`
+const Page = styled(Link)`
     margin-top: 0px;
     margin-left: 50px;
     margin-right: 20px;
@@ -35,6 +39,7 @@ const Page = styled.h1`
             transition: 0.5s;};
     font-size: 18px;
     cursor: pointer;
+    text-decoration: none; 
 `;
 
 
@@ -266,14 +271,18 @@ const MakeBook = () => {
     return (
         <>
             <Nav>
-            <Logo src="아이콘-removebg-preview.png"></Logo>
+            <LogoLink to="/Home">
+          <Logo src="아이콘-removebg-preview.png" />
+        </LogoLink>
+           
             </Nav>
+            
             <Menu>
-                <Page>서비스 소개</Page>
-                <Page>마이페이지</Page>
-                <Page>커뮤니티</Page>
-                <Page>나의 서재</Page>
-                <Page>도서 추천</Page>
+                <Page to="/Intro" >서비스 소개</Page>
+                <Page to="/MyPage" >마이페이지</Page>
+                <Page to="/CmMain">커뮤니티</Page>
+                <Page to="/BookInform">나의 서재</Page>
+                <Page to="/Recommend">도서 추천</Page>
             </Menu>
 
             <Container>
