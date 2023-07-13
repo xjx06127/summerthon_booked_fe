@@ -118,10 +118,10 @@ function ScrollToBottom() {
 
 
 const Recommend = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const [search, SetSearch] = useState("");
-const [Result, SetResult]= useState([]); 
+  const [search, SetSearch] = useState("");
+  const [Result, SetResult]= useState([]); 
   
   const handleSearch =(e)=> {
     SetSearch(e.target.value);
@@ -136,7 +136,7 @@ const [Result, SetResult]= useState([]);
     .post(`https://mutsabooked.store/bookrecommend/search/`,
     {
       search: search,
-  })
+    })
     .then((res)=>{
         SetResult(res);
         navigate(`/BookRecommend/${Result}`);
