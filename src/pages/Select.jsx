@@ -2,6 +2,9 @@ import React from "react";
 import "./Css/Select.css";
 import styled from "styled-components";
 import { useState } from "react";
+import axios from "axios";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SelBox = styled.span`
   width: 80%;
@@ -17,17 +20,21 @@ const Select = ({ handleOptionChange }) => {
   const [sn, setSn] = useState("");
   const [tf, setTf] = useState("");
   const [jp, setJp] = useState("");
+  const navigate = useNavigate();
+
 
   const handleGenreChange = (event) => {
     const value = event.target.value;
     setGenre(value);
     handleOptionChange("genre", value);
+    navigate(`/BookRecommend/${value}`);
   };
 
   const handleMoodChange = (event) => {
     const value = event.target.value;
     setMood(value);
     handleOptionChange("mood", value);
+
   };
 
   const handleEiChange = (event) => {
@@ -53,6 +60,8 @@ const Select = ({ handleOptionChange }) => {
     setJp(value);
     handleOptionChange("jp", value);
   };
+
+
   return (
     <div>
       <SelBox>

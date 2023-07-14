@@ -49,7 +49,7 @@ const InputBox = styled.input`
 `;
 
 const Ad = styled.div`
-  height: 100px;
+  height: 200px;
   width: 50%;
   background-color: #f7f7f7;
   border-color: gray;
@@ -108,6 +108,51 @@ function ScrollToTop() {
   window.scrollTo(0, 0);
 }
 
+const HashBox = styled.div`
+  display: flex;
+  margin-top: 100px;
+  justify-content: center;
+  margin-bottom: 40px;
+
+`
+const Img2 = styled.img`
+  width: 500px;
+
+`
+
+const HashTitle = styled.p`
+  font-size: 28px;
+  margin-bottom: 0;
+  color: rgba(6, 79, 132, 1);
+  font-weight: 800;
+`
+
+const MiniTitle = styled.p`
+  font-size: 21px;
+  font-weight: 500;
+`
+
+const GoToHash = styled.button`
+  background: #064F84;
+border-radius: 50px;
+color:white;
+font-size: 15px;
+padding:7px;
+cursor: pointer;
+margin-left: 60px;
+margin-right: 60px;
+margin-top: 60px;
+border: none;
+box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+
+`
+const Box = styled.div`
+  display: flex;
+  flex-direction: column;
+
+`
+
 const Recommend = () => {
   const navigate = useNavigate();
 
@@ -116,20 +161,32 @@ const Recommend = () => {
 
   const handleSearch = (e) => {
     SetSearch(e.target.value);
-    console.log(e.target.value);
   };
 
   const handleUpdateUser = () => {
-    axios
+      axios
       .post(`https://mutsabooked.store/bookrecommend/search/`, {
-        search: search,
+        search: search
       })
       .then((res) => {
-        SetResult(res);
-        navigate(`/BookRecommend/${Result}`);
-        console.log(res);
+        console.log(res.data.searchresult.filter((e)=> e.book_title === search));
+        SetResult();
+        moveFun(search, res.data.searchresult.filter((e)=> e.book_title === search));
       });
   };
+
+  function moveFun(search, arr){
+    console.log(arr);
+    (arr.length!==0) ?
+    navigate(`/BookRecommend/${search}`) :
+    navigate(`/Noresult/${search}`);
+
+  }
+
+  
+const GoToHashPage = () => {
+  navigate(`/HashSerch`);
+};
 
   return (
     <div>
@@ -151,12 +208,17 @@ const Recommend = () => {
       <Submit onClick={handleUpdateUser}></Submit>
       <Ad>광고문의</Ad>
       <Gobutton onClick={ScrollToBottom}>해시태그를 통한 검색</Gobutton>
-      <Dis>
-        <HashText>해시태그를 통한 검색</HashText>
-        <HashText2>클릭시, 해당 태그가 언급된 독후감으로 이동합니다.</HashText2>
-      </Dis>
 
-      <RecpageSelect></RecpageSelect>
+      <HashBox>
+        <Img2 src="undraw_Faq_re_31cw.png"/>
+        <Box>
+        <HashTitle>혹시, 책 제목 입력이 어려우신가요?</HashTitle>
+        <MiniTitle>해시 태그 선택을 통한<br/>독후감 찾기 서비스를 이용해보세요.</MiniTitle>
+        <GoToHash onClick={GoToHashPage}>해시태그를 통한 검색으로 이동하기</GoToHash>
+        </Box>
+        
+
+      </HashBox>
     </div>
   );
 };

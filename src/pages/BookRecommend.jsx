@@ -2,6 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import Navigator from "./Navigator";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 //전체 BOX
 const BigBox = styled.div`
@@ -164,7 +167,19 @@ const HighLight2 = styled.span`
 `;
 
 const BookRecommend = () => {
-  const Result = useParams();
+  const {BookName} = useParams();
+  const [informs,SetInforms]=useState([]);
+
+  useEffect(()=>{
+    axios
+    .get(`https://mutsabooked.store/bookreviewall/`)
+    .then((res)=>{
+      SetInforms(
+        res.data.filter((e)=> e.book_title === BookName));
+    })
+  },[]);
+
+
   return (
     <>
       <Navigator />
@@ -172,81 +187,45 @@ const BookRecommend = () => {
         <EmtyBox>
           <TextBox>
             <Line1>
-              <HighLight1>백설공주</HighLight1>에 대한
+              <HighLight1>{BookName}</HighLight1>에 대한
             </Line1>
             <Line2>독후감 검색 결과입니다.</Line2>
             <Line3>
-              총<HighLight2> 3권</HighLight2>의 독후감이 검색되었습니다.
+              총<HighLight2>{informs.length}</HighLight2>의 독후감이 검색되었습니다.
             </Line3>
           </TextBox>
           <EmtyBox2></EmtyBox2>
         </EmtyBox>
-
         <Articles>
-          <ArticleBox>
-            <Profile>
-              <ProfileImg src="undraw_Drink_coffee_av1x.png" />
-              <ProfileNickName>닉네임</ProfileNickName>
-              <ShowLikeBox>
-                <HeartImg src="heart.png" />
-                <HeartNum>5,000</HeartNum>
-              </ShowLikeBox>
-            </Profile>
-
-            <ContentBox>
-              <ColBox>
-                <Date>2023 07 11</Date>
-                <Content>가나다라마바사아자차카타파하</Content>
-              </ColBox>
-              <GoToArticle>
-                <Img2 src="GrFormNextLink.png" />
-              </GoToArticle>
-            </ContentBox>
-          </ArticleBox>
-
-          <ArticleBox>
-            <Profile>
-              <ProfileImg src="undraw_Drink_coffee_av1x.png" />
-              <ProfileNickName>닉네임</ProfileNickName>
-              <ShowLikeBox>
-                <HeartImg src="heart.png" />
-                <HeartNum>5,000</HeartNum>
-              </ShowLikeBox>
-            </Profile>
-
-            <ContentBox>
-              <ColBox>
-                <Date>2023 07 11</Date>
-                <Content>가나다라마바사아자차카타파하</Content>
-              </ColBox>
-              <GoToArticle>
-                <Img2 src="GrFormNextLink.png" />
-              </GoToArticle>
-            </ContentBox>
-          </ArticleBox>
-
-          <ArticleBox>
-            <Profile>
-              <ProfileImg src="undraw_Drink_coffee_av1x.png" />
-              <ProfileNickName>닉네임</ProfileNickName>
-              <ShowLikeBox>
-                <HeartImg src="heart.png" />
-                <HeartNum>5,000</HeartNum>
-              </ShowLikeBox>
-            </Profile>
-
-            <ContentBox>
-              <ColBox>
-                <Date>2023 07 11</Date>
-                <Content>가나다라마바사아자차카타파하</Content>
-              </ColBox>
-              <GoToArticle>
-                <Img2 src="GrFormNextLink.png" />
-              </GoToArticle>
-            </ContentBox>
-          </ArticleBox>
+        {
+                    informs.map((e)=>(
+                      <>
+                        <ArticleBox>
+                        <Profile>
+                         <ProfileImg src="undraw_Drink_coffee_av1x.png" />
+                         <ProfileNickName>{e.user}</ProfileNickName>
+                         <ShowLikeBox>
+                            <HeartImg src="heart.png" />
+                            <HeartNum>{e.like_count}</HeartNum>
+                          </ShowLikeBox>
+                         </Profile>
+                        
+                          <ContentBox>
+                            <ColBox>
+                            <Content>{e.content}</Content>
+                            </ColBox>
+                            <GoToArticle>
+                            <Img2 src="GrFormNextLink.png" />
+                            </GoToArticle>
+                          </ContentBox>
+                        </ArticleBox>
+                        
+                      
+                      </>))
+                  }
         </Articles>
-      </BigBox>
+                  
+        </BigBox>
     </>
   );
 };

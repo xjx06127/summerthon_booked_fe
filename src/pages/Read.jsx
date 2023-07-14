@@ -255,7 +255,7 @@ const Read = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`https://mutsabooked.store/bookreviewall/`).then((res) => {
+    axios.get(`https://mutsabooked.store/bookreview/`).then((res) => {
       setBookReview(res.data.filter((c) => c.user == NickName.NickName));
     });
   }, []);

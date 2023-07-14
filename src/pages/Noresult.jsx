@@ -1,6 +1,7 @@
 import React from "react";
 import Navigator from "./Navigator";
 import styled from "styled-components";
+import { useParams } from "react-router-dom";
 
 const ResultCommentContainer = styled.div`
   //~에 대한 검색결과 + 현재 독후감 존재 x 를 묶는 Container
@@ -81,6 +82,8 @@ const EmtyBox2 = styled.div`
 
 const Noresult = () => {
   const activeMenu = "도서 추천";
+  const {NoResult} = useParams();
+
 
   return (
     <>
@@ -88,7 +91,7 @@ const Noresult = () => {
       <BigBox>
       <ResultCommentContainer>
         <ResultComment>
-          <BookTitle>백설공주</BookTitle>에 대한
+          <BookTitle>{NoResult}</BookTitle>에 대한
           <br />
           독후감 검색 결과입니다.
         <NoResultComment>현재 독후감이 존재하지 않습니다.</NoResultComment>
