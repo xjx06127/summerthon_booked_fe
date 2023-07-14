@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Desktop = styled.div`
   display: flex;
   flex-direction: column;
-
+  font-family:'BMJUA'
 `;
 
 
@@ -18,15 +18,14 @@ const Dis=styled.div`
 `;
 
 const HashText=styled.div`
-    font-weight: bold;
     color: #064F84;
-    font-size: x-large;
+    font-size: xx-large;
     margin-top: 105px;
 `;
 
 const HashText2=styled.div`
     color: black;
-    font-size: large;
+    font-size: x-large;
     margin-top: 110px;
     margin-left: 1%;
     margin-bottom: 50px;
@@ -42,19 +41,19 @@ const Gobutton =  styled(Link)`
   border-radius: 15px;
   background-color: rgba(6, 79, 132, 1);
   width: 370px;
-  height: 50px;
+  height: 40px;
   border: none;
   color:white;
   box-shadow: 0px 4px 3px 0px rgba(0, 0, 0, 0.25);
   white-space: nowrap; /* 텍스트 개행 없이 한 줄에 유지 */
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 800;
   font-size: 25px;
   text-align: center;
   text-decoration: none; /* 밑줄 제거 */
   cursor: pointer;
   margin-top: 20px;
+  align-items: center;//높이의 가운데로
+  display:flex;
+  justify-content:center;
 `;
 
 const Ad=styled.div`
@@ -67,8 +66,6 @@ const Ad=styled.div`
     display: flex;
     align-items: center;
     justify-content: center; /* 수평 가운데 정렬도 추가합니다. */
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 600;
     font-size: 40px;
    margin-bottom:100px;

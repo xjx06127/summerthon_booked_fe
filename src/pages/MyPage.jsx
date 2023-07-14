@@ -2,12 +2,14 @@ import React from "react";
 import Navigator from "./Navigator";
 import styled from "styled-components";
 
+
 const NicName = styled.div`
   color: rgba(74, 117, 148, 1);
   font-size: xx-large;
   font-weight: bolder;
   margin-left: 2%;
   margin-top: 1%;
+  font-family: 'BMJUA';
 `;
 
 const Name = styled.div`
@@ -18,6 +20,7 @@ const Name = styled.div`
   margin-top: 1%;
   padding-left: 5%;
   font-family: "Myfont";
+  font-family: 'BMJUA';
 `;
 
 const One_liner = styled.div`
@@ -27,6 +30,7 @@ const One_liner = styled.div`
   margin-top: 1%;
   padding-left: 5%;
   width: 300px;
+  font-family: 'BMJUA';
 `;
 
 const Bar = styled.div`
@@ -60,6 +64,7 @@ const Menu = styled.button`
   font-weight: bold;
   margin-top: 1%;
   cursor: pointer;
+  font-family: 'BMJUA';
 `;
 
 const Button = styled.button`
@@ -74,6 +79,7 @@ const Button = styled.button`
   margin-left: 20%;
   margin-top: -20%;
   cursor: pointer;
+  font-family: 'BMJUA';
 `;
 
 const Dis = styled.div`
@@ -99,6 +105,7 @@ const InnerBox = styled.div`
   padding-top: 20px;
   padding-right: 20px;
   padding-bottom: 20px;
+  
 `;
 
 const MyPage = () => {
@@ -117,6 +124,7 @@ const MyPage = () => {
         <Menu>회원정보 수정</Menu>
       </Dis>
       <InnerBox></InnerBox>
+      
     </div>
   );
 };

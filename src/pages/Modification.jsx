@@ -7,10 +7,12 @@ const Title = styled.h1`
     margin-top: 130px;
     margin-left: 100px;
     color: #8E9851;
+    font-family: 'BMJUA';
 `;
 
 const Box = styled.div`
     margin-left: 350px;
+    font-family: 'BMJUA';
 `;
 
 //ID
@@ -52,6 +54,7 @@ const ShowNickName = styled.input`
     height: 40px;
     padding-left: 18px;
     font-size: 16px;
+    font-family: 'BMJUA';
 `;
 
 //MBTI
@@ -72,6 +75,7 @@ const ShowMbti = styled.input`
     height: 40px;
     padding-left: 18px;
     font-size: 16px;
+    font-family: 'BMJUA';
 `;
 
 //수정 완료 버튼
@@ -81,9 +85,10 @@ const ModificationButton = styled.button`
     border: none;
     color:white;
     padding: 12px;
-    font-size: 15px;
-    font-weight: 800;
     cursor: pointer;
+    margin-left: 700px;
+    font-size: 17px;
+    font-family:'BMJUA';
 `;
 
 

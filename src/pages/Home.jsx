@@ -5,8 +5,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import TextAnimation from "./TextAnimation";
 import { Link } from "react-router-dom";
-
 //Home 네비게이터
+
 const Nav = styled.div`
   display: flex;
   flex-direction: column;
@@ -15,14 +15,16 @@ const Nav = styled.div`
   height: 95px;
 `;
 
-
-
 const Logo = styled.img`
   content: url(${(props) => props.src});
   width: 220px;
   height: 150px;
   padding: 0px;
-  margin-top: -25px;
+  margin-top: -1.4%;
+`;
+
+const Con= styled.div`
+  font-family: 'BMJUA';
 `;
 
 const Menu = styled.div`
@@ -32,7 +34,7 @@ const Menu = styled.div`
   margin-top: 17px;
 `;
 
-const Page = styled(Link)`
+const Page = styled.h1`
   margin-top: 0px;
   margin-left: 50px;
   margin-right: 20px;
@@ -43,7 +45,6 @@ const Page = styled(Link)`
   }
   font-size: 18px;
   cursor: pointer;
-  text-decoration: none; 
 `;
 
 //Home 중간페이지 (로그인 부분)
@@ -104,6 +105,7 @@ const ShowPw = styled.p`
 const LogButtons = styled.div`
   margin-left: 250px;
   margin-top: 20px;
+
 `;
 
 const LogButton = styled.button`
@@ -112,6 +114,7 @@ const LogButton = styled.button`
   background-color: #fff5ec;
   border: none;
   cursor: pointer;
+  font-family: 'BMJUA';
 `;
 
 const SignButton = styled.button`
@@ -119,6 +122,7 @@ const SignButton = styled.button`
   background-color: #fff5ec;
   border: none;
   cursor: pointer;
+  font-family: 'BMJUA';
 `;
 
 //Home 광고 페이지
@@ -241,16 +245,22 @@ const Home = () => {
   };
 
   return (
+
     <>
       <Nav>
         <Logo src="아이콘-removebg-preview.png" />
       </Nav>
+     <Con>
       <Menu>
-        <Page to="/Intro" >서비스 소개</Page>
-        <Page to="/MyPage" >마이페이지</Page>
-        <Page to="/CmMain">커뮤니티</Page>
-        <Page to="/BookInform">나의 서재</Page>
-        <Page to="/Recommend">도서 추천</Page>
+        <Page>서비스 소개</Page>
+        <Page>마이페이지</Page>
+        <Page>커뮤니티</Page>
+        <Link to={`/read/${NickName}`}>
+          <Page>나의 서재</Page>
+        </Link>
+        <Link to={`/recommend`}>
+          <Page>도서 추천</Page>
+        </Link>
       </Menu>
 
       <Mid>
@@ -298,6 +308,7 @@ const Home = () => {
         <Line2>" Booked 서재를 당신 집의 서재로 "</Line2>
         <Line3>해당 배너를 클릭하면 페이지로 이동합니다.</Line3>
       </Ad>
+      </Con>
     </>
   );
 };

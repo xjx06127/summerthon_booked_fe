@@ -12,6 +12,15 @@ import CmReco from "./pages/CmReco";
 import CmWrite from "./pages/CmWrite";
 import CmMain from "./pages/CmMain";
 import SignUp from "./pages/SignUp";
+import Recommend from "./pages/Recommend";
+import Noresult from "./pages/Noresult";
+import HashSerch from "./pages/HashSerch";
+import Intro from "./pages/Intro";
+import Modification from "./pages/Modification";
+import NotFound from "./pages/NotFound";
+
+
+
 function App() {
   return (
     <BrowserRouter>
@@ -26,13 +35,18 @@ function App() {
         <Route path="/CmMain/:NickName" element={<CmMain />} />
         <Route path="/BookInform/:NickName" element={<BookInform />} />
         <Route path="/Recommend" element={<Recommend />} />
-        <Route path="/BookRecommend/:Result" element={<BookRecommend />} />
+        <Route path="/BookRecommend/:review_title" element={<BookRecommend />} />
         <Route path="/read/:NickName" element={<Read />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route
-          path="/writePage/:book_title/:author/:created_at/:NickName"
-          element={<WritePage />}
+        <Route path="/noresult/:result" element={<Noresult/>}/>
+        <Route path="/writePage/:book_title/:author/:created_at/:NickName" element={<WritePage />}
         />
+        <Route path="/HashSerch" element={<HashSerch/>}/>
+        <Route path="/Intro" element={<Intro/>}/>
+        <Route path="/Modification" element={<Modification/>}/>
+        <Route path="/NotFound" element={<NotFound/>}/>
+        <Route path="/Read" element={<Read/>}/>
+     
       </Routes>
     </BrowserRouter>
   );

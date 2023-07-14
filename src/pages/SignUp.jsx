@@ -19,20 +19,21 @@ const VertiContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: 'BMJUA';
 `;
 
 const Sign = styled.p`
   //회원가입하기
-  font-weight: 800;
+  
   font-size: 35px;
   line-height: 42px;
   margin-bottom: 0px;
-
+  font-weight: 600;
   color: #000000;
 `;
 
 const Thankyou = styled.p`
-  font-weight: 800;
+  font-weight: 400;
   font-size: 25px;
   line-height: 30px;
 
@@ -65,9 +66,10 @@ const Input = styled.input`
   border-top-width: 0;
   outline: none;
   margin-left: 30px;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 17px;
   height: 30px;
+  font-family: 'BMJUA';
 `;
 
 const SetContainer = styled.div`
@@ -83,6 +85,8 @@ const Buttons = styled.div`
   margin-left: 570px;
   margin-bottom: 50px;
   margin-top: 20px;
+  font-family: 'BMJUA';
+
 `;
 
 //정렬 컨테이너 박스
@@ -143,19 +147,18 @@ const SignUp = () => {
     height: 43px;
     background: #8e9851;
     border-radius: 50px;
-    font-weight: 800;
     font-size: 15px;
     line-height: 23px;
-
     color: #ffffff;
-
     border: none;
     padding: 9px;
     padding-left: 18px;
     padding-right: 18px;
     margin-right: 30px;
-
     cursor: pointer;
+    font-family:'BMJUA';
+    font-weight: 200;
+ 
   `;
 
   const GoToHome = () => {

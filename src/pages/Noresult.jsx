@@ -57,7 +57,7 @@ const Button = styled.button`
   cursor: pointer;
   background: #717d2c;
   border-radius: 50px;
-  font-weight: 800;
+  font-weight: 500;
   font-size: 20px;
   height: 45px;
   padding: 10px;
@@ -67,12 +67,15 @@ const Button = styled.button`
 
   color: #ffffff;
   border: none;
+  font-family: 'BMJUA';
 `;
 
 const BigBox = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: 'BMJUA';
+    
 `
 
 const EmtyBox2 = styled.div`
