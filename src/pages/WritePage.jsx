@@ -14,6 +14,7 @@ const InputBox = styled.input`
   width: 200px;
   height: 29px;
   margin-left: 30px;
+  font-family: 'BMJUA';
 `;
 
 const Text = styled.p`
@@ -21,6 +22,7 @@ const Text = styled.p`
   font-weight: bold;
   font-size: medium;
   margin-left: 100px;
+  font-family: 'BMJUA';
 `;
 
 const WriteBox = styled.textarea`
@@ -40,6 +42,7 @@ const WriteBox = styled.textarea`
   margin-top: 50px;
   margin-left: 5%;
   outline: none;
+  font-family: 'BMJUA';
 `;
 
 const Button = styled.button`
@@ -47,9 +50,11 @@ const Button = styled.button`
   border-color: transparent;
   margin-top: 1%;
   border-radius: 20px;
-  margin-left: -6.5%;
+  margin-left: -120px;
   width: 100px;
+  height:35px;
   cursor: pointer;
+  font-family: 'BMJUA';
 `;
 const Memory = styled.div`
   color: #0a4511;
@@ -58,18 +63,21 @@ const Memory = styled.div`
   border: dotted;
   border-color: #deede2;
   border-radius: 20px;
-  position: fixed;
   margin-top: -0%;
+  font-family: 'BMJUA';
+  padding:10px;
 `;
 
 const ListBox = styled.div`
   background-color: rgba(175, 190, 220, 0.74);
   width: 200px;
   height: 200px;
-  margin-top: 250px;
+  margin-top: 40px;
   z-index: 0;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
-  position: fixed;
+  font-family: 'BMJUA';
+  padding: 10px;
+  text-align: left;
 `;
 const ListBox1 = styled.div`
   background-color: #7bacb0;
@@ -92,12 +100,14 @@ const Dis = styled.div`
   justify-content: space-evenly;
   flex-wrap: wrap;
   height: auto;
+  font-family: 'BMJUA';
 `;
 
 const AddButton = styled.button`
   background-color: transparent;
   color: #464f47;
   border-radius: 12px;
+  font-family: 'BMJUA';
 `;
 const MemText = styled.div`
   width: 100px;
@@ -114,6 +124,7 @@ const PageBox = styled.input`
   border-color: #c4c496;
   font-size: 20px;
   width: 50px;
+  font-family: 'BMJUA';
 `;
 
 const MText = styled.textarea`
@@ -128,6 +139,10 @@ const ReviewTitleInput = styled.input`
   height: 50px;
   margin-left: 30%;
   margin-top: 2%;
+  padding-left:15px;
+  font-family: 'BMJUA';
+  font-size: 20px; 
+  
 `;
 
 const WritePage = () => {
@@ -147,6 +162,18 @@ const WritePage = () => {
   const [pickwriting, setPickWriting] = useState("");
   const [reviewTitle, setReviewTitle] = useState("");
   const [writeContent, setWriteContent] = useState(""); // Added state variable
+  const [quotes, setQuotes] = useState([]);
+
+  const addQuote = () => {
+    const newQuote = {
+      page: pickpage,
+      content: pickwriting,
+    };
+    setQuotes([...quotes, newQuote]);
+    setPickPage("");
+    setPickWriting("");
+  };
+
 
   const handleOptionChange = (option, value) => {
     // 선택한 옵션 값을 상태로 업데이트
@@ -221,17 +248,19 @@ const WritePage = () => {
           <Memory>
             기억하고 싶은
             <br /> 책 구절이 있으신가요? <br /> <br /> 페이지
-            <PageBox value={pickpage} onChange={handlePageChange}></PageBox>
+            <PageBox value={pickpage} onChange={handlePageChange} ></PageBox>
             pg <br /> <br /> 구절{" "}
             <MText value={pickwriting} onChange={handleWritingChange}></MText>
-            <AddButton>추가</AddButton>
+            <AddButton onClick={addQuote}>추가</AddButton>
           </Memory>
           <ListBox>
-            {" "}
-            <li>
-              "영감이 나에게 오지 않을 때 내가 그것을 만나러 반을 간다." 102pg
-            </li>{" "}
-          </ListBox>
+  {quotes.map((quote, index) => (
+    <li key={index}>
+      {quote.content} , {quote.page}pg
+    </li>
+  ))}
+</ListBox>
+
         </MemText>
       </Dis>
     </div>

@@ -7,6 +7,7 @@ const Box = styled.div`
   align-items: center;
   justify-content: center;
   height: 100vh;
+  font-family: 'BMJUA';
 `;
 
 const Img1 = styled.img`
@@ -51,6 +52,7 @@ const InputPw = styled.input`
   font-size: 17px;
   padding: 10px;
   outline: none;
+  font-family: 'BMJUA';
 `;
 
 const Text4 = styled.p`
@@ -72,6 +74,8 @@ const InputButton = styled.button`
   margin-right: 180px;
   margin-top: 100px;
   cursor: pointer;
+  font-family:'BMJUA';
+  font-size: 20px;
 `;
 
 const ModificationLog = () => {

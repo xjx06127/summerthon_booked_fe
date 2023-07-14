@@ -2,10 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import axios from "axios";
 import TextAnimation from "./TextAnimation";
 import { Link } from "react-router-dom";
-
 //Home 네비게이터
+
 const Nav = styled.div`
   display: flex;
   flex-direction: column;
@@ -20,6 +21,10 @@ const Logo = styled.img`
   height: 150px;
   padding: 0px;
   margin-top: -1.4%;
+`;
+
+const Con = styled.div`
+  font-family: "BMJUA";
 `;
 
 const Menu = styled.div`
@@ -108,6 +113,7 @@ const LogButton = styled.button`
   background-color: #fff5ec;
   border: none;
   cursor: pointer;
+  font-family: "BMJUA";
 `;
 
 const SignButton = styled.button`
@@ -115,6 +121,7 @@ const SignButton = styled.button`
   background-color: #fff5ec;
   border: none;
   cursor: pointer;
+  font-family: "BMJUA";
 `;
 
 //Home 광고 페이지
@@ -179,7 +186,6 @@ const Home = () => {
   const [PW, SetPw] = useState("");
   const [NickName, SetNickName] = useState("");
   const [LogCheck, SetLog] = useState(0);
-
   const GoToMakeBookPage = () => {
     navigate(`/MakeBookService`);
   };
@@ -189,39 +195,41 @@ const Home = () => {
       <Nav>
         <Logo src="아이콘-removebg-preview.png" />
       </Nav>
-      <Menu>
-        <Page>서비스 소개</Page>
-        <Link to={`/mypage`}>
-          <Page>마이페이지</Page>
-        </Link>
-        <Link to={`/CmMain/${NickName}`}>
-          <Page>커뮤니티</Page>{" "}
-        </Link>
-        <Link to={`/read`}>
-          <Page>나의 서재</Page>
-        </Link>
-        <Link to={`/recommend`}>
-          <Page>도서 추천</Page>
-        </Link>
-      </Menu>
+      <Con>
+        <Menu>
+          <Link to={`/intro`}>
+            <Page>서비스 소개</Page>
+          </Link>
+          <Link to={`/mypage`}>
+            <Page>마이페이지</Page>
+          </Link>
+          <Page>커뮤니티</Page>
+          <Link to={`/read/${NickName}`}>
+            <Page>나의 서재</Page>
+          </Link>
+          <Link to={`/recommend`}>
+            <Page>도서 추천</Page>
+          </Link>
+        </Menu>
 
-      <Mid>
-        <Left>
-          <TextAnimation />
-        </Left>
+        <Mid>
+          <Left>
+            <TextAnimation />
+          </Left>
 
-        <Log>
-          <LogSuccess>
-            <LogTittle>아기사자님 환영합니다!</LogTittle>
-          </LogSuccess>
-        </Log>
-      </Mid>
+          <Log>
+            <LogSuccess>
+              <LogTittle>아기사자님 환영합니다!</LogTittle>
+            </LogSuccess>
+          </Log>
+        </Mid>
 
-      <Ad onClick={() => GoToMakeBookPage()}>
-        <Line1>독서 기록을 책으로 만들어 오래도록 간직하세요.</Line1>
-        <Line2>" Booked 서재를 당신 집의 서재로 "</Line2>
-        <Line3>해당 배너를 클릭하면 페이지로 이동합니다.</Line3>
-      </Ad>
+        <Ad onClick={() => GoToMakeBookPage()}>
+          <Line1>독서 기록을 책으로 만들어 오래도록 간직하세요.</Line1>
+          <Line2>" Booked 서재를 당신 집의 서재로 "</Line2>
+          <Line3>해당 배너를 클릭하면 페이지로 이동합니다.</Line3>
+        </Ad>
+      </Con>
     </>
   );
 };

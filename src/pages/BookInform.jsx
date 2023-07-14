@@ -16,6 +16,7 @@ const Box = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-family: "BMJUA";
 `;
 
 const InputBox = styled.input`
@@ -36,9 +37,9 @@ const InputBox = styled.input`
 
 const Text = styled.p`
   color: rgba(8, 87, 145, 1);
-  font-weight: bold;
   font-size: xx-large;
   margin-left: 100px;
+  font-family: "BMJUA";
 `;
 const Rowbox = styled.div`
   display: flex;
@@ -47,13 +48,11 @@ const Rowbox = styled.div`
 `;
 const Intext = styled.div`
   color: white;
-  font-weight: bold;
   font-size: 25px;
   width: 200px;
 `;
 const IIntext = styled.div`
   color: white;
-  font-weight: bold;
   font-size: xx-large;
   padding-bottom: 30px;
 `;
@@ -76,6 +75,7 @@ const Gobutton = styled.button`
   left: 85%;
   background-color: transparent;
   font-weight: bolder;
+  font-family: "BMJUA";
 `;
 
 const BookInform = () => {
@@ -96,8 +96,8 @@ const BookInform = () => {
   const handleUpdateUser = () => {
     axios
       .post(`https://mutsabooked.store/bookreview/create/`, {
-        review_title: "독후감 제목",
-        book_title: "책 제목",
+        review_title: "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        book_title: "책 제2323목",
         author: "저자",
         genre: "소설",
         feeling: "신남",
@@ -105,9 +105,7 @@ const BookInform = () => {
         ns: "감각적",
         ft: "사고적",
         jp: "인식적",
-        content: "독후감 내용",
-        pickpage: "abc",
-        pickwriting: "abbb",
+        content: "독후감 내3용",
       })
       .then((res) => {
         console.log(res);

@@ -19,6 +19,7 @@ const vibration = keyframes`
 const BackGround = styled.div`
   min-height: 100vh;
   background: #f4faff;
+  font-family:'BMJUA';
 `;
 
 const Logo = styled.img`

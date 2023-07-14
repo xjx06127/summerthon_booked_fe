@@ -17,6 +17,7 @@ const MainBox = styled.div`
   margin-top: 50px;
   margin-bottom: 50px;
   border-radius: 20px 20px 10px 10px;
+  font-family: "BMJUA";
 `;
 
 const GrayBox = styled.div`
@@ -176,6 +177,7 @@ const BookCount = styled.div`
   margin-bottom: 20px;
 
   color: #909090;
+  font-family: "BMJUA";
 `;
 
 const ParaPage = styled.div`

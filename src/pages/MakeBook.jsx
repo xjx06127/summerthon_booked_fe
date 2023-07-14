@@ -28,6 +28,7 @@ const Menu = styled.div`
     flex-direction: row;
     justify-content: center;
     margin-top: 17px;
+    font-family: 'BMJUA';
 `;
 
 const Page = styled(Link)`
@@ -46,6 +47,7 @@ const Page = styled(Link)`
 //전체 비율 조절
 const Container = styled.div`
     margin: 0 auto;
+    font-family: 'BMJUA';
 `
 const Section1 = styled.div`
     display: flex;
@@ -67,13 +69,13 @@ const Section3 = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+    font-family: 'BMJUA';
 `;
 
 const Lines = styled.div`
 display: flex;
 flex-direction: column;
-
+font-weight: 100;
 width: 700px;
 margin-left: 50px;
 `;
@@ -119,9 +121,9 @@ border-radius: 50px;
 filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 0.25));
 color: white;
 border: none;
-font-size: 16px;
+font-size: 20px;
 cursor: pointer;
-
+font-family:'BMJUA';
 `;
 
 const ArrowIcon1 = styled.img`
@@ -137,22 +139,17 @@ const Texts = styled.div`
 margin-top: 80px;
 margin-right: 900px;
 text-align: left;
+font-family: 'BMJUA';
 
 `;
 
 const Text2 = styled.h1`
-font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
 font-size: 40px;
 line-height: 48px;
 
 `;
 
 const Text3 = styled.h1`
-font-family: 'Inter';
-font-style: normal;
-font-weight: 800;
 font-size: 28px;
 line-height: 34px;
 color: #8E9851;
@@ -160,9 +157,6 @@ color: #8E9851;
 `;
 
 const Text4 = styled.h1`
-font-family: 'Inter';
-font-style: normal;
-font-weight: 800;
 font-size: 24px;
 line-height: 29px;
 color: rgba(142, 152, 81, 0.67);
@@ -177,6 +171,7 @@ margin-top: 90px;
 
 margin-bottom: 100px;
 width: 600px;
+font-family: 'BMJUA';
 `;
 
 const Input1 = styled.div`
@@ -234,6 +229,7 @@ cursor: pointer;
 margin: 0 auto;
 display: block;
 margin-bottom: 100px;
+font-family: 'BMJUA';
 `;
 
 const Img1 = styled.img`

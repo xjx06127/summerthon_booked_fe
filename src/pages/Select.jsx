@@ -2,12 +2,17 @@ import React from "react";
 import "./Css/Select.css";
 import styled from "styled-components";
 import { useState } from "react";
+import axios from "axios";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SelBox = styled.span`
   width: 80%;
   height: 40px;
   display: flex;
   margin-left: 3%;
+  font-family: 'BMJUA';
+  
 `;
 
 const Select = ({ handleOptionChange }) => {
@@ -17,17 +22,21 @@ const Select = ({ handleOptionChange }) => {
   const [sn, setSn] = useState("");
   const [tf, setTf] = useState("");
   const [jp, setJp] = useState("");
+  const navigate = useNavigate();
+
 
   const handleGenreChange = (event) => {
     const value = event.target.value;
     setGenre(value);
     handleOptionChange("genre", value);
+    navigate(`/BookRecommend/${value}`);
   };
 
   const handleMoodChange = (event) => {
     const value = event.target.value;
     setMood(value);
     handleOptionChange("mood", value);
+
   };
 
   const handleEiChange = (event) => {
@@ -53,6 +62,8 @@ const Select = ({ handleOptionChange }) => {
     setJp(value);
     handleOptionChange("jp", value);
   };
+
+
   return (
     <div>
       <SelBox>
@@ -90,21 +101,13 @@ const Select = ({ handleOptionChange }) => {
           <option value="설렘">설렘</option>
           <option value="슬픔">슬픔</option>
           <option value="화남">화남</option>
-          <option value="허무">허무</option>
-          <option value="건강">건강</option> <option value="소설">소설</option>
-          <option value="취미/실용/스포츠">취미/실용/스포츠</option>
-          <option value="경제/경영">경제/경영</option>{" "}
-          <option value="소설">소설</option>
-          <option value="자기계발">자기계발</option>
-          <option value="정치/사회">정치사회</option>{" "}
-          <option value="소설">소설</option>
-          <option value="역사/문화">역사/문화</option>
-          <option value="종교">종교</option>
-          <option value="예술/대중문화">예술/대중문화</option>
-          <option value="과학">과학</option>
-          <option value="여행">여행</option>
-          <option value="컴퓨터/IT/육아">컴퓨터/IT</option>
-          <option value="잡지">잡지</option>
+          <option value="우울">우울</option>
+          <option value="공포">공포</option>
+          <option value="불안">불안</option>
+          <option value="나태">나태</option>
+
+         
+          
         </select>
         <br /> <br />
         {/* <label for="외향/내향">E & I</label> */}

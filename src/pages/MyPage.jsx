@@ -10,6 +10,7 @@ const NicName = styled.div`
   font-weight: bolder;
   margin-left: 2%;
   margin-top: 1%;
+  font-family: "BMJUA";
 `;
 
 const Name = styled.div`
@@ -20,6 +21,7 @@ const Name = styled.div`
   margin-top: 1%;
   padding-left: 5%;
   font-family: "Myfont";
+  font-family: "BMJUA";
 `;
 
 const One_liner = styled.div`
@@ -29,6 +31,7 @@ const One_liner = styled.div`
   margin-top: 1%;
   padding-left: 5%;
   width: 300px;
+  font-family: "BMJUA";
 `;
 
 const Bar = styled.div`
@@ -62,6 +65,7 @@ const Menu = styled.button`
   font-weight: bold;
   margin-top: 1%;
   cursor: pointer;
+  font-family: "BMJUA";
 `;
 
 const Button = styled.button`
@@ -76,6 +80,7 @@ const Button = styled.button`
   margin-left: 20%;
   margin-top: -20%;
   cursor: pointer;
+  font-family: "BMJUA";
 `;
 
 const Dis = styled.div`
@@ -104,16 +109,12 @@ const InnerBox = styled.div`
 `;
 
 const MyPage = () => {
-  //   useEffect(() => {
-  //     axios.get(`https://mutsabooked.store/bookreview/mypage`)
-  //     .then((res))
-  //   })
   return (
     <div>
       <Navigator></Navigator>
-      <NicName>hyoring.booked</NicName>
-      <ProfilePic src="핑크배경.png"></ProfilePic>
-      <Name>최효리</Name>
+      <NicName>Likelion.booked</NicName>
+      <ProfilePic src="멋사배경.png"></ProfilePic>
+      <Name>아기사자</Name>
       <One_liner>front-end</One_liner>
       <Bar></Bar>
       <Dis>

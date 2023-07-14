@@ -12,6 +12,8 @@ import CmWrite from "./pages/CmWrite";
 import CmMain from "./pages/CmMain";
 import SignUp from "./pages/SignUp";
 import Recommend from "./pages/Recommend";
+import HashSerch from "./pages/HashSerch";
+import Intro from "./pages/Intro";
 function App() {
   return (
     <BrowserRouter>
@@ -28,9 +30,10 @@ function App() {
         <Route path="/read" element={<Read />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/mypage" element={<MyPage />} />
-
+        <Route path="/hashserch" element={<HashSerch />} />
         <Route path="/writePage" element={<WritePage />} />
         <Route path="/recommend" element={<Recommend />} />
+        <Route path="/intro" element={<Intro />} />
       </Routes>
     </BrowserRouter>
   );
