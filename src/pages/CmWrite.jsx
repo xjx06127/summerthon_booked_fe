@@ -13,20 +13,19 @@ const Desktop = styled.div`
   display: flex;
   flex-direction: column;
   height: 1024px;
+  font-family: 'BMJUA';
 `;
 
 const Con = styled.div`
  display: flex;
   justify-content: center;
   align-items: center;
- 
+  font-family: 'BMJUA';
 `;
 
 const WriteText = styled.div`
   
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 800;
+  
   font-size: 30px;
   line-height: 36px;
   color: #667121;
@@ -44,9 +43,7 @@ const Input = styled.input`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 600;
+  font-family: 'BMJUA';
   font-size: 20px;
   line-height: 24px;
   padding: 8px;
@@ -60,13 +57,11 @@ const ContentInput = styled.textarea`
   border-radius:0;
   box-shadow:0px 10px 10px #efebeb;
   outline: none;
-  
+  font-family: 'BMJUA';
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 600;
+
   font-size: 20px;
   line-height: 24px;
   padding: 8px;
@@ -79,9 +74,6 @@ const SubmitButton = styled(Link)`
   background: #D9D9D9;
   border-radius: 40px;
   border: none;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 800;
   font-size: 20px;
   line-height: 24px;
   color: #4A7594;

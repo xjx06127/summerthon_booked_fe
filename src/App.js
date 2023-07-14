@@ -11,10 +11,6 @@ import CmReco from "./pages/CmReco";
 import CmWrite from "./pages/CmWrite";
 import CmMain from "./pages/CmMain";
 import SignUp from "./pages/SignUp";
-import Recommend from "./pages/Recommend";
-import Noresult from "./pages/Noresult";
-import HashSerch from "./pages/HashSerch";
-
 function App() {
   return (
     <BrowserRouter>
@@ -29,16 +25,12 @@ function App() {
         <Route path="/CmMain/:NickName" element={<CmMain />} />
         <Route path="/BookInform/:NickName" element={<BookInform />} />
         <Route path="/Recommend" element={<Recommend />} />
-        <Route path="/BookRecommend/:BookName" element={<BookRecommend />} />
-        <Route path="/read" element={<Read />} />
+        <Route path="/BookRecommend/:Result" element={<BookRecommend />} />
+        <Route path="/read/:NickName" element={<Read />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route
-          path="/writePage/:book_title/:author/:created_at/:NickName"
-          element={<WritePage />}
+        <Route path="/noresult/:result" element={<Noresult/>}/>
+        <Route path="/writePage/:book_title/:author/:created_at/:NickName" element={<WritePage />}
         />
-
-        <Route path="/noresult/:NoResult" element={<Noresult/>}/>
-        <Route path="/HashSerch" element={<HashSerch/>}/>
       </Routes>
     </BrowserRouter>
   );

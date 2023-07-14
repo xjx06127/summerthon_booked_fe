@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+
 const Box = styled.div`
   width: 100%;
   height: 350px;
@@ -16,6 +17,7 @@ const Box = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-family: 'BMJUA';
 `;
 
 const InputBox = styled.input`
@@ -36,9 +38,9 @@ const InputBox = styled.input`
 
 const Text = styled.p`
   color: rgba(8, 87, 145, 1);
-  font-weight: bold;
   font-size: xx-large;
   margin-left: 100px;
+  font-family: 'BMJUA';
 `;
 const Rowbox = styled.div`
   display: flex;
@@ -47,13 +49,11 @@ const Rowbox = styled.div`
 `;
 const Intext = styled.div`
   color: white;
-  font-weight: bold;
   font-size: 25px;
   width: 200px;
 `;
 const IIntext = styled.div`
   color: white;
-  font-weight: bold;
   font-size: xx-large;
   padding-bottom: 30px;
 `;
@@ -63,6 +63,7 @@ const InputContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
+ 
 `;
 
 const Gobutton = styled.button`
@@ -76,6 +77,7 @@ const Gobutton = styled.button`
   left: 85%;
   background-color: transparent;
   font-weight: bolder;
+  font-family: 'BMJUA';
 `;
 
 const BookInform = () => {

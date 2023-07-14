@@ -3,6 +3,7 @@ import styled from "styled-components";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 import { Link } from "react-router-dom";
+//Home 네비게이터
 
 const Nav = styled.div`
   display: flex;
@@ -18,6 +19,10 @@ const Logo = styled.img`
   height: 150px;
   padding: 0px;
   margin-top: -1.4%;
+`;
+
+const Con= styled.div`
+  font-family: 'BMJUA';
 `;
 
 const Menu = styled.div`
@@ -98,6 +103,7 @@ const ShowPw = styled.p`
 const LogButtons = styled.div`
   margin-left: 250px;
   margin-top: 20px;
+
 `;
 
 const LogButton = styled.button`
@@ -106,6 +112,7 @@ const LogButton = styled.button`
   background-color: #fff5ec;
   border: none;
   cursor: pointer;
+  font-family: 'BMJUA';
 `;
 
 const SignButton = styled.button`
@@ -113,6 +120,7 @@ const SignButton = styled.button`
   background-color: #fff5ec;
   border: none;
   cursor: pointer;
+  font-family: 'BMJUA';
 `;
 
 const Home = () => {
@@ -175,10 +183,12 @@ const Home = () => {
   };
 
   return (
+
     <>
       <Nav>
         <Logo src="아이콘-removebg-preview.png" />
       </Nav>
+     <Con>
       <Menu>
         <Page>서비스 소개</Page>
         <Page>마이페이지</Page>
@@ -232,6 +242,13 @@ const Home = () => {
           )}
         </Log>
       </Mid>
+
+      <Ad onClick={() => GoToMakeBookPage()}>
+        <Line1>독서 기록을 책으로 만들어 오래도록 간직하세요.</Line1>
+        <Line2>" Booked 서재를 당신 집의 서재로 "</Line2>
+        <Line3>해당 배너를 클릭하면 페이지로 이동합니다.</Line3>
+      </Ad>
+      </Con>
     </>
   );
 };

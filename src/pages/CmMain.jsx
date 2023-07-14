@@ -12,6 +12,7 @@ const Desktop = styled.div`
   height: 1024px;
   margin-top: 80px;
   justify-content: center;
+  font-family: 'BMJUA';
 `;
 
 const Qbox1 = styled.div`
@@ -25,9 +26,6 @@ const Qbox1 = styled.div`
   margin-right: 130px;
 `;
 const Quote = styled.div`
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 800;
   font-size: 20px;
   line-height: 24px;
   display: flex;
@@ -51,25 +49,20 @@ const TRbox = styled.div`
 `;
 
 const TodayReview = styled.div`
-  margin-right: 100px;
+  margin-right: 60px;
   width: 90px;
   height: 77px;
-  font-family: "Inknut Antiqua";
-  font-style: normal;
-  font-weight: 700;
   font-size: 30px;
   line-height: 77px;
   color: #bbe2b2;
   white-space: nowrap; /* 텍스트 개행 없이 한 줄에 유지 */
+ 
 `;
 
 const OtherReviews = styled.div`
   width: 400px;
   height: 23px;
   right: 40px;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
   font-size: 19px;
   line-height: 23px;
   color: #000000;
@@ -79,7 +72,7 @@ const OtherReviews = styled.div`
 const TRbar = styled.div`
   width: 330px;
   height: 7px;
-  background: #d9d9d9;
+  background: #c8c6c6;
   border-radius: 50px;
   margin-top: 20px;
 `;
@@ -102,9 +95,6 @@ const R2 = styled.div`
 const BookRecommendation = styled.div`
   width: 321px;
   height: 42px;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 800;
   font-size: 35px;
   line-height: 42px;
   color: #bbe2b2;
@@ -117,9 +107,6 @@ const DirectCwButton = styled(Link)`
   margin-left: 430px;
   background: #d9d9d9;
   border-radius: 10px;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 800;
   font-size: 20px;
   line-height: 24px;
   color: #4a7594;
@@ -174,9 +161,6 @@ const DirectLinkButton = styled(Link)`
   height: 40px;
   background: #d9d9d9;
   border-radius: 40px;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 800;
   font-size: 20px;
   line-height: 24px;
   color: #4a7594;
@@ -197,7 +181,6 @@ const TCon = styled.p`
 `;
 
 const TrT = styled(Link)`
-  font-weight: 800;
   font-size: 28px;
   color: #111111;
   margin: 0px;
@@ -206,7 +189,6 @@ const TrT = styled(Link)`
 `;
 
 const TrN = styled.p`
-  font-weight: 800;
   font-size: 20px;
   color: #111111;
   margin: 0px;

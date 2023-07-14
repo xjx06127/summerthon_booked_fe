@@ -9,6 +9,8 @@ const Nav = styled.div`
   justify-content: center;
   background-color: rgba(187, 226, 178, 0.97);
   height: 70px;
+  font-family: 'BMJUA';
+ 
 `;
 
 const LogoLink = styled(Link)`

@@ -11,6 +11,7 @@ display: flex;
 margin-left: 25%;
 margin-top: 2%;
 margin-bottom: 5%;
+font-family:'BMJUA'
 `;
 
 

@@ -17,6 +17,7 @@ const MainBox = styled.div`
   margin-top: 50px;
   margin-bottom: 50px;
   border-radius: 20px 20px 10px 10px;
+  font-family: 'BMJUA';
 `;
 
 const GrayBox = styled.div`
@@ -125,6 +126,7 @@ const BookContentContainer = styled.div`
   cursor: pointer; /* 커서를 변경하여 클릭 가능한 요소로 표시 */
   background-color: ${({ selected }) =>
     selected ? "#d9d9d9" : "transparent"}; /* 선택 여부에 따라 배경색 변경 */
+  
 `;
 
 const BookTitle = styled.span`
@@ -176,6 +178,7 @@ const BookCount = styled.div`
   margin-bottom: 20px;
 
   color: #909090;
+  font-family: 'BMJUA';
 `;
 
 const ParaPage = styled.div`

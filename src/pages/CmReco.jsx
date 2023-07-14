@@ -7,6 +7,7 @@ const Desktop = styled.div`
   display: flex;
   flex-direction: column;
   overflow-x: hidden; /* 화면을 옆으로 스크롤되지 않도록 설정 */
+  font-family: 'BMJUA';
 `;
 
 const RcboxT = styled.div`
@@ -16,9 +17,7 @@ const RcboxT = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin-top: 70px;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 800;
+  font-family: 'BMJUA';
   font-size: 30px;
   line-height: 36px;
   color: #000000;
@@ -32,9 +31,7 @@ const Nicnamebox = styled.div`
   border: 1px solid #000000;
   margin-left: 75%;
   margin-top: 5px;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 800;
+  font-family: 'BMJUA';
   font-size: 30px;
   line-height: 36px;
   color: #000000;
@@ -61,14 +58,12 @@ const Rcbox = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 800;
-  font-size: 30px;
+  font-size: 25px;
   line-height: 36px;
   color: #000000;
   white-space: nowrap; /* 텍스트 개행 없이 한 줄에 유지 */
   text-align: center;
+  font-family: 'BMJUA';
 `;
 
 const RcCon = styled.div`
@@ -79,9 +74,7 @@ const RcCon = styled.div`
 const Recment1 = styled.div`
   margin-left: 10%;
   margin-top: 50px;
-  font-family: "Inter";
   font-style: normal;
-  font-weight: 800;
   font-size: 28px;
   line-height: 36px;
   color: #667121;
@@ -89,9 +82,6 @@ const Recment1 = styled.div`
 `;
 const Recment2 = styled.div`
   margin-left: 10%;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 800;
   font-size: 20px;
   line-height: 36px;
   color: #a4ac6d;
@@ -112,9 +102,10 @@ const CommentInputContainer = styled.div`
   border-radius: 50px;
   width: 800px;
   height: 50px;
+  
   ::placeholder {
     color: rgba(0, 0, 0, 0.31);
-    font-weight: 600;
+    
   }
 `;
 
@@ -122,14 +113,13 @@ const CommentInput = styled.input`
   border: none;
   width: 620px;
   height: 30px;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
+  font-family: 'BMJUA';
+  font-size: 25px;
   line-height: 24px;
   margin-top: 0px;
   margin-left: 35px;
   outline: none;
+  
 `;
 
 const CommentButton = styled(Link)`
@@ -140,16 +130,13 @@ const CommentButton = styled(Link)`
   height: 40px;
   border-radius: 50px;
   background-color: #8e9851;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 800;
-  font-size: 15px;
   line-height: 24px;
   color: #ffffff;
   text-align: center;
   text-decoration: none; /* 밑줄 제거 */
   cursor: pointer;
   margin: 10px;
+  
 `;
 
 const DoubleArrowIcon = styled.img`
@@ -164,9 +151,9 @@ const ComT = styled.div`
   height: 36px;
   margin-left: 10%;
   margin-top: 80px;
-  font-family: "Inter";
+  
   font-style: normal;
-  font-weight: 800;
+  
   font-size: 28px;
   line-height: 36px;
   color: #667121;
@@ -181,9 +168,9 @@ const DeleteButton = styled.button`
   width: 100px;
   height: 50px;
   border: 1px;
-  font-family: "Inter";
+  
   font-style: normal;
-  font-weight: 800;
+  
   font-size: 18px;
   color: #4f561f;
   background-color: #ffffff;
@@ -193,7 +180,7 @@ const EditButton = styled.button`
   width: 100px;
   height: 50px;
   border: 1px;
-  font-family: "Inter";
+ 
   font-style: normal;
   font-weight: 800;
   font-size: 18px;
@@ -213,7 +200,7 @@ const Mycom = styled.div`
   margin-right: 10%;
   margin-top: 80px;
   border: 1px solid #000000;
-  font-family: "Inter";
+  
   font-style: normal;
   font-weight: 800;
   font-size: 25px;
@@ -248,9 +235,7 @@ const Mybox = styled.div`
   margin-left: 15%;
   margin-top: 30px;
   border: 1px solid #000000;
-  font-family: "Inter";
   font-style: normal;
-  font-weight: 800;
   font-size: 24px;
   line-height: 29px;
 `;
@@ -258,11 +243,8 @@ const Otherbox = styled.div`
   width: 390px;
   height: 29px;
   margin-left: 15%;
-
   border: 1px solid #000000;
-  font-family: "Inter";
   font-style: normal;
-  font-weight: 800;
   font-size: 24px;
   line-height: 29px;
 `;
@@ -284,14 +266,14 @@ const CommentList = styled.div`
 `;
 
 const NickName = styled.span`
-  font-weight: 800;
+ 
   font-size: 20px;
   margin-right: 50px;
   color: #50562a;
 `;
 
 const Me = styled.span`
-  font-weight: 800;
+  
   font-size: 20px;
   margin-right: 80px;
   margin-left: 35px;
@@ -299,8 +281,8 @@ const Me = styled.span`
 `;
 
 const Comment = styled.div`
-  font-weight: 600;
-  font-size: 17px;
+  
+  font-size: 20px;
   width: 600px;
   color: #000000;
 `;
@@ -313,9 +295,9 @@ const Buttons = styled.div`
 `;
 
 const Button = styled.button`
-  font-weight: 500;
-  font-size: 17px;
 
+  font-size: 17px;
+font-family: 'BMJUA';
   color: #4f561f;
   background-color: white;
   border: none;
