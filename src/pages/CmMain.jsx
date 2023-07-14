@@ -4,9 +4,8 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from 'axios';
-import { Link } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Desktop = styled.div`
   display: flex;
@@ -234,7 +233,7 @@ const TodaysList = styled.div`
 const CmMain = () => {
   const [recommends, setRecommends] = useState([]);
   const [todays, setTodays] = useState([]);
-  const {NickName} =useParams();
+  const { NickName } = useParams();
 
   useEffect(() => {
     axios.get(`https://mutsabooked.store/posts/`).then((res) => {
@@ -258,7 +257,9 @@ const CmMain = () => {
           <R>
             <R2>
               <BookRecommendation>이런책 추천해주세요!</BookRecommendation>
-              <DirectCwButton to={`/CmWrite/${NickName}`}>글쓰러 가기</DirectCwButton>
+              <DirectCwButton to={`/CmWrite/${NickName}`}>
+                글쓰러 가기
+              </DirectCwButton>
             </R2>
 
             <BRbox>

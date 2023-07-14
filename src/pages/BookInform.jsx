@@ -84,7 +84,6 @@ const BookInform = () => {
 
   const [book_title, SetTitle] = useState("a");
   const [author, SetAuthor] = useState("a");
-  const [created_at, SetDate] = useState("2023-07-12");
   const [review_title, SetReview] = useState("a");
   const [genre, SetGenre] = useState("a");
   const [feeling, SetFeeling] = useState("a");
@@ -94,6 +93,27 @@ const BookInform = () => {
   const [jp, Setjp] = useState("a");
   const [content, SetContent] = useState("a");
 
+  const handleUpdateUser = () => {
+    axios
+      .post(`https://mutsabooked.store/bookreview/create/`, {
+        review_title: "독후감 제목",
+        book_title: "책 제목",
+        author: "저자",
+        genre: "소설",
+        feeling: "신남",
+        ei: "외향적",
+        ns: "감각적",
+        ft: "사고적",
+        jp: "인식적",
+        content: "독후감 내용",
+        pickpage: "abc",
+        pickwriting: "abbb",
+      })
+      .then((res) => {
+        console.log(res);
+      });
+  };
+
   const handleTitle = (e) => {
     SetTitle(e.target.value);
     console.log(e.target.value);
@@ -102,17 +122,6 @@ const BookInform = () => {
   const handleAuthor = (e) => {
     SetAuthor(e.target.value);
     console.log(e.target.value);
-  };
-
-  const handleDate = (e) => {
-    SetDate(e.target.value);
-    console.log(e.target.value);
-  };
-
-  const handleUpdateUser = () => {
-    navigate(
-      `/writePage/${book_title}/${author}/${created_at}/${NickName.NickName}`
-    );
   };
 
   return (
@@ -143,14 +152,6 @@ const BookInform = () => {
               onChange={handleAuthor}
               value={author}
               placeholder="저자를 입력해주세요."
-            ></InputBox>
-          </Rowbox>
-          <Rowbox>
-            <Intext>언제 읽었나요?</Intext>
-            <InputBox
-              type="date"
-              onChange={handleDate}
-              value={created_at}
             ></InputBox>
           </Rowbox>
         </InputContainer>

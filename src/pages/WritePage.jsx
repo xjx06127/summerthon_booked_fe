@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { useNavigate, useParams } from "react-router-dom";
 import { Params } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
 
 const InputBox = styled.input`
   border-radius: 37px;
@@ -135,7 +136,6 @@ const WritePage = () => {
   const author = useParams().author;
   const created_at = useParams().created_at;
   const NickName = useParams().NickName;
-  const GoRead = () => {};
 
   const [genre, setGenre] = useState("");
   const [mood, setMood] = useState("");
@@ -179,6 +179,24 @@ const WritePage = () => {
   const handleWriteBoxChange = (event) => {
     const value = event.target.value;
     setWriteContent(value);
+  };
+  const GoRead = () => {
+    axios
+      .post(`https://mutsabooked.store/bookreview/create/`, {
+        review_title: "독후감 제목",
+        book_title: "책 제목",
+        author: "저자",
+        genre: "소설",
+        feeling: "신남",
+        ei: "외향적",
+        ns: "감각적",
+        ft: "사고적",
+        jp: "인식적",
+        content: "독후감 내용",
+        pickpage: "abc",
+        pickwriting: "abbb",
+      })
+      .then(() => navigate(`/read`));
   };
   return (
     <div>

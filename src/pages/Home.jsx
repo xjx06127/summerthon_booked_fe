@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import TextAnimation from "./TextAnimation";
 import { Link } from "react-router-dom";
 
@@ -15,14 +14,12 @@ const Nav = styled.div`
   height: 95px;
 `;
 
-
-
 const Logo = styled.img`
   content: url(${(props) => props.src});
   width: 220px;
   height: 150px;
   padding: 0px;
-  margin-top: -25px;
+  margin-top: -1.4%;
 `;
 
 const Menu = styled.div`
@@ -32,7 +29,7 @@ const Menu = styled.div`
   margin-top: 17px;
 `;
 
-const Page = styled(Link)`
+const Page = styled.h1`
   margin-top: 0px;
   margin-left: 50px;
   margin-right: 20px;
@@ -43,7 +40,6 @@ const Page = styled(Link)`
   }
   font-size: 18px;
   cursor: pointer;
-  text-decoration: none; 
 `;
 
 //Home 중간페이지 (로그인 부분)
@@ -184,60 +180,8 @@ const Home = () => {
   const [NickName, SetNickName] = useState("");
   const [LogCheck, SetLog] = useState(0);
 
-  useEffect(() => {
-    // 새로고침 시 로그인 정보 가져오기
-    // 로그인 정보를 브라우저의 로컬 스토리지(localStorage)에 저장하여 새로고침후에도 정보 유지하도록 설정
-    const loggedInUser = localStorage.getItem("loggedInUser");
-    if (loggedInUser) {
-      const user = JSON.parse(loggedInUser);
-      SetNickName(user.nickname);
-      SetLog(1);
-    }
-  }, []);
-
-  // Booked 로그인 정보 입력
-  const HandleLogin = () => {
-    axios
-      .post(`https://mutsabooked.store/login/`, {
-        userID: ID,
-        password: PW,
-      })
-      .then((res) => {
-        SetNickName(res.data.nickname);
-        SetLog(1);
-        localStorage.setItem("loggedInUser", JSON.stringify(res.data));
-      })
-      .catch(() => {
-        alert("존재하지 않는 회원 정보입니다!");
-      });
-  };
-
-  // ID 입력 시
-  const HandleId = (e) => {
-    SetId(e.target.value);
-  };
-
-  // PW 입력 시
-  const HandlePw = (e) => {
-    SetPw(e.target.value);
-  };
-
   const GoToMakeBookPage = () => {
     navigate(`/MakeBookService`);
-  };
-
-  const HandlePwType = () => {
-    SetPwType(
-      pwType.visible
-        ? { type: "password", visible: false }
-        : { type: "text", visible: true }
-    );
-  };
-
-  const HandleLogout = () => {
-    // 로그아웃 처리 및 로그인 정보 초기화
-    localStorage.removeItem("loggedInUser");
-    SetLog(0);
   };
 
   return (
@@ -246,11 +190,19 @@ const Home = () => {
         <Logo src="아이콘-removebg-preview.png" />
       </Nav>
       <Menu>
-        <Page to="/Intro" >서비스 소개</Page>
-        <Page to="/MyPage" >마이페이지</Page>
-        <Page to="/CmMain">커뮤니티</Page>
-        <Page to="/BookInform">나의 서재</Page>
-        <Page to="/Recommend">도서 추천</Page>
+        <Page>서비스 소개</Page>
+        <Link to={`/mypage`}>
+          <Page>마이페이지</Page>
+        </Link>
+        <Link to={`/CmMain/${NickName}`}>
+          <Page>커뮤니티</Page>{" "}
+        </Link>
+        <Link to={`/read`}>
+          <Page>나의 서재</Page>
+        </Link>
+        <Link to={`/recommend`}>
+          <Page>도서 추천</Page>
+        </Link>
       </Menu>
 
       <Mid>
@@ -259,37 +211,9 @@ const Home = () => {
         </Left>
 
         <Log>
-          {LogCheck === 1 ? (
-            <LogSuccess>
-              <LogTittle>{NickName}님 환영합니다!</LogTittle>
-              <LogButton onClick={HandleLogout}>로그아웃</LogButton>
-            </LogSuccess>
-          ) : (
-            <NotLog>
-              <LogTittle>로그인을 해주세요.</LogTittle>
-              <h2>ID</h2>
-              <Id
-                type="text"
-                placeholder="아이디 입력"
-                value={ID}
-                onChange={HandleId}
-              ></Id>
-              <h2>P/W</h2>
-              <Pw
-                type={pwType.type}
-                placeholder="비밀번호 입력"
-                value={PW}
-                onChange={HandlePw}
-              ></Pw>
-              <ShowPw onClick={HandlePwType}>
-                {pwType.visible ? "비밀번호 숨기기" : "비밀번호 보기"}
-              </ShowPw>
-              <LogButtons>
-                <LogButton onClick={HandleLogin}>로그인</LogButton>
-                <SignButton>회원가입</SignButton>
-              </LogButtons>
-            </NotLog>
-          )}
+          <LogSuccess>
+            <LogTittle>아기사자님 환영합니다!</LogTittle>
+          </LogSuccess>
         </Log>
       </Mid>
 

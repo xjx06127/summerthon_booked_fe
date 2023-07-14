@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import Home from "./pages/Home";
 import MakeBook from "./pages/MakeBook";
 import ModificationLog from "./pages/ModificationLog";
@@ -12,27 +11,26 @@ import CmReco from "./pages/CmReco";
 import CmWrite from "./pages/CmWrite";
 import CmMain from "./pages/CmMain";
 import SignUp from "./pages/SignUp";
+import Recommend from "./pages/Recommend";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<h1>화이또</h1>} />
-        <Route path="/MyPage" element={<MyPage />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/MakeBookService" element={<MakeBook />} />
         <Route path="/ModificationLog" element={<ModificationLog />} />
         <Route path="/CmReco" element={<CmReco />} />
         <Route path="/CmWrite/:NickName" element={<CmWrite />} />
         <Route path="/CmMain/:NickName" element={<CmMain />} />
-        <Route path="/BookInform/:NickName" element={<BookInform />} />
+        <Route path="/BookInform" element={<BookInform />} />
         <Route path="/Recommend" element={<Recommend />} />
         <Route path="/BookRecommend/:Result" element={<BookRecommend />} />
-        <Route path="/read/:NickName" element={<Read />} />
+        <Route path="/read" element={<Read />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route
-          path="/writePage/:book_title/:author/:created_at/:NickName"
-          element={<WritePage />}
-        />
+        <Route path="/mypage" element={<MyPage />} />
+
+        <Route path="/writePage" element={<WritePage />} />
+        <Route path="/recommend" element={<Recommend />} />
       </Routes>
     </BrowserRouter>
   );

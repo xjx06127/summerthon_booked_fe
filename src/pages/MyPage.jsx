@@ -1,6 +1,8 @@
 import React from "react";
 import Navigator from "./Navigator";
 import styled from "styled-components";
+import axios from "axios";
+import { useEffect } from "react";
 
 const NicName = styled.div`
   color: rgba(74, 117, 148, 1);
@@ -102,6 +104,10 @@ const InnerBox = styled.div`
 `;
 
 const MyPage = () => {
+  //   useEffect(() => {
+  //     axios.get(`https://mutsabooked.store/bookreview/mypage`)
+  //     .then((res))
+  //   })
   return (
     <div>
       <Navigator></Navigator>
@@ -109,7 +115,6 @@ const MyPage = () => {
       <ProfilePic src="핑크배경.png"></ProfilePic>
       <Name>최효리</Name>
       <One_liner>front-end</One_liner>
-      <Button>Logout</Button>
       <Bar></Bar>
       <Dis>
         <Menu>게시글</Menu>

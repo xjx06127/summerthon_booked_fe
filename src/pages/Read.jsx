@@ -255,8 +255,9 @@ const Read = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`https://mutsabooked.store/bookreviewall/`).then((res) => {
-      setBookReview(res.data.filter((c) => c.user == NickName.NickName));
+    axios.get(`https://mutsabooked.store/bookreview/`).then((res) => {
+      setBookReview(res.data);
+      console.log(res);
     });
   }, []);
 
@@ -320,9 +321,7 @@ const Read = () => {
           </ContentContainer>
         </Container>
       </MainBox>
-      <button onClick={() => navigate(`/bookInform/${NickName.NickName}`)}>
-        글 쓰러 가기
-      </button>
+      <button onClick={() => navigate(`/bookInform`)}>글 쓰러 가기</button>
     </>
   );
 };
