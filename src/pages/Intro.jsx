@@ -2,7 +2,6 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import Navigator from "./Navigator";
 
-
 const vibration = keyframes`
  0% {
     transform: rotate(10deg);
@@ -19,7 +18,7 @@ const vibration = keyframes`
 const BackGround = styled.div`
   min-height: 100vh;
   background: #f4faff;
-  font-family:'BMJUA';
+  font-family: "BMJUA";
 `;
 
 const Logo = styled.img`

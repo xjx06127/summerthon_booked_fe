@@ -1,23 +1,25 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState, useEffect } from "react";
 import Navigator from "./Navigator";
+import styled from "styled-components";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const Desktop = styled.div`
   display: flex;
   flex-direction: column;
   overflow-x: hidden; /* 화면을 옆으로 스크롤되지 않도록 설정 */
-  font-family: 'BMJUA';
+  font-family: "BMJUA";
 `;
 
 const RcboxT = styled.div`
   width: 850px;
   height: 80px;
-  border: 1px solid #000000;
   margin-left: auto;
   margin-right: auto;
   margin-top: 70px;
-  font-family: 'BMJUA';
+  font-family: "BMJUA";
   font-size: 30px;
   line-height: 36px;
   color: #000000;
@@ -28,13 +30,12 @@ const RcboxT = styled.div`
 const Nicnamebox = styled.div`
   width: 100px;
   height: 50px;
-  border: 1px solid #000000;
   margin-left: 75%;
   margin-top: 5px;
-  font-family: 'BMJUA';
-  font-size: 30px;
+  font-family: "BMJUA";
+  font-size: 20px;
   line-height: 36px;
-  color: #000000;
+  color: #72736b;
   white-space: nowrap; /* 텍스트 개행 없이 한 줄에 유지 */
   text-align: center;
 `;
@@ -55,6 +56,7 @@ const Rcbox = styled.div`
   height: 350px;
   background: #ffffff;
   border: 1px solid #000000;
+  border: none;
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
@@ -63,7 +65,7 @@ const Rcbox = styled.div`
   color: #000000;
   white-space: nowrap; /* 텍스트 개행 없이 한 줄에 유지 */
   text-align: center;
-  font-family: 'BMJUA';
+  font-family: "BMJUA";
 `;
 
 const RcCon = styled.div`
@@ -102,10 +104,9 @@ const CommentInputContainer = styled.div`
   border-radius: 50px;
   width: 800px;
   height: 50px;
-  
+
   ::placeholder {
     color: rgba(0, 0, 0, 0.31);
-    
   }
 `;
 
@@ -113,13 +114,12 @@ const CommentInput = styled.input`
   border: none;
   width: 620px;
   height: 30px;
-  font-family: 'BMJUA';
+  font-family: "BMJUA";
   font-size: 25px;
   line-height: 24px;
   margin-top: 0px;
   margin-left: 35px;
   outline: none;
-  
 `;
 
 const CommentButton = styled(Link)`
@@ -136,7 +136,6 @@ const CommentButton = styled(Link)`
   text-decoration: none; /* 밑줄 제거 */
   cursor: pointer;
   margin: 10px;
-  
 `;
 
 const DoubleArrowIcon = styled.img`
@@ -151,9 +150,9 @@ const ComT = styled.div`
   height: 36px;
   margin-left: 10%;
   margin-top: 80px;
-  
+
   font-style: normal;
-  
+
   font-size: 28px;
   line-height: 36px;
   color: #667121;
@@ -168,9 +167,9 @@ const DeleteButton = styled.button`
   width: 100px;
   height: 50px;
   border: 1px;
-  
+
   font-style: normal;
-  
+
   font-size: 18px;
   color: #4f561f;
   background-color: #ffffff;
@@ -180,7 +179,7 @@ const EditButton = styled.button`
   width: 100px;
   height: 50px;
   border: 1px;
- 
+
   font-style: normal;
   font-weight: 800;
   font-size: 18px;
@@ -200,7 +199,7 @@ const Mycom = styled.div`
   margin-right: 10%;
   margin-top: 80px;
   border: 1px solid #000000;
-  
+
   font-style: normal;
   font-weight: 800;
   font-size: 25px;
@@ -266,14 +265,12 @@ const CommentList = styled.div`
 `;
 
 const NickName = styled.span`
- 
   font-size: 20px;
   margin-right: 50px;
   color: #50562a;
 `;
 
 const Me = styled.span`
-  
   font-size: 20px;
   margin-right: 80px;
   margin-left: 35px;
@@ -281,7 +278,6 @@ const Me = styled.span`
 `;
 
 const Comment = styled.div`
-  
   font-size: 20px;
   width: 600px;
   color: #000000;
@@ -295,9 +291,8 @@ const Buttons = styled.div`
 `;
 
 const Button = styled.button`
-
   font-size: 17px;
-font-family: 'BMJUA';
+  font-family: "BMJUA";
   color: #4f561f;
   background-color: white;
   border: none;
@@ -313,69 +308,99 @@ const Line = styled.div`
   height: 25px;
 `;
 
-const SubmitOk2 = () => {
-  alert("정상적으로 접수되었습니다.");
-};
-
 const CmReco = () => {
+  const navigate = useNavigate();
   const activeMenu = "커뮤니티";
+  const { postId } = useParams();
+  const [post, setPost] = useState([]);
+  const [post2, setPost2] = useState([]);
+  const [post3, setPost3] = useState([]);
+  const [post4, setPost4] = useState([]);
+  const [content, setContent] = useState("");
+
+  useEffect(() => {
+    axios.get(`https://mutsabooked.store/posts/`).then((res) => {
+      const filteredPost = res.data.posts.filter((item) => item.id === postId);
+      moveFun(res.data.posts.filter((item) => item.id === Number(postId)));
+    });
+  }, [postId]);
+
+  const handleContent = (e) => {
+    setContent(e.target.value);
+  };
+
+  function moveFun(arr) {
+    setPost(arr);
+    setPost2(arr);
+    setPost3(arr);
+    setPost4(arr[0].comment_set);
+  }
+
+  console.log(content);
+
+  const SubmitOk2 = (event) => {
+    event.preventDefault();
+
+    axios.post(`https://mutsabooked.store/posts/${postId}/`, {
+      content: content,
+    });
+    navigate(0);
+  };
+
+  const Text = styled.p`
+    color: black;
+    font-weight: bold;
+    font-size: xx-large;
+    margin-left: 100px;
+    font-family: "BMJUA";
+  `;
+
+  //   <InnerBox>
+  //   {allcomment.map((c) => (
+  //     <Text key={c.id} onClick={() => handleClickComment(c.id)}>{c.content} </Text>
+  //   ))}
+  //           {all.map((c)=>(
+  //         <>
+  //         <Text key={c.id} onClick={() => handleClickPost(c.id)}>{c.title} {c.content}</Text>
+  //         </>
+  //       ))}
+  // </InnerBox>
 
   return (
     <>
       <Navigator activeMenu={activeMenu}></Navigator>
       <Desktop>
         <RcCon>
-          <RcboxT></RcboxT>
-          <Nicnamebox></Nicnamebox>
+          <RcboxT>
+            {post.map((c) => (
+              <Text>{c.title}</Text>
+            ))}
+          </RcboxT>
+          {post2.map((c) => (
+            <Nicnamebox>{c.poster}</Nicnamebox>
+          ))}
           <Rcbar></Rcbar>
-          <Rcbox></Rcbox>
+          {post3.map((c) => (
+            <Rcbox>{c.content}</Rcbox>
+          ))}
         </RcCon>
         <Recment1>댓글을 남겨보세요.</Recment1>
         <Recment2>타인을 비방, 욕설하는 댓글은 남기지 말아주세요.</Recment2>
         <CommentInputContainer>
-          <CommentInput placeholder="댓글을 입력해주세요." />
-          <CommentButton to="/other-page" onClick={SubmitOk2}>
-            댓글 쓰기
-          </CommentButton>
+          <CommentInput
+            placeholder="댓글을 입력해주세요."
+            onChange={handleContent}
+          />
+          <CommentButton onClick={SubmitOk2}>댓글 쓰기</CommentButton>
         </CommentInputContainer>
-        <DoubleArrowIcon src="FiChevronsDown.png" />
+        <DoubleArrowIcon src="/FiChevronsDown.png" />
         <CommentList>
-          <CommentContainer>
-            <NickName>닉네임1</NickName>
-            <Comment>
-              저는 이 “안녕하세요.” 이 책을 추천해요.저는 이 “안녕하세요.” 이
-              책을 추천해요. 저는 이 “안녕하세요.” 이 책을 추천해요.
-            </Comment>
-          </CommentContainer>
-          <CommentContainer>
-            <NickName>닉네임2</NickName>
-            <Comment>저는 이 “안녕하세요.” 이 책을 추천해요.</Comment>
-          </CommentContainer>
-          <CommentContainer>
-            <Me>나</Me>
-            <Comment>
-              저는 이 “안녕하세요.” 이 책을 추천해요.저는 이 “안녕하세요.” 이
-              책을 추천해요. 저는 이 “안녕하세요.” 이 책을 추천해요.
-            </Comment>
-            <Buttons>
-              <Button>댓글 삭제</Button>
-              <Line />
-              <Button>댓글 수정</Button>
-            </Buttons>
-          </CommentContainer>
-          <CommentContainer>
-            <NickName>닉네임3</NickName>
-            <Comment>저는 이 “안녕하세요.” 이 책을 추천해요.</Comment>
-          </CommentContainer>
-          <CommentContainer>
-            <Me>나</Me>
-            <Comment>저는 이 “안녕하세요.” 이 책을 추천해요.</Comment>
-            <Buttons>
-              <Button>댓글 삭제</Button>
-              <Line />
-              <Button>댓글 수정</Button>
-            </Buttons>
-          </CommentContainer>
+          {post4.map((c) => (
+            <CommentContainer>
+              <NickName>{c.commenter}</NickName>
+              <Comment>{c.content}</Comment>
+            </CommentContainer>
+          ))}
         </CommentList>
         <TalkBallonContainer>
           {" "}

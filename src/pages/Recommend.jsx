@@ -49,13 +49,16 @@ const InputBox = styled.input`
 `;
 
 const Ad = styled.div`
-  height: 200px;
+  height: 150px;
   width: 50%;
   background-color: #f7f7f7;
   border-color: gray;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
   margin-left: 25%;
-  margin-top: 8%;
+  margin-top: 50px;
+  text-align: center;
+  padding-top: 100px;
+  font-size: 30px;
 `;
 
 const HashText = styled.div`
@@ -113,47 +116,51 @@ const HashBox = styled.div`
   margin-top: 100px;
   justify-content: center;
   margin-bottom: 40px;
-
-`
+`;
 const Img2 = styled.img`
   width: 500px;
-
-`
+`;
 
 const HashTitle = styled.p`
   font-size: 28px;
   margin-bottom: 0;
   color: rgba(6, 79, 132, 1);
   font-weight: 800;
-`
+`;
 
 const MiniTitle = styled.p`
   font-size: 21px;
   font-weight: 500;
-`
+`;
 
 const GoToHash = styled.button`
-  background: #064F84;
-border-radius: 50px;
-color:white;
-font-size: 15px;
-padding:7px;
-cursor: pointer;
-margin-left: 60px;
-margin-right: 60px;
-margin-top: 60px;
-border: none;
-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  background: #064f84;
+  border-radius: 50px;
+  color: white;
+  font-size: 15px;
+  padding: 10px;
+  padding-left: 10px;
+  cursor: pointer;
+  margin-left: 60px;
+  margin-right: 60px;
+  margin-top: 60px;
+  border: none;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
+`;
 
-`
 const Box = styled.div`
   display: flex;
   flex-direction: column;
+`;
 
-`
+const BigBox = styled.div`
+  font-family: "BMJUA";
+`;
 
 const Recommend = () => {
+  const activeMenu = "독후감 검색";
+
   const navigate = useNavigate();
 
   const [search, SetSearch] = useState("");
@@ -164,61 +171,70 @@ const Recommend = () => {
   };
 
   const handleUpdateUser = () => {
-      axios
+    axios
       .post(`https://mutsabooked.store/bookrecommend/search/`, {
-        search: search
+        search: search,
       })
       .then((res) => {
-        console.log(res.data.searchresult.filter((e)=> e.book_title === search));
+        console.log(
+          res.data.searchresult.filter((e) => e.book_title === search)
+        );
         SetResult();
-        moveFun(search, res.data.searchresult.filter((e)=> e.book_title === search));
+        moveFun(
+          search,
+          res.data.searchresult.filter((e) => e.book_title === search)
+        );
       });
   };
 
-  function moveFun(search, arr){
+  function moveFun(search, arr) {
     console.log(arr);
-    (arr.length!==0) ?
-    navigate(`/BookRecommend/${search}`) :
-    navigate(`/Noresult/${search}`);
-
+    arr.length !== 0
+      ? navigate(`/BookRecommend/${search}`)
+      : navigate(`/Noresult/${search}`);
   }
 
-  
-const GoToHashPage = () => {
-  navigate(`/HashSerch`);
-};
+  const GoToHashPage = () => {
+    navigate(`/HashSerch`);
+  };
 
   return (
     <div>
-      <Navigator></Navigator>
-      <Dis>
-        <Text>
-          책 제목을 입력해주시면,
-          <br />
-          저희가 독후감을 찾아드릴게요.
-        </Text>
-        <Img src="추천페이지.png"></Img>
-      </Dis>
-      <InputBox
-        type="text"
-        onChange={handleSearch}
-        value={search}
-        placeholder="책 제목을 입력해주세요."
-      ></InputBox>
-      <Submit onClick={handleUpdateUser}></Submit>
-      <Ad>광고문의</Ad>
-      <Gobutton onClick={ScrollToBottom}>해시태그를 통한 검색</Gobutton>
+      <Navigator activeMenu={activeMenu} />
+      <BigBox>
+        <Dis>
+          <Text>
+            책 제목을 입력해주시면,
+            <br />
+            저희가 독후감을 찾아드릴게요.
+          </Text>
+          <Img src="/추천페이지.png"></Img>
+        </Dis>
+        <InputBox
+          type="text"
+          onChange={handleSearch}
+          value={search}
+          placeholder="책 제목을 입력해주세요."
+        ></InputBox>
+        <Submit onClick={handleUpdateUser}></Submit>
+        <Ad>광고문의</Ad>
+        <Gobutton onClick={ScrollToBottom}>해시태그를 통한 검색</Gobutton>
 
-      <HashBox>
-        <Img2 src="undraw_Faq_re_31cw.png"/>
-        <Box>
-        <HashTitle>혹시, 책 제목 입력이 어려우신가요?</HashTitle>
-        <MiniTitle>해시 태그 선택을 통한<br/>독후감 찾기 서비스를 이용해보세요.</MiniTitle>
-        <GoToHash onClick={GoToHashPage}>해시태그를 통한 검색으로 이동하기</GoToHash>
-        </Box>
-        
-
-      </HashBox>
+        <HashBox>
+          <Img2 src="/undraw_Faq_re_31cw.png" />
+          <Box>
+            <HashTitle>혹시, 책 제목 입력이 어려우신가요?</HashTitle>
+            <MiniTitle>
+              해시 태그 선택을 통한
+              <br />
+              독후감 찾기 서비스를 이용해보세요.
+            </MiniTitle>
+            <GoToHash onClick={GoToHashPage}>
+              해시태그를 통한 검색으로 이동하기
+            </GoToHash>
+          </Box>
+        </HashBox>
+      </BigBox>
     </div>
   );
 };

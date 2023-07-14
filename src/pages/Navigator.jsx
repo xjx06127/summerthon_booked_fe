@@ -49,7 +49,7 @@ const Navigator = ({ activeMenu }) => {
     <>
       <Nav>
         <LogoLink to="/">
-          <Logo src="아이콘-removebg-preview.png" />
+          <Logo src="/아이콘-removebg-preview.png" />
         </LogoLink>
         <Menu>
           <Page to="/Intro" isActive={activeMenu === "서비스 소개"}>
@@ -61,11 +61,11 @@ const Navigator = ({ activeMenu }) => {
           <Page to="/CmMain" isActive={activeMenu === "커뮤니티"}>
             커뮤니티
           </Page>
-          <Page to="/BookInform" isActive={activeMenu === "나의 서재"}>
+          <Page to="/read" isActive={activeMenu === "나의 서재"}>
             나의 서재
           </Page>
-          <Page to="/Recommend" isActive={activeMenu === "도서 추천"}>
-            도서 추천
+          <Page to="/Recommend" isActive={activeMenu === "독후감 검색"}>
+            독후감 검색
           </Page>
         </Menu>
       </Nav>

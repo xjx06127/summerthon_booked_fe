@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import TextAnimation from "./TextAnimation";
 
 const Desktop = styled.div`
   display: flex;
@@ -81,7 +82,7 @@ const R = styled.div`
   align-items: center;
   flex-direction: column;
   margin-left: 120px;
-  margin-top: -20px;
+  margin-top: -120px;
 `;
 
 const R2 = styled.div`
@@ -136,8 +137,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   margin: 30px;
-  align-items: center; //닉, 타이틀, 버튼 세개를 한줄에//
-  justify-content: center; //박스 중간으로 이동//
+
+  text-align: left;
 `;
 
 const Nic = styled.p`
@@ -153,6 +154,8 @@ const Title = styled.p`
   font-size: 20px;
   color: #111111;
   margin-left: 50px;
+  text-align: left;
+  width: 350px;
 `;
 
 const DirectLinkButton = styled(Link)`
@@ -212,6 +215,8 @@ const TodaysList = styled.div`
 `;
 
 const CmMain = () => {
+  const activeMenu = "커뮤니티";
+
   const [recommends, setRecommends] = useState([]);
   const [todays, setTodays] = useState([]);
   const { NickName } = useParams();
@@ -224,23 +229,16 @@ const CmMain = () => {
   }, []);
   return (
     <>
-      <Navigator></Navigator>
+      <Navigator activeMenu={activeMenu}></Navigator>
 
       <Desktop>
         <Con>
-          <Qbox1>
-            {" "}
-            <Quote>
-              "책은 가장 조용하고 변함없는 벗이다."
-              <br /> -102pg-{" "}
-            </Quote>
-          </Qbox1>
+          <TextAnimation></TextAnimation>
+
           <R>
             <R2>
               <BookRecommendation>이런책 추천해주세요!</BookRecommendation>
-              <DirectCwButton to={`/CmWrite/${NickName}`}>
-                글쓰러 가기
-              </DirectCwButton>
+              <DirectCwButton to={`/CmWrite`}>글쓰러 가기</DirectCwButton>
             </R2>
 
             <BRbox>
@@ -250,7 +248,9 @@ const CmMain = () => {
                     <Container key={index}>
                       <Nic>{c.poster}</Nic>
                       <Title>{c.title}</Title>
-                      <DirectLinkButton to="/link1">바로가기</DirectLinkButton>
+                      <DirectLinkButton to={`/cmreco/${c.id}`}>
+                        바로가기
+                      </DirectLinkButton>
                     </Container>
                   );
                 }

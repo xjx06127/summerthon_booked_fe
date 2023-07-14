@@ -11,7 +11,7 @@ const BigBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family:'BMJUA'
+  font-family: "BMJUA";
 `;
 
 //상단
@@ -35,20 +35,20 @@ const Line1 = styled.p`
   font-size: 24px;
   margin: 0px;
   margin-bottom: 5px;
-  
+  font-weight: 700;
 `;
 
 const Line2 = styled.p`
   font-size: 24px;
   margin: 0px;
   margin-bottom: 17px;
-  
+  font-weight: 700;
 `;
 
 const Line3 = styled.p`
   font-size: 18px;
   margin: 0px;
-  
+  font-weight: 550;
 `;
 
 //독후감 목록들
@@ -85,7 +85,7 @@ const ProfileNickName = styled.p`
   font-size: 17px;
   margin-top: 0px;
   margin-bottom: 7px;
- 
+  font-weight: 800;
 `;
 
 const ShowLikeBox = styled.div`
@@ -123,7 +123,6 @@ const ContentBox = styled.div`
   height: 150px;
 `;
 
-
 const ColBox = styled.div`
   display: flex;
   flex-direction: column;
@@ -132,10 +131,14 @@ const ColBox = styled.div`
 
 const Date = styled.p`
   font-size: 15px;
- 
+  font-weight: 600;
 `;
 
-const Content = styled.p``;
+const Content = styled.p`
+  padding: 30px;
+  margin: 0px;
+  margin-top: 5px;
+`;
 
 const GoToArticle = styled.button`
   border-radius: 50%;
@@ -168,65 +171,62 @@ const HighLight2 = styled.span`
 `;
 
 const BookRecommend = () => {
-  const {BookName} = useParams();
-  const [informs,SetInforms]=useState([]);
+  const activeMenu = "독후감 검색";
 
-  useEffect(()=>{
-    axios
-    .get(`https://mutsabooked.store/bookreviewall/`)
-    .then((res)=>{
-      SetInforms(
-        res.data.filter((e)=> e.book_title === BookName));
-    })
-  },[]);
+  const { op } = useParams();
+  const [informs, SetInforms] = useState([]);
+  const [id, setId] = useState("");
 
+  useEffect(() => {
+    axios.get(`https://mutsabooked.store/bookreviewall/`).then((res) => {
+      SetInforms(res.data.filter((e) => e.book_title === op));
+    });
+  }, []);
+  console.log(informs);
 
   return (
     <>
-      <Navigator />
+      <Navigator activeMenu={activeMenu} />
       <BigBox>
         <EmtyBox>
           <TextBox>
             <Line1>
-              <HighLight1>{BookName}</HighLight1>에 대한
+              <HighLight1>아기사자님이</HighLight1>궁금하신
             </Line1>
-            <Line2>독후감 검색 결과입니다.</Line2>
+            <Line2>독후감 정보를 알려드릴게요.</Line2>
             <Line3>
-              총<HighLight2>{informs.length}</HighLight2>의 독후감이 검색되었습니다.
+              총<HighLight2>{informs.length}</HighLight2>의 독후감이
+              검색되었습니다.
             </Line3>
           </TextBox>
           <EmtyBox2></EmtyBox2>
         </EmtyBox>
         <Articles>
-        {
-                    informs.map((e)=>(
-                      <>
-                        <ArticleBox>
-                        <Profile>
-                         <ProfileImg src="undraw_Drink_coffee_av1x.png" />
-                         <ProfileNickName>{e.user}</ProfileNickName>
-                         <ShowLikeBox>
-                            <HeartImg src="heart.png" />
+          {informs.map((e) => (
+            <>
+              <ArticleBox>
+                <Profile>
+                  <ProfileImg src="/undraw_Drink_coffee_av1x.png" />
+                  <ProfileNickName>{e.user}</ProfileNickName>
+                  {/* <ShowLikeBox>
+                            <HeartImg src="/heart.png" />
                             <HeartNum>{e.like_count}</HeartNum>
-                          </ShowLikeBox>
-                         </Profile>
-                        
-                          <ContentBox>
-                            <ColBox>
-                            <Content>{e.content}</Content>
-                            </ColBox>
-                            <GoToArticle>
-                            <Img2 src="GrFormNextLink.png" />
-                            </GoToArticle>
-                          </ContentBox>
-                        </ArticleBox>
-                        
-                      
-                      </>))
-                  }
+                          </ShowLikeBox> */}
+                </Profile>
+
+                <ContentBox>
+                  <ColBox>
+                    <Content>{e.content}</Content>
+                  </ColBox>
+                  {/* <GoToArticle>
+                            <Img2 src="/GrFormNextLink.png" />
+                            </GoToArticle> */}
+                </ContentBox>
+              </ArticleBox>
+            </>
+          ))}
         </Articles>
-                  
-        </BigBox>
+      </BigBox>
     </>
   );
 };

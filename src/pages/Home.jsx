@@ -38,6 +38,8 @@ const Page = styled.h1`
   margin-top: 0px;
   margin-left: 50px;
   margin-right: 20px;
+  text-decoration: none; /* 밑줄 제거 */
+
   color: black;
   &:hover {
     color: #88aed9;
@@ -62,7 +64,8 @@ const Left = styled.div`
 `;
 const Log = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   margin-top: 50px;
   margin-bottom: 70px;
   font-size: 12px;
@@ -129,11 +132,11 @@ const Ad = styled.div`
   display: flex;
   flex-direction: column;
   /* 
-    margin-left: 270px;
-    margin-right: 270px;
-    margin-top: 110px;
-    margin-bottom: 50px;
-    height: 180px;*/
+      margin-left: 270px;
+      margin-right: 270px;
+      margin-top: 110px;
+      margin-bottom: 50px;
+      height: 180px;*/
   width: 900px;
   height: 180px;
 
@@ -174,6 +177,11 @@ const Line3 = styled.h1`
 const NotLog = styled.div``;
 
 const LogSuccess = styled.div``;
+const Img2 = styled.img`
+  height: 120px;
+  width: 120px;
+  margin-right: 20px;
+`;
 
 const Home = () => {
   const navigate = useNavigate();
@@ -193,7 +201,7 @@ const Home = () => {
   return (
     <>
       <Nav>
-        <Logo src="아이콘-removebg-preview.png" />
+        <Logo src="/아이콘-removebg-preview.png" />
       </Nav>
       <Con>
         <Menu>
@@ -203,12 +211,14 @@ const Home = () => {
           <Link to={`/mypage`}>
             <Page>마이페이지</Page>
           </Link>
-          <Page>커뮤니티</Page>
-          <Link to={`/read/${NickName}`}>
+          <Link to={`/cmmain`}>
+            <Page>커뮤니티</Page>
+          </Link>
+          <Link to={`/read`}>
             <Page>나의 서재</Page>
           </Link>
           <Link to={`/recommend`}>
-            <Page>도서 추천</Page>
+            <Page>독후감 검색</Page>
           </Link>
         </Menu>
 
@@ -218,9 +228,8 @@ const Home = () => {
           </Left>
 
           <Log>
-            <LogSuccess>
-              <LogTittle>아기사자님 환영합니다!</LogTittle>
-            </LogSuccess>
+            <Img2 src="/멋사배경제거.png" />
+            <LogTittle>아기사자님 환영합니다!</LogTittle>
           </Log>
         </Mid>
 

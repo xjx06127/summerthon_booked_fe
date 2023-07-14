@@ -14,24 +14,25 @@ import SignUp from "./pages/SignUp";
 import Recommend from "./pages/Recommend";
 import HashSerch from "./pages/HashSerch";
 import Intro from "./pages/Intro";
+import IsMobile from "./pages/IsMobile";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<IsMobile />} />
         <Route path="/MakeBookService" element={<MakeBook />} />
         <Route path="/ModificationLog" element={<ModificationLog />} />
-        <Route path="/CmReco" element={<CmReco />} />
-        <Route path="/CmWrite/:NickName" element={<CmWrite />} />
-        <Route path="/CmMain/:NickName" element={<CmMain />} />
+        <Route path="/CmReco/:postId" element={<CmReco />} />
+        <Route path="/CmWrite" element={<CmWrite />} />
+        <Route path="/CmMain" element={<CmMain />} />
         <Route path="/BookInform" element={<BookInform />} />
         <Route path="/Recommend" element={<Recommend />} />
-        <Route path="/BookRecommend/:Result" element={<BookRecommend />} />
+        <Route path="/BookRecommend/:op" element={<BookRecommend />} />
         <Route path="/read" element={<Read />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/hashserch" element={<HashSerch />} />
-        <Route path="/writePage" element={<WritePage />} />
+        <Route path="/writePage/:book_title/:author" element={<WritePage />} />
         <Route path="/recommend" element={<Recommend />} />
         <Route path="/intro" element={<Intro />} />
       </Routes>

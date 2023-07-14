@@ -126,11 +126,12 @@ const BookContentContainer = styled.div`
   cursor: pointer; /* 커서를 변경하여 클릭 가능한 요소로 표시 */
   background-color: ${({ selected }) =>
     selected ? "#d9d9d9" : "transparent"}; /* 선택 여부에 따라 배경색 변경 */
+  font-family: "BMJUA";
 `;
 
 const BookTitle = styled.span`
-  font-family: "Kokoro";
-  font-style: normal;
+  font-family: "BMJUA";
+
   font-weight: 400;
   font-size: 15px;
 
@@ -142,7 +143,7 @@ const Heart = styled.img`
 `;
 const Like = styled.div`
   background: #e7e7e7;
-  width: 70px;
+  width: 80px;
   border-radius: 20px;
   padding: 7px;
   padding-top: 5px;
@@ -249,6 +250,22 @@ const MyContainer = styled.div`
   width: 295px;
 `;
 
+const Button = styled.button`
+  font-family: "BMJUA";
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 20px;
+  margin-bottom: 30px;
+  cursor: pointer;
+`;
+
+const Div = styled.div`
+  display: flex;
+  justify-content: center;
+  font-family: "BMJUA";
+`;
+
 const Read = () => {
   const activeMenu = "나의 서재";
   const [bookReview, setBookReview] = useState([]);
@@ -270,7 +287,7 @@ const Read = () => {
 
   return (
     <>
-      <Navigator />
+      <Navigator activeMenu={activeMenu} />
       <MainBox>
         <GrayBox>
           <CircleContainer>
@@ -293,10 +310,6 @@ const Read = () => {
                       selected={selectedBook && selectedBook.id === c.id} // 선택 여부에 따라 배경색 변경
                     >
                       <BookTitle>{c.book_title}</BookTitle>
-                      <Like>
-                        <Heart />
-                        <HeartCount>5,000</HeartCount>
-                      </Like>
                     </BookContentContainer>
                     <Hr />
                   </>
@@ -311,7 +324,11 @@ const Read = () => {
             {selectedBook && (
               <ParaPage>
                 <Para>{selectedBook.pickwriting}</Para>
-                <Page>{selectedBook.pickpage}</Page>
+                <Page>
+                  {selectedBook &&
+                    selectedBook.pickpage &&
+                    `${selectedBook.pickpage}pg`}
+                </Page>
                 <Hr2 />
               </ParaPage>
             )}
@@ -323,7 +340,9 @@ const Read = () => {
           </ContentContainer>
         </Container>
       </MainBox>
-      <button onClick={() => navigate(`/bookInform`)}>글 쓰러 가기</button>
+      <Div>
+        <Button onClick={() => navigate(`/bookInform`)}>글 쓰러 가기</Button>
+      </Div>
     </>
   );
 };

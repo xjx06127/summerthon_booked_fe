@@ -76,40 +76,22 @@ const Gobutton = styled.button`
   background-color: transparent;
   font-weight: bolder;
   font-family: "BMJUA";
+  cursor: pointer;
 `;
 
 const BookInform = () => {
   const NickName = useParams();
   const navigate = useNavigate();
 
-  const [book_title, SetTitle] = useState("a");
-  const [author, SetAuthor] = useState("a");
-  const [review_title, SetReview] = useState("a");
-  const [genre, SetGenre] = useState("a");
-  const [feeling, SetFeeling] = useState("a");
-  const [ei, Setei] = useState("a");
-  const [ns, Setns] = useState("a");
-  const [ft, Setft] = useState("a");
-  const [jp, Setjp] = useState("a");
-  const [content, SetContent] = useState("a");
+  const [book_title, SetTitle] = useState("");
+  const [author, SetAuthor] = useState("");
 
   const handleUpdateUser = () => {
-    axios
-      .post(`https://mutsabooked.store/bookreview/create/`, {
-        review_title: "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
-        book_title: "책 제2323목",
-        author: "저자",
-        genre: "소설",
-        feeling: "신남",
-        ei: "외향적",
-        ns: "감각적",
-        ft: "사고적",
-        jp: "인식적",
-        content: "독후감 내3용",
-      })
-      .then((res) => {
-        console.log(res);
-      });
+    if (book_title === "" || author === "") {
+      alert("책 제목과 저자를 입력해주세요.");
+      return;
+    }
+    navigate(`/writepage/${book_title}/${author}`);
   };
 
   const handleTitle = (e) => {
